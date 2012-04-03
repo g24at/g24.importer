@@ -1,0 +1,25 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           i18n_domain="g24.importer">
+
+ <!-- why do we need the dummy default profile here? because otherwise, the
+      content import could be run from portal_quickinstaller. we don't want
+      this - instead run it from portal_setup. -->
+  <genericsetup:registerProfile
+    name="default"
+    title="g24.importer default profile"
+    directory="profiles/default"
+    description="Extension profile for g24.importer."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <genericsetup:registerProfile
+    name="setup_content"
+    title="g24.importer import content"
+    directory="profiles/setup_content"
+    description="Extension profile for g24.importer."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+</configure>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import-steps>
+  <import-step
+    id="g24.importer-setup_content"
+    handler="g24.importer.setup_content.setup_content"
+    title="g24.importer - setup content structure"
+    version="1.0">
+  </import-step>
+  <import-step
+    id="g24.importer-setup_html_transform"
+    handler="g24.importer.setup_content.setup_html_transform"
+    title="g24.importer - setup html transform (allow embeds and styles)"
+    version="1.0">
+  </import-step>
+</import-steps>
