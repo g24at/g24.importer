@@ -29,5 +29,6 @@ setup(name='g24.importer',
       install_requires=[
           'setuptools',
           'collective.setuphandlertools',
+          'MySQL-python',
       ],
       )
