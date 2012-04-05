@@ -42,8 +42,9 @@ class ImportPhpBB(object):
 
         cursor.execute("""SELECT username, user_email, user_avatar,
         user_website, user_from, user_sig, user_regdate FROM nuke_phpbb_users n
-        ORDER BY user_id LIMIT 0,501;""")
+        ORDER BY user_id LIMIT 0,550;""")
 
+        pm = getToolByName(self.context, 'portal_membership')
         context = self.context
         cnt = 0
         while True:
@@ -55,18 +56,21 @@ class ImportPhpBB(object):
                    context=context,
                    username=row[0],
                    password=row[0],
+                   groups=[],
                    email=row[1],
                    fullname="",
-                   groups=[],
-                   portrait=sht.load_file(globals(), 'setupdata/avatar/%s' % row[2]),
+                   data={'portrait': sht.load_file(globals(),
+                         'setupdata/avatar/%s' % row[2]),
+                         'home_page': row[3],
+                         'location': row[4],
+                         'description': row[5],
+                         },
                    logger=logger)
-
             except ValueError:
-                logger.error("Invalid Username: %s,%s" % (row[0], row[1]))
+                logger.error("Invalid Username: %s, %s" % (row[0], row[1]))
 
             except:
-                import pdb; pdb.set_trace()
-                logger.error("Invalid Format: %s,%s" % (row[0], row[1]))
+                logger.error("Invalid Format: %s, %s" % (row[0], row[1]))
 
             cnt = cnt + 1; print cnt
 
