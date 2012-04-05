@@ -3,8 +3,8 @@
 
   <import-step
     id="postnuke-import"
-    handler="g24.theme.setup_postnuke_import.start_import"
-    title="g24.theme postnuke importer"
+    handler="g24.importer.setup_postnuke_import.start_import"
+    title="g24.importer postnuke importer"
     version="1.0">
   </import-step>
 

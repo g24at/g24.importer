@@ -5,13 +5,12 @@ import MySQLdb
 from Products.CMFPlone.utils import normalizeString
 from Products.CMFCore.utils import getToolByName
 
-from Products.Ploneboard import utils
 from Products.CMFPlone.utils import _createObjectByType
 from Products.Archetypes.event import ObjectInitializedEvent
 from zope import event
 import collective.setuphandlertools as sht
 
-logger = logging.getLogger("g24.theme from postnuke")
+logger = logging.getLogger("g24.importer from postnuke")
 
 class ImportPhpBB(object):
 
@@ -48,6 +47,7 @@ class ImportPhpBB(object):
         ORDER BY user_id LIMIT 0,1000;""")
 
         context = self.context
+        import pdb;pdb.set_trace()
         for row in cursor.fetchone():
             sht.add_user(
                 context=context,

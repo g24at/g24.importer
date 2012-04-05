@@ -22,4 +22,12 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <genericsetup:registerProfile
+    name="postnuke-import"
+    title="g24.importer postnuke import"
+    directory="profiles/postnuke-import"
+    description="Extension profile for g24.importer."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>
