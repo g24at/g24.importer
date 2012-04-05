@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-# GNU General Public License (GPL)
-#
-
-__author__ = """Johannes Raggam <johannes@bluedynamics.com>"""
-__docformat__ = 'plaintext'
-
 import logging
 import MySQLdb
 
@@ -16,11 +9,13 @@ from Products.Ploneboard import utils
 from Products.CMFPlone.utils import _createObjectByType
 from Products.Archetypes.event import ObjectInitializedEvent
 from zope import event
+import collective.setuphandlertools as sht
+
+logger = logging.getLogger("g24.theme from postnuke")
 
 class ImportPhpBB(object):
 
     def __init__(self, context):
-        self.logger = logging.getLogger("g24.theme ImportPhpBB")
 
         self.conn = None
         self.context = context
@@ -31,19 +26,12 @@ class ImportPhpBB(object):
         #wft = getToolByName(site, 'portal_workflow')
         #wft.doActionFor(site['forum'], 'publish')
 
-        if not 'forum' in site.contentIds():
-            site.invokeFactory('Ploneboard', 'forum', title='forum')
-            site['forum'].reindexObject()
-            self.logger.info('ploneboard created')
-
-        self.pb = site['forum']
-
     def import_mysql_connect(self):
         try:
             self.conn = MySQLdb.connect (
                     host = "localhost",
                     user = "g24_726",
-                    passwd = "XXXXXXX",
+                    passwd = "g24_726",
                     db = "g24_726",
                     use_unicode = True,
                     charset = 'latin1') # <-- SET the character set!
@@ -52,6 +40,23 @@ class ImportPhpBB(object):
         except MySQLdb.Error, e:
             raise RuntimeError, "Error %d: %s" % (e.args[0], e.args[1])
 
+    def import_nuke_users(self):
+        cursor = self.conn.cursor()
+
+        cursor.execute("""SELECT username, user_email, user_avatar,
+        user_website, user_from, user_sig, user_regdate FROM nuke_phpbb_users n
+        ORDER BY user_id LIMIT 0,1000;""")
+
+        context = self.context
+        for row in cursor.fetchone():
+            sht.add_user(
+                context=context,
+                username=row[0],
+                password=row[0],
+                email=row[1],
+                logger=logger)
+
+    """
     def import_nuke_phpbb_categories(self):
         cursor = self.conn.cursor()
         cursor.execute ("SELECT * FROM `nuke_phpbb_categories` ORDER BY cat_id")
@@ -187,8 +192,7 @@ class ImportPhpBB(object):
                 import pdb; pdb.set_trace
 
         cursor.close()
-
-
+    """
 
     def clean_encoding(self, txt):
         return txt.encode('utf-8')
@@ -210,29 +214,17 @@ class ImportPhpBB(object):
         self.conn.close()
 
 
-def isNotThisProfile(context):
-    return context.readDataFile("g24.theme-ploneboard_marker.txt") is None
-
 def start_import(context):
-    if isNotThisProfile(context): return
+    if sht.isNotThisProfile(context, 'g24.importer-postnuke_import.txt'):
+        return
 
     imp = ImportPhpBB(context)
     imp.import_mysql_connect()
-    imp.import_nuke_phpbb_categories()
-    imp.import_nuke_phpbb_forums()
-    imp.import_nuke_phpbb_topics()
-    imp.import_nuke_phpbb_posts()
+    imp.import_nuke_phpbb_users()
+
+    #imp.import_nuke_phpbb_categories()
+    #imp.import_nuke_phpbb_forums()
+    #imp.import_nuke_phpbb_topics()
+    #imp.import_nuke_phpbb_posts()
+
     imp.import_finish()
-
-
-
-
-
-
-
-
-
-
-
-
-#
