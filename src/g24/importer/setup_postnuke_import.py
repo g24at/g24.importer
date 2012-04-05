@@ -18,9 +18,7 @@ class ImportPhpBB(object):
 
         self.conn = None
         self.context = context
-
-        site = context.getSite()
-        self.pt = getToolByName(site, 'portal_transforms')
+        self.pt = getToolByName(context, 'portal_transforms')
 
         #wft = getToolByName(site, 'portal_workflow')
         #wft.doActionFor(site['forum'], 'publish')
@@ -44,20 +42,34 @@ class ImportPhpBB(object):
 
         cursor.execute("""SELECT username, user_email, user_avatar,
         user_website, user_from, user_sig, user_regdate FROM nuke_phpbb_users n
-        ORDER BY user_id LIMIT 0,1000;""")
+        ORDER BY user_id LIMIT 0,501;""")
 
         context = self.context
-        import pdb;pdb.set_trace()
+        cnt = 0
         while True:
             row = cursor.fetchone()
             if row == None: break
             if row[0].lower() == 'anonymous': continue
-            sht.add_user(
-                context=context,
-                username=row[0],
-                password=row[0],
-                email=row[1],
-                logger=logger)
+            try:
+               sht.add_user(
+                   context=context,
+                   username=row[0],
+                   password=row[0],
+                   email=row[1],
+                   fullname="",
+                   groups=[],
+                   portrait=sht.load_file(globals(), 'setupdata/avatar/%s' % row[2]),
+                   logger=logger)
+
+            except ValueError:
+                logger.error("Invalid Username: %s,%s" % (row[0], row[1]))
+
+            except:
+                import pdb; pdb.set_trace()
+                logger.error("Invalid Format: %s,%s" % (row[0], row[1]))
+
+            cnt = cnt + 1; print cnt
+
         cursor.close()
 
     """
@@ -222,7 +234,8 @@ def start_import(context):
     if sht.isNotThisProfile(context, 'g24.importer.postnuke_import.txt'):
         return
 
-    imp = ImportPhpBB(context)
+    site = context.getSite()
+    imp = ImportPhpBB(site)
     imp.import_mysql_connect()
     imp.import_nuke_phpbb_users()
 
