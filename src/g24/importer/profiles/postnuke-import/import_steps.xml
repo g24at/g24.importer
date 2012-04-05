@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+
+  <import-step
+    id="import-ploneboard"
+    handler="g24.theme.setuphandler-ploneboard.start_import"
+    title="g24.theme ploneboard import from pnphpbb"
+    version="1.0">
+  </import-step>
+
+</import-steps>
