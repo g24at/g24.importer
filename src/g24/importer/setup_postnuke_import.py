@@ -39,7 +39,7 @@ class ImportPhpBB(object):
         except MySQLdb.Error, e:
             raise RuntimeError, "Error %d: %s" % (e.args[0], e.args[1])
 
-    def import_nuke_users(self):
+    def import_nuke_phpbb_users(self):
         cursor = self.conn.cursor()
 
         cursor.execute("""SELECT username, user_email, user_avatar,
@@ -48,13 +48,17 @@ class ImportPhpBB(object):
 
         context = self.context
         import pdb;pdb.set_trace()
-        for row in cursor.fetchone():
+        while True:
+            row = cursor.fetchone()
+            if row == None: break
+            if row[0].lower() == 'anonymous': continue
             sht.add_user(
                 context=context,
                 username=row[0],
                 password=row[0],
                 email=row[1],
                 logger=logger)
+        cursor.close()
 
     """
     def import_nuke_phpbb_categories(self):
