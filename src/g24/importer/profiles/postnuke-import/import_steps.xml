@@ -2,9 +2,9 @@
 <import-steps>
 
   <import-step
-    id="import-ploneboard"
-    handler="g24.theme.setuphandler-ploneboard.start_import"
-    title="g24.theme ploneboard import from pnphpbb"
+    id="postnuke-import"
+    handler="g24.theme.setup_postnuke_import.start_import"
+    title="g24.theme postnuke importer"
     version="1.0">
   </import-step>
 

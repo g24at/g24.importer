@@ -215,7 +215,7 @@ class ImportPhpBB(object):
 
 
 def start_import(context):
-    if sht.isNotThisProfile(context, 'g24.importer-postnuke_import.txt'):
+    if sht.isNotThisProfile(context, 'g24.importer.postnuke_import.txt'):
         return
 
     imp = ImportPhpBB(context)
