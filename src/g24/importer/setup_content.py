@@ -54,23 +54,23 @@ def setup_content(context):
     sht.delete_items(site, ('news', 'events', 'stream'), logger)
 
     # setup admin + some test users
-    """
+    sht.add_group(site, 'Members', roles=['Members'], logger=logger)
+    
     sht.add_user(site, 'thet', 'thet',
                  email='johannes@raggam.co.at', fullname="Johannes Raggam",
                  groups=['Administrators'], logger=logger)
 
     sht.add_user(site, 'testuser', 'testuser',
                  email='test@localhost', fullname="Testuser",
-                 groups=[], logger=logger)
+                 groups=['Members'], logger=logger)
 
     sht.add_user(site, 'testuser2', 'testuser2',
                  email='test2@localhost', fullname="Testuser2",
-                 groups=[], logger=logger)
+                 groups=['Members'], logger=logger)
 
     sht.add_user(site, 'testuser3', 'testuser3',
                  email='test3@localhost', fullname="Testuser3",
-                 groups=[], logger=logger)
-    """
+                 groups=['Members'], logger=logger)
 
     # setup the folder for "postings"/bastypes
     streamfolder =  {'type': 'Folder',
