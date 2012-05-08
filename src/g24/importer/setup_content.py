@@ -107,19 +107,5 @@ def setup_content(context):
     for i in range(0,25) :
         streamfolder['childs'].append(create_g24_posting(textparts, cat, 4))
 
-
     content_structure = [streamfolder]
     sht.create_item_runner(site, content_structure, lang='de', logger=logger)
-    site.setLayout('traverse_view')
-
-    try:
-        topic = site['site-feed']
-        topic.limitNumber = True
-        topic.itemCount = 10
-        sort_crit = topic.addCriterion('created','ATSortCriterion')
-        sort_crit.setReversed(True)
-        topic.reindexObject()
-        logger.info('configured topic %s' % topic.id)
-    except:
-        pass
-
