@@ -51,7 +51,7 @@ def setup_content(context):
     site = context.getSite()
 
     # delete some default folders AND the stream folder
-    sht.delete_items(site, ('news', 'events', 'stream'), logger)
+    sht.delete_items(site, ('front-page', 'news', 'events', 'stream'), logger)
 
     # setup admin + some test users
     sht.add_group(site, 'Members', roles=['Members'], logger=logger)
