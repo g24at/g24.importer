@@ -51,26 +51,43 @@ def setup_content(context):
     site = context.getSite()
 
     # delete some default folders AND the stream folder
-    sht.delete_items(site, ('front-page', 'news', 'events', 'stream'), logger)
+    sht.delete_items(site, ('front-page', 'news', 'stream'), logger)
 
     # setup admin + some test users
     sht.add_group(site, 'Members', roles=['Members'], logger=logger)
-    
-    sht.add_user(site, 'thet', 'thet',
-                 email='johannes@raggam.co.at', fullname="Johannes Raggam",
+
+    sht.add_user(site, 'admin', 'admin',
+                 email='johannes@raggam.co.at', fullname="g24.at | admin",
                  groups=['Administrators'], logger=logger)
 
-    sht.add_user(site, 'testuser', 'testuser',
-                 email='test@localhost', fullname="Testuser",
+    sht.add_user(site, 'thet', 'thet',
+                 email='tdot@g24.at', fullname="Johannes Raggam",
                  groups=['Members'], logger=logger)
 
-    sht.add_user(site, 'testuser2', 'testuser2',
+
+    sht.add_user(site, 'test1', 'test1',
+                 email='test1@localhost', fullname="Testuser1",
+                 groups=['Members'], logger=logger)
+
+    sht.add_user(site, 'test2', 'test2',
                  email='test2@localhost', fullname="Testuser2",
                  groups=['Members'], logger=logger)
 
-    sht.add_user(site, 'testuser3', 'testuser3',
+    sht.add_user(site, 'test3', 'test3',
                  email='test3@localhost', fullname="Testuser3",
                  groups=['Members'], logger=logger)
+
+
+    
+
+    # create places folder for locations and the like
+    places =  {'type': 'Folder',
+         'id': 'places',
+         'title': u'Places',
+         'opts': {
+                  'setImmediatelyAddableTypes': ['g24.elements.basetype'],
+                  },
+        }
 
     # setup the folder for "postings"/bastypes
     streamfolder =  {'type': 'Folder',
