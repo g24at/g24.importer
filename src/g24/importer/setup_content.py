@@ -59,9 +59,7 @@ def setup_content(context):
     # setup admin + some test users
     sht.add_group(site, 'Members', roles=['Members'], logger=logger)
 
-    sht.add_user(site, 'admin', 'admin',
-            email='johannes@raggam.co.at', fullname="g24.at | admin",
-            groups=['Administrators'], logger=logger)
+    # groups=['Administrators']
 
     sht.add_user(site, 'thet', 'thet',
             email='tdot@g24.at', fullname="Johannes Raggam",
