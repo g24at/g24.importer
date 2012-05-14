@@ -11,13 +11,16 @@ def create_g24_posting(texts, cats,  maxchilds):
     for i in range(2,randint(3, 12)):
         content.append(texts[randint(0, len(texts)-1)])
 
-    d = {'type': 'g24.elements.basetype',
-                 'title': texts[randint(0, len(texts)-1)],
-                 'data': {'description': "",
-                          'text': RichTextValue(raw = '\n'.join(content)),
-                          'Subject': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
-                          #'Creator': myuser,
-                }}
+    d = {
+        'type': 'g24.elements.basetype',
+        'title': texts[randint(0, len(texts)-1)],
+        'data': {
+            'description': "",
+            'text': RichTextValue(raw = '\n'.join(content)),
+            'Subject': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
+            #'Creator': myuser,
+        }
+    }
 
     myChilds = randint(0,maxchilds)
     d['childs'] = []
@@ -57,62 +60,52 @@ def setup_content(context):
     sht.add_group(site, 'Members', roles=['Members'], logger=logger)
 
     sht.add_user(site, 'admin', 'admin',
-                 email='johannes@raggam.co.at', fullname="g24.at | admin",
-                 groups=['Administrators'], logger=logger)
+            email='johannes@raggam.co.at', fullname="g24.at | admin",
+            groups=['Administrators'], logger=logger)
 
     sht.add_user(site, 'thet', 'thet',
-                 email='tdot@g24.at', fullname="Johannes Raggam",
-                 groups=['Members'], logger=logger)
+            email='tdot@g24.at', fullname="Johannes Raggam",
+            groups=['Members'], logger=logger)
 
 
     sht.add_user(site, 'test1', 'test1',
-                 email='test1@localhost', fullname="Testuser1",
-                 groups=['Members'], logger=logger)
+            email='test1@localhost', fullname="Testuser1",
+            groups=['Members'], logger=logger)
 
     sht.add_user(site, 'test2', 'test2',
-                 email='test2@localhost', fullname="Testuser2",
-                 groups=['Members'], logger=logger)
+            email='test2@localhost', fullname="Testuser2",
+            groups=['Members'], logger=logger)
 
     sht.add_user(site, 'test3', 'test3',
-                 email='test3@localhost', fullname="Testuser3",
-                 groups=['Members'], logger=logger)
+            email='test3@localhost', fullname="Testuser3",
+            groups=['Members'], logger=logger)
 
 
-    
-
-    # create places folder for locations and the like
-    places =  {'type': 'Folder',
-         'id': 'places',
-         'title': u'Places',
-         'opts': {
-                  'setImmediatelyAddableTypes': ['g24.elements.basetype'],
-                  },
-        }
 
     # setup the folder for "postings"/bastypes
-    streamfolder =  {'type': 'Folder',
-         'id': 'stream',
-         'title': u'Stream',
-         'opts': {
-                  'setDefault': True,
-                  'setImmediatelyAddableTypes': ['g24.elements.basetype'],
-                  },
-        }
+    streamfolder =  {
+            'type': 'g24.elements.basetype',
+            'id': 'stream',
+            'title': u'Stream',
+            'opts': {
+                'setImmediatelyAddableTypes': ['g24.elements.basetype'],
+                },
+            }
 
     # textparts to generate postings
     textparts  = [u'g24 10 Jahresfeier im Forum Stadtpark.',
-                    u'Musik Videos aus den 80er-Jahren',
-                    u'BürgerInneninitiative für eine Abschaffung der EU-Richtlinie zur Vorratsdatenspeicherung 2006/24/EG',
-                u'Den – wortwörtlich – schwerpunkt bilden jetzt bassig-wummernde drones',
-                u'Zumindest immer wieder, schöne, aber eisige harmonien. ',
-                u'Seit kurzem ist die Festival-Website online und freudig kündigen wir die ersten Filme an',
-                u'FM4, Biorama, The Gap, Junge Welt, oekonews.at, ZiGe.TV, Radio Helsinki, g24.at',
-                u'Yeni Hayat, Analyse&Kritik, Lebensart, Luxemburg, iz3w ',
-                u'Green Economy (Was wird im Rahmen der UNO diskutiert? Welche Chancen und Gefahren sind damit verbunden?',
-                u'Mit einem spannenden, aktuellen Filmprogramm sowie zahlreichen Vorträgen, Workshops und Podiumsdiskussionen',
-                u'Über direkte Demokratie im Nationalrat, Parteiprogramme, Liquid Democrazy, ... ',
-                u'This module implements pseudo-random number generators for various distributions.',
-                ]
+            u'Musik Videos aus den 80er-Jahren',
+            u'BürgerInneninitiative für eine Abschaffung der EU-Richtlinie zur Vorratsdatenspeicherung 2006/24/EG',
+            u'Den – wortwörtlich – schwerpunkt bilden jetzt bassig-wummernde drones',
+            u'Zumindest immer wieder, schöne, aber eisige harmonien. ',
+            u'Seit kurzem ist die Festival-Website online und freudig kündigen wir die ersten Filme an',
+            u'FM4, Biorama, The Gap, Junge Welt, oekonews.at, ZiGe.TV, Radio Helsinki, g24.at',
+            u'Yeni Hayat, Analyse&Kritik, Lebensart, Luxemburg, iz3w ',
+            u'Green Economy (Was wird im Rahmen der UNO diskutiert? Welche Chancen und Gefahren sind damit verbunden?',
+            u'Mit einem spannenden, aktuellen Filmprogramm sowie zahlreichen Vorträgen, Workshops und Podiumsdiskussionen',
+            u'Über direkte Demokratie im Nationalrat, Parteiprogramme, Liquid Democrazy, ... ',
+            u'This module implements pseudo-random number generators for various distributions.',
+            ]
 
     # add "postings"
     streamfolder['childs'] = []
