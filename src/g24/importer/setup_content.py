@@ -5,6 +5,7 @@ from Products.CMFCore.utils import getToolByName
 from random import randint
 from DateTime import DateTime
 from plone.app.textfield.value import RichTextValue
+from g24.elements.behaviors import IBasetypeAccessor
 
 def create_g24_posting(texts, cats,  maxchilds):
     content = []
@@ -17,9 +18,14 @@ def create_g24_posting(texts, cats,  maxchilds):
         'data': {
             'description': "",
             'text': RichTextValue(raw = '\n'.join(content)),
-            'Subject': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
+            'subjects': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
             #'Creator': myuser,
-        }
+        },
+        #'accessor': IBasetypeAccessor,
+        #'accessor_data': {
+        #    'text': RichTextValue(raw = '\n'.join(content)),
+        #    'subjects': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
+        #}
     }
 
     myChilds = randint(0,maxchilds)
