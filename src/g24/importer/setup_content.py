@@ -18,7 +18,7 @@ def create_g24_posting(texts, cats,  maxchilds):
         'data': {
             'description': "",
             'text': RichTextValue(raw = '\n'.join(content)),
-            'subjects': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
+            'Subject': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
             #'Creator': myuser,
         },
         #'accessor': IBasetypeAccessor,
