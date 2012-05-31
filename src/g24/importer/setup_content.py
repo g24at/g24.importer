@@ -2,7 +2,7 @@
 import collective.setuphandlertools as sht
 import logging
 from Products.CMFCore.utils import getToolByName
-from random import randint
+from random import randint, choice
 from DateTime import DateTime
 
 from g24.elements.sharingbox.form import create, add, edit
@@ -19,6 +19,10 @@ cat = (
     u'info',
     u'blabla'
 )
+
+users = ('admin', 'thet', 'test1', 'test2', 'test3')
+
+base_DT = DateTime('2010/10/10 10:00 UTC')
 
 def setup_html_transform(context):
     if sht.isNotThisProfile(context, 'g24.importer-setup_content.txt'):
@@ -88,11 +92,14 @@ def setup_content(context):
             'title': texts[randint(0, len(texts)-1)],
             'text': u'\n'.join(content),
             'subjects': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
-            #'Creator': myuser,
         }
 
         obj = create(container, G24_BASETYPE)
         obj = add(obj, container)
+
+        obj.setCreators(choice(users)) # set the creators by loginname. if more than one, seperate by whitespace
+        obj.creation_date = base_DT + int(obj.id)
+
         edit(obj, data, order=FEATURES, ignores=IGNORES)
         logger.info('Created object with id: %s' % obj.id)
 
