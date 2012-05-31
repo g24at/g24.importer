@@ -4,47 +4,20 @@ import logging
 from Products.CMFCore.utils import getToolByName
 from random import randint
 from DateTime import DateTime
-from plone.app.textfield.value import RichTextValue
-from g24.elements.behaviors import IBasetypeAccessor
 
-def create_g24_posting(texts, cats,  maxchilds):
-    content = []
-    for i in range(2,randint(3, 12)):
-        content.append(texts[randint(0, len(texts)-1)])
-
-    d = {
-        'type': 'g24.elements.basetype',
-        'title': texts[randint(0, len(texts)-1)],
-        'data': {
-            'description': "",
-            'text': RichTextValue(raw = '\n'.join(content)),
-            'Subject': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
-            #'Creator': myuser,
-        },
-        #'accessor': IBasetypeAccessor,
-        #'accessor_data': {
-        #    'text': RichTextValue(raw = '\n'.join(content)),
-        #    'subjects': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
-        #}
-    }
-
-    myChilds = randint(0,maxchilds)
-    d['childs'] = []
-    for i in range(0,myChilds):
-        d['childs'].append(create_g24_posting(texts, cats, maxchilds - myChilds))
-
-    return d
+from g24.elements.sharingbox.form import create, add, edit
+from g24.elements.sharingbox.form import FEATURES, IGNORES, G24_BASETYPE
 
 logger = logging.getLogger("g24.importer")
 
 cat = (
-    'event',
-    'film',
-    'theater',
-    'artikel',
-    'neue medien',
-    'info',
-    'blabla'
+    u'event',
+    u'film',
+    u'theater',
+    u'artikel',
+    u'neue medien',
+    u'info',
+    u'blabla'
 )
 
 def setup_html_transform(context):
@@ -85,19 +58,9 @@ def setup_content(context):
             groups=['Members'], logger=logger)
 
 
-
-    # setup the folder for "postings"/bastypes
-    streamfolder =  {
-            'type': 'g24.elements.basetype',
-            'id': 'stream',
-            'title': u'Stream',
-            'opts': {
-                'setImmediatelyAddableTypes': ['g24.elements.basetype'],
-                },
-            }
-
     # textparts to generate postings
-    textparts  = [u'g24 10 Jahresfeier im Forum Stadtpark.',
+    textparts  = [
+            u'g24 10 Jahresfeier im Forum Stadtpark.',
             u'Musik Videos aus den 80er-Jahren',
             u'BürgerInneninitiative für eine Abschaffung der EU-Richtlinie zur Vorratsdatenspeicherung 2006/24/EG',
             u'Den – wortwörtlich – schwerpunkt bilden jetzt bassig-wummernde drones',
@@ -111,15 +74,42 @@ def setup_content(context):
             u'This module implements pseudo-random number generators for various distributions.',
             ]
 
-    # add "postings"
-    streamfolder['childs'] = []
-
     #pm = getToolByName(context, 'portal_membership')
     #myuser = pm.getMemberById('testuser3')
 
-    # create 25 randomized posting-threads
-    for i in range(0,25) :
-        streamfolder['childs'].append(create_g24_posting(textparts, cat, 4))
 
-    content_structure = [streamfolder]
-    sht.create_item_runner(site, content_structure, lang='de', logger=logger)
+    def create_g24_posting(container, texts, cats, maxchilds):
+        content = []
+        for i in range(2, randint(3, 12)):
+            content.append(texts[randint(0, len(texts)-1)])
+
+        data = {
+            'is_title': True,
+            'title': texts[randint(0, len(texts)-1)],
+            'text': u'\n'.join(content),
+            'subjects': (cats[randint(0, len(cats)-1)], cats[randint(0, len(cats)-1)]),
+            #'Creator': myuser,
+        }
+
+        obj = create(container, G24_BASETYPE)
+        obj = add(obj, container)
+        edit(obj, data, order=FEATURES, ignores=IGNORES)
+        logger.info('Created object with id: %s' % obj.id)
+
+        myChilds = randint(0, maxchilds)
+        for i in range(0, myChilds):
+            create_g24_posting(obj, texts, cats, maxchilds - myChilds)
+
+        return obj
+
+
+    # setup the folder for "postings"/bastypes
+    data = dict(is_title=True, title=u'Stream')
+    streamfolder = create(site, G24_BASETYPE)
+    streamfolder.id = 'stream'
+    streamfolder = add(streamfolder, site)
+    edit(streamfolder, data, order=FEATURES, ignores=IGNORES)
+
+    # create 25 randomized posting-threads
+    for i in range(0, 25) :
+        create_g24_posting(streamfolder, textparts, cat, 4)
