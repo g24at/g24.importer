@@ -114,7 +114,7 @@ for catrow in topicrows:
 #topiccursor.close() 
 
 sql_str = "select * from nuke_phpbb_topics"
-sql_str = sql_str + " limit 0,5"
+#sql_str = sql_str + " limit 0,5"
 topiccursor.execute (sql_str);
 topicrows = topiccursor.fetchall() 
 
