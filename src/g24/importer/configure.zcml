@@ -29,5 +29,13 @@
     description="Extension profile for g24.importer."
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
+    
+  <genericsetup:registerProfile
+    name="xml-import"
+    title="g24.importer xml import"
+    directory="profiles/xml-import"
+    description="Extension profile for g24.importer."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
 
 </configure>
