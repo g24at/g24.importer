@@ -30,5 +30,6 @@ setup(name='g24.importer',
           'setuptools',
           'collective.setuphandlertools',
           'MySQL-python',
+          'postmarkup',
       ],
       )
