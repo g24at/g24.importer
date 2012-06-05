@@ -1,7 +1,22 @@
 import MySQLdb
 import time
+import re
 
 from xml.dom.minidom import Document
+from xml.dom.minidom import parse
+
+from postmarkup import render_bbcode
+
+def transformPostingText(text):
+    weird_strings = re.findall("\[[^:]*([^\]]*)\]",  text)
+    for str in weird_strings:
+        text = re.sub(str,"", text)
+        
+    """xhtml = render_bbcode(text)
+    return xhtml
+    """
+    return text
+
 
 conn = MySQLdb.connect (host = "localhost",
                            user = "root",
@@ -9,27 +24,6 @@ conn = MySQLdb.connect (host = "localhost",
                            db = "g24")
 
 """
-mysql> describe nuke_phpbb_topics;
-+---------------------+-----------------------+------+-----+---------+----------------+
-| Field               | Type                  | Null | Key | Default | Extra          |
-+---------------------+-----------------------+------+-----+---------+----------------+
-| topic_id            | mediumint(8) unsigned | NO   | PRI | NULL    | auto_increment |
-| forum_id            | smallint(8) unsigned  | NO   | MUL | 0       |                |
-| topic_title         | char(60)              | NO   |     |         |                |
-| topic_poster        | mediumint(8)          | NO   |     | 0       |                |
-| topic_time          | int(11)               | NO   |     | 0       |                |
-| topic_views         | mediumint(8) unsigned | NO   |     | 0       |                |
-| topic_replies       | mediumint(8) unsigned | NO   |     | 0       |                |
-| topic_status        | tinyint(3)            | NO   | MUL | 0       |                |
-| topic_vote          | tinyint(1)            | NO   |     | 0       |                |
-| topic_type          | tinyint(3)            | NO   | MUL | 0       |                |
-| topic_first_post_id | mediumint(8) unsigned | NO   |     | 0       |                |
-| topic_last_post_id  | mediumint(8) unsigned | NO   |     | 0       |                |
-| topic_moved_id      | mediumint(8) unsigned | NO   | MUL | 0       |                |
-| topic_attachment    | tinyint(1)            | NO   |     | 0       |                |
-| topic_icon          | tinyint(2) unsigned   | NO   |     | 0       |                |
-| support_status      | tinyint(3)            | NO   |     | 0       |                |
-+---------------------+-----------------------+------+-----+---------+----------------+
 
 mysql> describe nuke_phpbb_posts;
 +-----------------+-----------------------+------+-----+---------+----------------+
@@ -102,19 +96,27 @@ mysql> describe nuke_phpbb_forums;
 dom = Document()
 dom.appendChild(dom.createElement('export'))
 
-topiccursor = conn.cursor (MySQLdb.cursors.DictCursor)
-
-sql_str = "select forum_id, forum_name, forum_desc, cat_title, cat_desc  from nuke_phpbb_forums f join nuke_phpbb_categories c on f.cat_id = c.cat_id"
-topiccursor.execute (sql_str);
-topicrows = topiccursor.fetchall()
+# load cat / tag information
+tagdom = parse('category-tag-map.xml')
+export_topics = []
 cats_info = {}
-for catrow in topicrows:
-     cats_info[catrow['forum_id']] = catrow
+for cat in tagdom.getElementsByTagName('cat'):
+    if cat.getAttribute("export") == "1":
+        export_topics.append(cat.getAttribute("id"))
+    
+    tags = []
+    for tag in cat.getElementsByTagName('tag'):
+        tags.append(tag.getAttribute('name'))
+        
+    cats_info[cat.getAttribute("id")] = tags
 
-#topiccursor.close() 
 
-sql_str = "select * from nuke_phpbb_topics"
-#sql_str = sql_str + " limit 0,5"
+# select topics for export
+sql_str = "select * from nuke_phpbb_topics "
+sql_str = sql_str + " where forum_id in (" + ','.join(export_topics) + ")"
+# sql_str = sql_str + " limit 0,15"
+print "Selecting Topics : ", sql_str
+topiccursor = conn.cursor (MySQLdb.cursors.DictCursor)
 topiccursor.execute (sql_str);
 topicrows = topiccursor.fetchall() 
 
@@ -123,15 +125,17 @@ for topic in topicrows:
     try:
         threadnode = dom.createElement('thread')
         
-        #tstruct = time.gmtime()
-        
-        #print cats_info[topic["forum_id"]]
-        
-        tags = [ cats_info[topic["forum_id"]]['forum_name'].decode('latin-1'), cats_info[topic["forum_id"]]['cat_title'].decode('latin-1')]
+        tags = []        
+        tags = set(cats_info[str(topic["forum_id"])])
         
         # select posts for topic
         postcursor  = conn.cursor (MySQLdb.cursors.DictCursor)
-        sql_str = "select * from nuke_phpbb_posts p left join nuke_phpbb_posts_text pt on p.post_id = pt.post_id where topic_id = " + str(topic['topic_id']) 
+        selectfields = ["p.post_username", "pt.post_subject", "u.username", "p.post_time", "pt.post_text","p.enable_bbcode"]
+        sql_str = """
+            select """ + ','.join(selectfields) + """ from nuke_phpbb_posts p 
+            left join nuke_phpbb_posts_text pt on p.post_id = pt.post_id 
+            left join nuke_phpbb_users u on u.user_id = p.poster_id
+            where topic_id = """ + str(topic['topic_id']) + " order by post_time"
         postcursor.execute (sql_str);
         rows = postcursor.fetchall()
         
@@ -140,9 +144,12 @@ for topic in topicrows:
             postnode = dom.createElement('post')
             
             # set attributes
-            export_fields = ["post_username", "post_time", "post_subject"] 
+            export_fields = ["post_username", "post_subject", "username"] 
             for attr in export_fields: 
                 postnode.setAttribute(attr, str(row[attr]).decode('latin-1'))
+                
+            tstruct = time.gmtime( row["post_time"])
+            postnode.setAttribute('post_time', time.strftime("%m/%d/%Y, %H:%M:%S CET", tstruct))
             
             # clean posting text
             posting_text = row['post_text'].decode('latin-1')
@@ -151,8 +158,11 @@ for topic in topicrows:
                 cleaned.append(''.join(c for c in line if ord(c) >= 32))
             
             # add posting text 
-            txt = dom.createElement('text')
-            txt.appendChild(dom.createCDATASection("\n".join(cleaned)))
+            txt         = dom.createElement('text')
+            posting_text= "\n".join(cleaned)
+            if row['enable_bbcode']:
+                posting_text  = transformPostingText(posting_text)
+            txt.appendChild(dom.createCDATASection(posting_text))
             postnode.appendChild(txt)
             
             # add tags
@@ -168,11 +178,12 @@ for topic in topicrows:
         dom.childNodes[0].appendChild(threadnode)
         
         postcursor.close ()
-
+        
+        print "export ok topic", str(topic['topic_id']) 
     except Exception as err:
         #print "error in row" , str(rowcount)
-        print "export of topic failed"
-        print err
+        print "export of topic failed,", err
+        #print rawtext
 
 topiccursor.close()
 conn.close ()

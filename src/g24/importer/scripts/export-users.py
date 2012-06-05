@@ -73,7 +73,7 @@ for row in rows:
     #export_fields = row.keys()
     export_fields = ["user_id", "user_active", "username", "user_level"] 
     for attr in export_fields: 
-        user.setAttribute(attr, str(row[attr]))
+        user.setAttribute(attr, str(row[attr]).decode('latin-1'))
     dom.childNodes[0].appendChild(user)
     
 cursor.close ()

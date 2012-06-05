@@ -75,7 +75,8 @@ class ImportPhpBBPostings(object):
             data['tags'].append(t.getAttribute('name'))
         
         data['username']    = node.getAttribute('username')
-        data['tstamp']      = node.getAttribute('post_time')
+        #data['tstamp']      = node.getAttribute('post_time')
+        data['post_time']      = node.getAttribute('post_time')
         
         return data
         
@@ -91,169 +92,11 @@ class ImportPhpBBPostings(object):
         obj = add(obj, container)
         obj.setCreators(postingdata['username']) # set the creators by loginname. if more than one, seperate by whitespace
         
-        # obj.creation_date = postingdata['tstamp']
-        obj.creation_date = DateTime('2010/10/10 10:00 UTC')
+        obj.creation_date = DateTime(postingdata['post_time'])
 
         edit(obj, data, order=FEATURES, ignores=IGNORES)
         logger.info('Created object with id: %s' % obj.id)
         return obj
-    
-        
-    """
-    def import_nuke_phpbb_categories(self):
-        cursor = self.conn.cursor()
-        cursor.execute ("SELECT * FROM `nuke_phpbb_categories` ORDER BY cat_id")
-
-        cat = []
-        while(1):
-            row = cursor.fetchone()
-            if row == None:
-                break
-            ctxt = self.clean_text(row[1])
-            # print("%s, %s" % (row[0], ctxt))
-            cat.append(ctxt)
-        self.pb.setCategories(cat)
-        self.logger.info('ploneboard categories set: ' + str(cat))
-        cursor.close()
-
-    def import_nuke_phpbb_forums(self):
-        cursor = self.conn.cursor()
-        cursor.execute("SELECT c.cat_title, f.forum_name, f.forum_desc, f.forum_id \
-                         FROM `nuke_phpbb_forums` AS f,\
-                              `nuke_phpbb_categories` AS c\
-                         WHERE f.cat_id = c.cat_id\
-                         ORDER BY f.cat_id, f.forum_order")
-
-
-        while(1):
-            row = cursor.fetchone()
-            if row == None:
-                break
-            if not str(row[3]) in self.pb.contentIds():
-                cat= self.clean_text(row[0])
-                title = self.clean_text(row[1])
-                desc = self.clean_text(row[2])
-                forum = self.pb.invokeFactory('PloneboardForum', row[3], title=title, description=desc, category=cat)
-
-                self.logger.info(
-                    'ploneboard forum created: title: %s, id:%s' %
-                    (title, row[3]))
-            else:
-                self.logger.info(
-                    'ploneboard forum EXISTS: id:%s' % row[3])
-
-        cursor.close()
-
-
-    def import_nuke_phpbb_topics(self):
-        cursor = self.conn.cursor()
-        cursor.execute("SELECT forum_id, topic_id, topic_title\
-                         FROM `nuke_phpbb_topics`\
-                         WHERE topic_id < 100\
-                         ORDER BY forum_id, topic_id;")
-
-        while(1):
-            row = cursor.fetchone()
-            if row == None:
-                break
-            forum = self.pb[str(row[0])]
-            if not str(row[1]) in forum.contentIds():
-                title = self.clean_text(row[2])
-                topic = forum.invokeFactory('PloneboardConversation', row[1], title=title)
-
-                self.logger.info(
-                    'ploneboard conversation created: title: %s, id:%s' %
-                    (title, row[1]))
-            else:
-                self.logger.info(
-                    'ploneboard conversation EXISTS: id:%s' % row[1])
-
-        cursor.close()
-
-
-    def import_nuke_phpbb_posts(self):
-        cursor = self.conn.cursor()
-        cursor.execute("SELECT p.forum_id, p.topic_id, p.post_id, t.post_subject, t.post_text\
-                         FROM nuke_phpbb_posts AS p,\
-                         nuke_phpbb_posts_text AS t\
-                         WHERE p.post_id = t.post_id\
-                         AND p.topic_id < 100\
-                         ORDER BY p.forum_id, p.topic_id, p.post_id;")
-
-        while(1):
-            try:
-                row = cursor.fetchone()
-                if row == None:
-                    break
-
-                forum = self.pb[str(row[0])]
-                topic = forum[str(row[1])]
-                if not str(row[2]) in topic.contentIds():
-                    id = row[2]
-                    title = self.clean_text(row[3])
-                    text = self.clean_web(row[4])
-
-                    #post = self.pb[str(row[0])][str(row[1])].addComment(title, text)
-                    #post = self.pb[str(row[0])][str(row[1])].invokeFactory('PloneboardComment', row[2], title=title, text=text)
-
-                    if not title:
-                        title = topic.Title()
-
-                    m = _createObjectByType('PloneboardComment', topic, id)
-                    event.notify(ObjectInitializedEvent(m))
-
-                    # XXX: There is some permission problem with AT write_permission
-                    # and using **kwargs in the _createObjectByType statement.
-                    m.setTitle(title)
-                    m.setText(text)
-
-                    ## TODO: set the creator of comment
-                    #if creator is not None:
-                    #    m.setCreators([creator])
-
-                    # Create files in message: NOT SUPPORTET NOW
-
-                    # If this comment is being added by anonymous, make sure that the true
-                    # owner in zope is the owner of the forum, not the parent comment or
-                    # conversation. Otherwise, that owner may be able to view or delete
-                    # the comment.
-                    membership = getToolByName(topic, 'portal_membership')
-                    if membership.isAnonymousUser():
-                        utils.changeOwnershipOf(m, forum.owner_info()['id'], False)
-
-                    m.indexObject()
-                    # TODO: bottleneck?
-                    topic.reindexObject() # Sets modified
-
-                    self.logger.info(
-                        'ploneboard comment created: title: %s, id:%s, topic:%s, forum:%s,' %
-                        (title, id, topic, forum))
-                else:
-                    self.logger.info(
-                        'ploneboard comment EXISTS: id:%s' % id)
-            except:
-                import pdb; pdb.set_trace
-
-        cursor.close()
-    """
-
-    """
-    def clean_encoding(self, txt):
-        return txt.encode('utf-8')
-
-    def clean_text(self, txt):
-        txt = self.clean_encoding(txt)
-        txt = self.pt.convert('html_to_text', txt).getData()
-        txt = txt.replace('&#38;', '&')
-        txt = txt.replace('&amp;', '&')
-        return txt
-
-    def clean_web(self, txt):
-        txt = self.clean_encoding(txt)
-        txt = self.pt.convert('html_to_web_intelligent_plain_text', txt).getData()
-        return txt
-    """
-
 
     def import_finish(self):
         pass
@@ -264,8 +107,16 @@ def start_import(context):
         return
 
     site = context.getSite()
+
+    # delete stream folder
+    sht.delete_items(site, ('stream'), logger)
+    data = dict(is_title=True, title=u'Stream')
+    streamfolder = create(site, G24_BASETYPE)
+    streamfolder.id = 'stream'
+    streamfolder = add(streamfolder, site)
+    edit(streamfolder, data, order=FEATURES, ignores=IGNORES)
     
-    # we expect site.stream to be already created
+    # start import into stream folder
     imp = ImportPhpBBPostings(site.stream)
     imp.import_content()
     imp.import_finish()
