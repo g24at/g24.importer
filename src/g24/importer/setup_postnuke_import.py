@@ -10,6 +10,8 @@ from Products.Archetypes.event import ObjectInitializedEvent
 from zope import event
 import collective.setuphandlertools as sht
 
+from ConfigParser import ConfigParser
+
 logger = logging.getLogger("g24.importer from postnuke")
 
 class ImportPhpBB(object):
@@ -25,13 +27,24 @@ class ImportPhpBB(object):
 
     def import_mysql_connect(self):
         try:
-            self.conn = MySQLdb.connect (
+            cfg = ConfigParser()
+            cfg.read('src/g24.importer/src/g24/importer/config.ini')
+            
+            self.conn = MySQLdb.connect (host = cfg.get('default', 'mysql.host'),
+                                       user = cfg.get('default', 'mysql.user'),
+                                       passwd = cfg.get('default', 'mysql.passwd'),
+                                       db = cfg.get('default', 'mysql.db'),
+                                       use_unicode = True,
+                                       charset = 'latin1')  # <-- SET the character set!
+
+            """self.conn = MySQLdb.connect (
                     host = "localhost",
-                    user = "g24_726",
-                    passwd = "g24_726",
-                    db = "g24_726",
+                    user = "root",
+                    passwd = "root",
+                    db = "g24",
                     use_unicode = True,
-                    charset = 'latin1') # <-- SET the character set!
+                    charset = 'latin1') # <-- SET the character set!"""
+                    
             self.conn.set_character_set('latin1')
 
         except MySQLdb.Error, e:

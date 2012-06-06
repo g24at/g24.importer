@@ -1,27 +1,18 @@
 import MySQLdb
 import time
-import re
-
+from pnexport import transformPostingText 
 from xml.dom.minidom import Document
 from xml.dom.minidom import parse
 
-from postmarkup import render_bbcode
+from ConfigParser import ConfigParser
 
-def transformPostingText(text):
-    weird_strings = re.findall("\[[^:]*([^\]]*)\]",  text)
-    for str in weird_strings:
-        text = re.sub(str,"", text)
-        
-    """xhtml = render_bbcode(text)
-    return xhtml
-    """
-    return text
+cfg = ConfigParser()
+cfg.read('../config.ini')
 
-
-conn = MySQLdb.connect (host = "localhost",
-                           user = "root",
-                           passwd = "root",
-                           db = "g24")
+conn = MySQLdb.connect (host = cfg.get('default', 'mysql.host'),
+                           user = cfg.get('default', 'mysql.user'),
+                           passwd = cfg.get('default', 'mysql.passwd'),
+                           db = cfg.get('default', 'mysql.db'))
 
 """
 
@@ -120,6 +111,8 @@ topiccursor = conn.cursor (MySQLdb.cursors.DictCursor)
 topiccursor.execute (sql_str);
 topicrows = topiccursor.fetchall() 
 
+topics_ok = 0
+topics_fail = 0
 # loop over topics
 for topic in topicrows:
     try:
@@ -130,7 +123,7 @@ for topic in topicrows:
         
         # select posts for topic
         postcursor  = conn.cursor (MySQLdb.cursors.DictCursor)
-        selectfields = ["p.post_username", "pt.post_subject", "u.username", "p.post_time", "pt.post_text","p.enable_bbcode"]
+        selectfields = ["p.post_id", "p.post_username", "pt.post_subject", "u.username", "p.post_time", "pt.post_text","p.enable_bbcode"]
         sql_str = """
             select """ + ','.join(selectfields) + """ from nuke_phpbb_posts p 
             left join nuke_phpbb_posts_text pt on p.post_id = pt.post_id 
@@ -142,9 +135,12 @@ for topic in topicrows:
         # loop over topic's posts
         for row in rows:
             postnode = dom.createElement('post')
+
+            # un-escape htmlchars in subject            
+            row['post_subject'] = row['post_subject'].replace("&amp;","&").replace("&quot;",'"').replace("&lt;","<").replace("&gt;",">")
             
             # set attributes
-            export_fields = ["post_username", "post_subject", "username"] 
+            export_fields = ["post_username", "post_subject", "username", "post_id"] 
             for attr in export_fields: 
                 postnode.setAttribute(attr, str(row[attr]).decode('latin-1'))
                 
@@ -180,10 +176,12 @@ for topic in topicrows:
         postcursor.close ()
         
         print "export ok topic", str(topic['topic_id']) 
+        topics_ok += 1
     except Exception as err:
         #print "error in row" , str(rowcount)
-        print "export of topic failed,", err
+        print "FAIL export of topic ", str(topic['topic_id']), err
         #print rawtext
+        topics_fail += 1
 
 topiccursor.close()
 conn.close ()
@@ -191,4 +189,4 @@ conn.close ()
 with open("export-posts.xml", "w") as f:
     f.write(dom.toprettyxml(encoding="UTF-8")) 
 
-
+print "done! ok:", topics_ok, ", failed:", topics_fail

@@ -1,10 +1,16 @@
 import MySQLdb
 from xml.dom.minidom import Document
 
-conn = MySQLdb.connect (host = "localhost",
-                           user = "root",
-                           passwd = "root",
-                           db = "g24")
+from ConfigParser import ConfigParser
+
+cfg = ConfigParser()
+cfg.read('../config.ini')
+
+conn = MySQLdb.connect (host = cfg.get('default', 'mysql.host'),
+                           user = cfg.get('default', 'mysql.user'),
+                           passwd = cfg.get('default', 'mysql.passwd'),
+                           db = cfg.get('default', 'mysql.db'))
+
 # cursor = conn.cursor ()
 cursor = conn.cursor (MySQLdb.cursors.DictCursor)
 

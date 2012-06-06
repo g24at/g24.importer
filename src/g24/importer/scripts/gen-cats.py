@@ -2,11 +2,15 @@ import MySQLdb
 import time
 
 from xml.dom.minidom import Document
+from ConfigParser import ConfigParser
 
-conn = MySQLdb.connect (host = "localhost",
-                           user = "root",
-                           passwd = "root",
-                           db = "g24")
+cfg = ConfigParser()
+cfg.read('../config.ini')
+
+conn = MySQLdb.connect (host = cfg.get('default', 'mysql.host'),
+                           user = cfg.get('default', 'mysql.user'),
+                           passwd = cfg.get('default', 'mysql.passwd'),
+                           db = cfg.get('default', 'mysql.db'))
 
 """
 mysql> describe nuke_phpbb_topics;
