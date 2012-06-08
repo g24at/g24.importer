@@ -71,6 +71,8 @@ class ImportPhpBBPostings(object):
         data['text']    = node.getElementsByTagName('text')[0].childNodes[1].data
         
         data['tags']    = []
+        
+        
         for t in node.getElementsByTagName('tag'):
             data['tags'].append(t.getAttribute('name'))
         
@@ -82,7 +84,7 @@ class ImportPhpBBPostings(object):
         
     def create_g24_posting(self, container, postingdata):
         data = {
-            'is_title': True,
+            'is_title': str(postingdata['title']).strip() != "",
             'title': postingdata['title'],
             'text': postingdata['text'],
             'subjects': postingdata['tags'],
@@ -117,6 +119,6 @@ def start_import(context):
     edit(streamfolder, data, order=FEATURES, ignores=IGNORES)
     
     # start import into stream folder
-    imp = ImportPhpBBPostings(site.stream)
+    imp = ImportPhpBBPostings(streamfolder)
     imp.import_content()
     imp.import_finish()
