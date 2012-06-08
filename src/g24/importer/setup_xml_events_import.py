@@ -64,20 +64,20 @@ class ImportEvents(object):
             'title': title,
             'text': text,
             'subjects': tags,
-            'timezone':'Europe/Vienna',
+            'timezone': 'Europe/Vienna',
             'whole_day': node.getAttribute('pc_alldayevent') == "1",
             'recurrence':  UNSET,
             'location': node.getAttribute('location_name'),
         }
         
         createdate      = DateTime(node.getAttribute('pc_time'))
-        event_date      = DateTime(node.getAttribute('pc_eventDate') + " " + node.getAttribute('pc_startTime') + " CET")
+        event_date      = DateTime(node.getAttribute('pc_eventDate') + " " + node.getAttribute('pc_startTime') + " Europe/Vienna")
         data['start']   = pydt(event_date)
         
         # calc / use end date , fallback is same as start
         data['end']     = pydt(event_date)
         if node.hasAttribute('pc_endDate'):
-            end_date = DateTime(node.getAttribute('pc_endDate') + " " + node.getAttribute('pc_endTime') + " CET")
+            end_date = DateTime(node.getAttribute('pc_endDate') + " " + node.getAttribute('pc_endTime') + " Europe/Vienna")
             data['end']   = pydt(end_date)
         elif node.getAttribute('pc_duration'):
             end_date = DateTime(int(event_date) + int(node.getAttribute('pc_duration')))
