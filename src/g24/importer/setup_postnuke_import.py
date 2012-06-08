@@ -29,7 +29,7 @@ class ImportPhpBB(object):
         try:
             cfg = ConfigParser()
             cfg.read('src/g24.importer/src/g24/importer/config.ini')
-            
+
             self.conn = MySQLdb.connect (host = cfg.get('default', 'mysql.host'),
                                        user = cfg.get('default', 'mysql.user'),
                                        passwd = cfg.get('default', 'mysql.passwd'),
@@ -44,7 +44,7 @@ class ImportPhpBB(object):
                     db = "g24",
                     use_unicode = True,
                     charset = 'latin1') # <-- SET the character set!"""
-                    
+
             self.conn.set_character_set('latin1')
 
         except MySQLdb.Error, e:
@@ -53,11 +53,11 @@ class ImportPhpBB(object):
     def import_nuke_phpbb_users(self):
         cursor = self.conn.cursor()
 
+        # TODO: remove limit
         cursor.execute("""SELECT username, user_email, user_avatar,
         user_website, user_from, user_sig, user_regdate FROM nuke_phpbb_users n
         ORDER BY user_id LIMIT 0,550;""")
 
-        pm = getToolByName(self.context, 'portal_membership')
         context = self.context
         cnt = 0
         while True:
