@@ -13,3 +13,11 @@ def transformPostingText(text):
     xhtml = pm.standard_unreplace(xhtml)    # unescape html tags
     return xhtml
 
+
+def cleanTextFromControlChars(text):
+    cleaned = []
+    for line in text.split("\n"):
+        cleaned.append(''.join(c for c in line if ord(c) >= 32))
+    return "\n".join(cleaned)
+
+

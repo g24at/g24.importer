@@ -1,6 +1,6 @@
 import MySQLdb
 import time
-from pnexport import transformPostingText 
+from pnexport import transformPostingText, cleanTextFromControlChars 
 from xml.dom.minidom import Document
 from xml.dom.minidom import parse
 
@@ -146,16 +146,10 @@ for topic in topicrows:
                 
             tstruct = time.gmtime( row["post_time"])
             postnode.setAttribute('post_time', time.strftime("%m/%d/%Y, %H:%M:%S CET", tstruct))
-            
-            # clean posting text
-            posting_text = row['post_text'].decode('latin-1')
-            cleaned = []
-            for line in posting_text.split("\n"):
-                cleaned.append(''.join(c for c in line if ord(c) >= 32))
-            
-            # add posting text 
+
+            # add posting text            
+            posting_text = cleanTextFromControlChars(row['post_text'].decode('latin-1'))
             txt         = dom.createElement('text')
-            posting_text= "\n".join(cleaned)
             if row['enable_bbcode']:
                 posting_text  = transformPostingText(posting_text)
             txt.appendChild(dom.createCDATASection(posting_text))
