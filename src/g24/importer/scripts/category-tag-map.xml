@@ -1,72 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cats>
-	<cat cat_title="info &amp;amp; hilfe" export="0" forum_name="vorschläge" id="1">
+	<cat cat_title="info &amp; hilfe" export="1" forum_name="vorschläge" id="1">
 		<desc>
 <![CDATA[vorschläge zur veränderung und entwicklung von g24 hier rein]]>		</desc>
 		<tags>
-			<tag name="info &amp;amp; hilfe"/>
+			<tag name="info &amp; hilfe"/>
 			<tag name="vorschläge"/>
 		</tags>
 	</cat>
-	<cat cat_title="info &amp;amp; hilfe" export="0" forum_name="fehlerreport" id="2">
+	<cat cat_title="info &amp; hilfe" export="1" forum_name="fehlerreport" id="2">
 		<desc>
 <![CDATA[wenn g24 mal nicht so funktioniert wie erwartet, lass es uns wissen]]>		</desc>
 		<tags>
-			<tag name="info &amp;amp; hilfe"/>
+			<tag name="info &amp; hilfe"/>
 			<tag name="fehlerreport"/>
 		</tags>
 	</cat>
-	<cat cat_title="info &amp;amp; hilfe" export="0" forum_name="NEWS+changelog" id="8">
+	<cat cat_title="info &amp; hilfe" export="1" forum_name="NEWS+changelog" id="8">
 		<desc>
 <![CDATA[übersicht über veränderungen auf g24]]>		</desc>
 		<tags>
-			<tag name="info &amp;amp; hilfe"/>
+			<tag name="info &amp; hilfe"/>
 			<tag name="NEWS+changelog"/>
 		</tags>
 	</cat>
-	<cat cat_title="info &amp;amp; hilfe" export="0" forum_name="g24 plenum" id="9">
+	<cat cat_title="info &amp; hilfe" export="1" forum_name="g24 plenum" id="9">
 		<desc>
 <![CDATA[über vergangene und zukünftige g24 treffen]]>		</desc>
 		<tags>
-			<tag name="info &amp;amp; hilfe"/>
+			<tag name="info &amp; hilfe"/>
 			<tag name="g24"/>
 			<tag name="plenum"/>
 		</tags>
 	</cat>
-	<cat cat_title="info &amp;amp; hilfe" export="0" forum_name="g24.at 5 jahres party" id="27">
+	<cat cat_title="info &amp; hilfe" export="1" forum_name="g24.at 5 jahres party" id="27">
 		<desc>
 <![CDATA[organisationsforum für die 5 jahres party am 2.juni im forum stadtpark
 mitarbeit, organisation, koordination, vorschläge, tips, meinungen,...]]>		</desc>
 		<tags>
-			<tag name="info &amp;amp; hilfe"/>
+			<tag name="info &amp; hilfe"/>
 			<tag name="g24.at"/>
-			<tag name="5"/>
-			<tag name="jahres"/>
-			<tag name="party"/>
+			<tag name="5jahresparty"/>
 		</tags>
 	</cat>
-	<cat cat_title="info &amp;amp; hilfe" export="0" forum_name="müll - trash - backup" id="30">
+	<cat cat_title="info &amp; hilfe" export="1" forum_name="müll - trash - backup" id="30">
 		<desc>
 <![CDATA[werbespam, müll, sonstiges]]>		</desc>
 		<tags>
-			<tag name="info &amp;amp; hilfe"/>
+			<tag name="info &amp; hilfe"/>
 			<tag name="müll"/>
 			<tag name="trash"/>
 			<tag name="backup"/>
 		</tags>
 	</cat>
-	<cat cat_title="events" export="0" forum_name="parties / events / veranstaltungen / termine" id="3">
+	<cat cat_title="events" export="1" forum_name="parties / events / veranstaltungen / termine" id="3">
 		<desc>
 <![CDATA[wie wars? wie wirds? party tips, party reviews, etc]]>		</desc>
 		<tags>
-			<tag name="events"/>
 			<tag name="parties"/>
 			<tag name="events"/>
 			<tag name="veranstaltungen"/>
 			<tag name="termine"/>
 		</tags>
 	</cat>
-	<cat cat_title="events" export="0" forum_name="wunschliste" id="4">
+	<cat cat_title="events" export="1" forum_name="wunschliste" id="4">
 		<desc>
 <![CDATA[was soll in graz passieren? was soll verändert werden? wie möchtest du eine party gestaltet sehen?]]>		</desc>
 		<tags>
@@ -74,7 +71,7 @@ mitarbeit, organisation, koordination, vorschläge, tips, meinungen,...]]>		</de
 			<tag name="wunschliste"/>
 		</tags>
 	</cat>
-	<cat cat_title="events" export="0" forum_name="location" id="11">
+	<cat cat_title="events" export="1" forum_name="location" id="11">
 		<desc>
 <![CDATA[alles zum thema veranstaltungsorte und co.]]>		</desc>
 		<tags>
@@ -82,7 +79,7 @@ mitarbeit, organisation, koordination, vorschläge, tips, meinungen,...]]>		</de
 			<tag name="location"/>
 		</tags>
 	</cat>
-	<cat cat_title="events" export="0" forum_name="veranstaltungen extern" id="25">
+	<cat cat_title="events" export="1" forum_name="veranstaltungen extern" id="25">
 		<desc>
 <![CDATA[forum für partytermine, postings, etc.. aber bitte nur das was ausserhalb von Graz abgeht!]]>		</desc>
 		<tags>
@@ -91,7 +88,7 @@ mitarbeit, organisation, koordination, vorschläge, tips, meinungen,...]]>		</de
 			<tag name="extern"/>
 		</tags>
 	</cat>
-	<cat cat_title="events" export="0" forum_name="diy" id="26">
+	<cat cat_title="events" export="1" forum_name="diy" id="26">
 		<desc>
 <![CDATA[workshops, diskussionen, praktisches,,,]]>		</desc>
 		<tags>
@@ -99,7 +96,7 @@ mitarbeit, organisation, koordination, vorschläge, tips, meinungen,...]]>		</de
 			<tag name="diy"/>
 		</tags>
 	</cat>
-	<cat cat_title="events" export="0" forum_name="veranstalterInnen IG - news" id="32">
+	<cat cat_title="events" export="1" forum_name="veranstalterInnen IG - news" id="32">
 		<desc>
 <![CDATA[Forum für News und Diskussion zur neuen Kooperations-IG von VeranstalterInnen in Graz]]>		</desc>
 		<tags>
@@ -109,16 +106,16 @@ mitarbeit, organisation, koordination, vorschläge, tips, meinungen,...]]>		</de
 			<tag name="news"/>
 		</tags>
 	</cat>
-	<cat cat_title="events" export="0" forum_name="*veranstalterInnen IG-Intern" id="33">
+	<cat cat_title="events" export="1" forum_name="*veranstalterInnen IG-Intern" id="33">
 		<desc>
 <![CDATA[internes Forum für IG Mitglieder]]>		</desc>
 		<tags>
 			<tag name="events"/>
-			<tag name="*veranstalterInnen"/>
+			<tag name="veranstalterInnen"/>
 			<tag name="IG-Intern"/>
 		</tags>
 	</cat>
-	<cat cat_title="community" export="0" forum_name="smalltalk" id="5">
+	<cat cat_title="community" export="1" forum_name="smalltalk" id="5">
 		<desc>
 <![CDATA[alles über irgendwas]]>		</desc>
 		<tags>
@@ -126,7 +123,7 @@ mitarbeit, organisation, koordination, vorschläge, tips, meinungen,...]]>		</de
 			<tag name="smalltalk"/>
 		</tags>
 	</cat>
-	<cat cat_title="community" export="0" forum_name="fahrbörse" id="7">
+	<cat cat_title="community" export="1" forum_name="fahrbörse" id="7">
 		<desc>
 <![CDATA[zusammen fahren, fahrkosten teilen, weniger geld ausgeben.]]>		</desc>
 		<tags>
@@ -134,7 +131,7 @@ mitarbeit, organisation, koordination, vorschläge, tips, meinungen,...]]>		</de
 			<tag name="fahrbörse"/>
 		</tags>
 	</cat>
-	<cat cat_title="community" export="0" forum_name="graz" id="12">
+	<cat cat_title="community" export="1" forum_name="graz" id="12">
 		<desc>
 <![CDATA[die heimliche liebe? die kulturhauptstadt? stadt der volkserhebung? pensionistencity? steirerhochburg?
 alles graz spezifische hier rein!]]>		</desc>
@@ -143,15 +140,15 @@ alles graz spezifische hier rein!]]>		</desc>
 			<tag name="graz"/>
 		</tags>
 	</cat>
-	<cat cat_title="community" export="0" forum_name="leben.." id="14">
+	<cat cat_title="community" export="1" forum_name="leben.." id="14">
 		<desc>
 <![CDATA[leben, wohnen, essen,... alles was das leben betrifft kommt hier rein!]]>		</desc>
 		<tags>
 			<tag name="community"/>
-			<tag name="leben.."/>
+			<tag name="leben"/>
 		</tags>
 	</cat>
-	<cat cat_title="community" export="0" forum_name="g24 intern" id="19">
+	<cat cat_title="community" export="1" forum_name="g24 intern" id="19">
 		<desc>
 <![CDATA[alles zum thema g24.at - interna etc]]>		</desc>
 		<tags>
@@ -160,7 +157,7 @@ alles graz spezifische hier rein!]]>		</desc>
 			<tag name="intern"/>
 		</tags>
 	</cat>
-	<cat cat_title="community" export="0" forum_name="fundgrube" id="21">
+	<cat cat_title="community" export="1" forum_name="fundgrube" id="21">
 		<desc>
 <![CDATA[flohmarkt virtuell? ]]>		</desc>
 		<tags>
@@ -168,23 +165,16 @@ alles graz spezifische hier rein!]]>		</desc>
 			<tag name="fundgrube"/>
 		</tags>
 	</cat>
-	<cat cat_title="community" export="0" forum_name="g24.at - 10 Jahre Fest am 09.06.2012 @ Forum Stadtpark" id="34">
+	<cat cat_title="community" export="1" forum_name="g24.at - 10 Jahre Fest am 09.06.2012 @ Forum Stadtpark" id="34">
 		<desc>
 <![CDATA[Das Forum zum 10-jährigen Jubiläum und gleichzeitigem Neustart von g24.at. ]]>		</desc>
 		<tags>
 			<tag name="community"/>
 			<tag name="g24.at"/>
-			<tag name="10"/>
-			<tag name="Jahre"/>
-			<tag name="Fest"/>
-			<tag name="am"/>
-			<tag name="09.06.2012"/>
-			<tag name="@"/>
-			<tag name="Forum"/>
-			<tag name="Stadtpark"/>
+			<tag name="10JahreFest"/>
 		</tags>
 	</cat>
-	<cat cat_title="news" export="0" forum_name="süd/ost nachbarn" id="13">
+	<cat cat_title="news" export="1" forum_name="süd/ost nachbarn" id="13">
 		<desc>
 <![CDATA[forum für postings in und um unsere netten Nachbarn im Süden (Slovenia, Croatia) und Osten (Ungarn, etc)]]>		</desc>
 		<tags>
@@ -201,54 +191,50 @@ alles graz spezifische hier rein!]]>		</desc>
 			<tag name="wissenschaft/technology"/>
 		</tags>
 	</cat>
-	<cat cat_title="politik" export="0" forum_name="Lokalpolitik, Aktivismus und Strategien" id="6">
+	<cat cat_title="politik" export="1" forum_name="Lokalpolitik, Aktivismus und Strategien" id="6">
 		<desc>
 <![CDATA[Diskussionen, Strategieentwicklung, direct-action - Fokus auf lokalpolitisches!]]>		</desc>
 		<tags>
 			<tag name="politik"/>
-			<tag name="Lokalpolitik,"/>
-			<tag name="Aktivismus"/>
-			<tag name="und"/>
-			<tag name="Strategien"/>
+			<tag name="lokalpolitik"/>
+			<tag name="aktivismus"/>
+			<tag name="atrategien"/>
 		</tags>
 	</cat>
-	<cat cat_title="politik" export="0" forum_name="9/11 / 7/7 -Skepsis " id="23">
+	<cat cat_title="politik" export="1" forum_name="9/11 / 7/7 -Skepsis " id="23">
 		<desc>
 <![CDATA[Der 11. September 2001 hat die Welt verändert und in der breiten Öffentlichkeit fragt fast niemand nach, ob die offizielle Version der Geschichte auch wirklich den Tatsachen entspricht. Das selbe gilt für die Anschläge des 7.Juli 2005 in London. Dieses Forum soll der Skepsis über offizielle Darstellungen eine Plattform bieten...]]>		</desc>
 		<tags>
 			<tag name="politik"/>
-			<tag name="9/11"/>
-			<tag name="7/7"/>
-			<tag name="-Skepsis"/>
+			<tag name="9-11-Skepsis"/>
 		</tags>
 	</cat>
-	<cat cat_title="politik" export="0" forum_name="internationale Politik" id="28">
+	<cat cat_title="politik" export="1" forum_name="internationale Politik" id="28">
 		<desc>
 <![CDATA[politisches aus aller Welt]]>		</desc>
 		<tags>
 			<tag name="politik"/>
 			<tag name="internationale"/>
-			<tag name="Politik"/>
 		</tags>
 	</cat>
-	<cat cat_title="politik" export="0" forum_name="Krise: Klimawandel" id="31">
+	<cat cat_title="politik" export="1" forum_name="Krise: Klimawandel" id="31">
 		<desc>
 <![CDATA[Neuigkeiten und Information zur bedrohlichsten aller Krisen: dem Klimawandel.]]>		</desc>
 		<tags>
 			<tag name="politik"/>
-			<tag name="Krise:"/>
+			<tag name="Krise"/>
 			<tag name="Klimawandel"/>
 		</tags>
 	</cat>
-	<cat cat_title="musik" export="0" forum_name="musik" id="10">
+	<cat cat_title="musik" export="1" forum_name="musik" id="10">
 		<desc>
 <![CDATA[do is wo die musi spült..]]>		</desc>
 		<tags>
-			<tag name="musik"/>
+		    <tag name="kultur"/>
 			<tag name="musik"/>
 		</tags>
 	</cat>
-	<cat cat_title="kultur" export="0" forum_name="film / kino" id="15">
+	<cat cat_title="kultur" export="1" forum_name="film / kino" id="15">
 		<desc>
 <![CDATA[visuelles..]]>		</desc>
 		<tags>
@@ -257,7 +243,7 @@ alles graz spezifische hier rein!]]>		</desc>
 			<tag name="kino"/>
 		</tags>
 	</cat>
-	<cat cat_title="kultur" export="0" forum_name="kunst / allgemein" id="16">
+	<cat cat_title="kultur" export="1" forum_name="kunst / allgemein" id="16">
 		<desc>
 <![CDATA[themen, hinweise, tipps im weiten bereich der kunst]]>		</desc>
 		<tags>
@@ -266,7 +252,7 @@ alles graz spezifische hier rein!]]>		</desc>
 			<tag name="allgemein"/>
 		</tags>
 	</cat>
-	<cat cat_title="kultur" export="0" forum_name="radio / tv" id="18">
+	<cat cat_title="kultur" export="1" forum_name="radio / tv" id="18">
 		<desc>
 <![CDATA[]]>		</desc>
 		<tags>
@@ -275,17 +261,16 @@ alles graz spezifische hier rein!]]>		</desc>
 			<tag name="tv"/>
 		</tags>
 	</cat>
-	<cat cat_title="kultur" export="0" forum_name="buch und print" id="20">
+	<cat cat_title="kultur" export="1" forum_name="buch und print" id="20">
 		<desc>
 <![CDATA[]]>		</desc>
 		<tags>
 			<tag name="kultur"/>
 			<tag name="buch"/>
-			<tag name="und"/>
 			<tag name="print"/>
 		</tags>
 	</cat>
-	<cat cat_title="kultur" export="0" forum_name="agit.DOC" id="29">
+	<cat cat_title="kultur" export="1" forum_name="agit.DOC" id="29">
 		<desc>
 <![CDATA[Spezialforum zur Dokumentarfilmreihe agit.DOC im Forum Stadtpark]]>		</desc>
 		<tags>
