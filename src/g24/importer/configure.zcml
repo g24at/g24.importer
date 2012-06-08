@@ -38,4 +38,12 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <genericsetup:registerProfile
+    name="xml-import-events"
+    title="g24.importer xml import events"
+    directory="profiles/xml-import-events"
+    description="Extension profile for g24.importer."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>

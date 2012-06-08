@@ -3,8 +3,8 @@
 
   <import-step
     id="xml-import"
-    handler="g24.importer.setup_xml_import.start_import"
-    title="g24.importer xml importer events"
+    handler="g24.importer.setup_xml_events_import.start_import"
+    title="g24.importer xml importer postings"
     version="1.0">
   </import-step>
 
