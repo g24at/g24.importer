@@ -6,7 +6,8 @@ from xml.dom.minidom import parse
 from g24.elements.sharingbox.form import FEATURES, IGNORES, G24_BASETYPE
 from g24.elements.sharingbox.form import create, add, edit
 
-logger = logging.getLogger("g24.importer from xml")
+logger = logging.getLogger("g24.importer - from xml")
+
 
 class ImportPhpBBPostings(object):
 
@@ -58,10 +59,8 @@ class ImportPhpBBPostings(object):
 
         data['title']   = node.getAttribute('post_subject')
         data['text']    = node.getElementsByTagName('text')[0].childNodes[1].data
-
         data['tags']    = []
-        
-        
+
         for t in node.getElementsByTagName('tag'):
             data['tags'].append(t.getAttribute('name'))
 
@@ -73,7 +72,7 @@ class ImportPhpBBPostings(object):
 
     def create_g24_posting(self, container, postingdata):
         data = {
-            'is_title': postingdata['title'].strip() != "",
+            'is_thread': postingdata['title'].strip() != "", # TODO: is_thread only for threads
             'title': postingdata['title'],
             'text': postingdata['text'],
             'subjects': postingdata['tags'],
@@ -99,16 +98,9 @@ def start_import(context):
 
     site = context.getSite()
 
-    # delete stream folder
-    sht.delete_items(site, ('stream'), logger)
-    data = dict(is_title=True, title=u'Stream')
-    streamfolder = create(site, G24_BASETYPE)
-    streamfolder.id = 'stream'
-    streamfolder = add(streamfolder, site)
-    streamfolder.setLayout('stream')
-    edit(streamfolder, data, order=FEATURES, ignores=IGNORES)
+    postsfolder = site['posts']
 
-    # start import into stream folder
-    imp = ImportPhpBBPostings(streamfolder)
+    # start import into posts folder
+    imp = ImportPhpBBPostings(postsfolder)
     imp.import_content()
     imp.import_finish()

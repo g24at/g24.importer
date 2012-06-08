@@ -23,6 +23,14 @@
     />
 
   <genericsetup:registerProfile
+    name="setup_dummy_content"
+    title="g24.importer import dummy content"
+    directory="profiles/setup_dummy_content"
+    description="Extension profile for g24.importer."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <genericsetup:registerProfile
     name="postnuke-import"
     title="g24.importer postnuke import"
     directory="profiles/postnuke-import"

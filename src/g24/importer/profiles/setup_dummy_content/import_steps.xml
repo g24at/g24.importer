@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import-steps>
+  <import-step
+    id="g24.importer-setup_dummy_content"
+    handler="g24.importer.setup_dummy_content.setup_dummy_content"
+    title="g24.importer - setup dummy content structure"
+    version="1.0">
+  </import-step>
+</import-steps>
