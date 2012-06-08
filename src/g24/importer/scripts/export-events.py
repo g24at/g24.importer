@@ -7,7 +7,7 @@ import phpserialize
 import re
 
 from ConfigParser import ConfigParser
-
+import sys
 
 
 cfg = ConfigParser()
@@ -68,9 +68,20 @@ categories = {}
 for cat in rows:
     categories[str(cat['pc_catid'])] = cleanTextFromControlChars(str(cat['pc_catname']))
 
+test_set = True
+custom_limit = ""
+if len (sys.argv) > 1:
+    if sys.argv[1] == "all" : test_set = False
+    else : test_set = False ; custom_limit = sys.argv[1]
+
 # select topics for export
 sql_str = "select * from nuke_postcalendar_events where pc_eventstatus = 1"
-sql_str = sql_str + " and pc_eid = 47 "
+if      test_set            : sql_str = sql_str + " order by RAND() limit 0,20"
+elif    custom_limit != ""  : sql_str = sql_str + " " + custom_limit
+
+#sql_str = sql_str + " and pc_eid < 3000 and pc_eid > 2800"
+#sql_str = sql_str + " and pc_eid = 47 "
+#sql_str = sql_str + " and pc_eid in (" + ','.join([str(2544),str(2541)]) + ") "
 #sql_str = sql_str + " order by RAND() limit 0,20"
 
 eventcursor = conn.cursor (MySQLdb.cursors.DictCursor)
