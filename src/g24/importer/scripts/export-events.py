@@ -76,7 +76,7 @@ if len (sys.argv) > 1:
 
 # select topics for export
 sql_str = "select * from nuke_postcalendar_events where pc_eventstatus = 1"
-if      test_set            : sql_str = sql_str + " order by RAND() limit 0,20"
+if      test_set            : sql_str = sql_str + " order by RAND() limit 0,200"
 elif    custom_limit != ""  : sql_str = sql_str + " " + custom_limit
 
 #sql_str = sql_str + " and pc_eid < 3000 and pc_eid > 2800"

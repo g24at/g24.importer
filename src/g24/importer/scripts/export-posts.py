@@ -113,7 +113,7 @@ if len (sys.argv) > 1:
 # select topics for export
 sql_str = "select * from nuke_phpbb_topics "
 sql_str = sql_str + " where forum_id in (" + ','.join(export_topics) + ")"
-if      test_set            : sql_str = sql_str + " order by RAND() limit 0,15"
+if      test_set            : sql_str = sql_str + " order by RAND() limit 0,200"
 elif    custom_limit != ""  : sql_str = sql_str + " " + custom_limit
 
 print "Selecting Topics : ", sql_str
