@@ -6,11 +6,16 @@
         
         "python export-posts.py"        ... to generate test set 
         "python export-posts.py all"    ... to generate full export
-
+        
+        or:
+         "python export-posts.py 'limit 100,5'"
+        
 
     +) to generate export-events.xml (needed for events-import ) :
         
         "python export-events.py"        ... to generate test set 
         "python export-events.py all"    ... to generate full export
 
-
+        or:
+         "python export-events.py 'limit 100,5'"
+        
