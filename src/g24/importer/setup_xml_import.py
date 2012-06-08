@@ -73,7 +73,7 @@ class ImportPhpBBPostings(object):
 
     def create_g24_posting(self, container, postingdata):
         data = {
-            'is_title': str(postingdata['title']).strip() != "",
+            'is_title': postingdata['title'].strip() != "",
             'title': postingdata['title'],
             'text': postingdata['text'],
             'subjects': postingdata['tags'],
