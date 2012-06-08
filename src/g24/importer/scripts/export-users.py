@@ -73,17 +73,17 @@ dom = Document()
 dom.appendChild(dom.createElement('export'))
 
 cursor.execute ("SELECT * from nuke_phpbb_users");
-rows = cursor.fetchall() 
+rows = cursor.fetchall()
 for row in rows:
-    user = dom.createElement('user')    
+    user = dom.createElement('user')
     #export_fields = row.keys()
-    export_fields = ["user_id", "user_active", "username", "user_level"] 
-    for attr in export_fields: 
+    export_fields = ["user_id", "user_active", "username", "user_level"]
+    for attr in export_fields:
         user.setAttribute(attr, str(row[attr]).decode('latin-1'))
     dom.childNodes[0].appendChild(user)
-    
+
 cursor.close ()
 conn.close ()
 
 with open("userexport.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding="UTF-8")) 
+    f.write(dom.toprettyxml(encoding="UTF-8"))

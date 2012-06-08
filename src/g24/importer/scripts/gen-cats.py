@@ -85,26 +85,26 @@ for catrow in topicrows:
     cm.setAttribute('id', str(catrow['forum_id']).decode('latin-1'))
     for attr in ['forum_name', 'cat_title'] :
         cm.setAttribute(attr, str(catrow[attr]).decode('latin-1'))
-        
+
     # add description
     desc = dom.createElement('desc')
     desc.appendChild(dom.createCDATASection(str(catrow['forum_desc']).decode('latin-1')))
     cm.appendChild(desc)
-    
+
     tags = dom.createElement('tags')
-    
+
     # add cat_title as tag
     tag = dom.createElement('tag')
     tag.setAttribute('name', catrow['cat_title'].decode('latin-1'))
     tags.appendChild(tag)
-    
+
     # split forum name into parts and add them as tags
     forumname = catrow['forum_name'].decode('latin-1')
     for val in [t for t in forumname.split(' ') if t not in ["","/","-"]]:
         tag = dom.createElement('tag')
         tag.setAttribute('name', val)
         tags.appendChild(tag)
-    
+
     cm.appendChild(tags)
     dom.childNodes[0].appendChild(cm)
 
@@ -112,6 +112,6 @@ topiccursor.close()
 conn.close ()
 
 with open("category-tag-map.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding="UTF-8")) 
+    f.write(dom.toprettyxml(encoding="UTF-8"))
 
 

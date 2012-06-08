@@ -1,6 +1,6 @@
 import MySQLdb
 import time
-from pnexport import transformPostingText, cleanTextFromControlChars 
+from pnexport import transformPostingText, cleanTextFromControlChars
 from xml.dom.minidom import Document
 from xml.dom.minidom import parse
 
@@ -95,11 +95,11 @@ cats_info = {}
 for cat in tagdom.getElementsByTagName('cat'):
     if cat.getAttribute("export") == "1":
         export_topics.append(cat.getAttribute("id"))
-    
+
     tags = []
     for tag in cat.getElementsByTagName('tag'):
         tags.append(tag.getAttribute('name'))
-        
+
     cats_info[cat.getAttribute("id")] = tags
 
 
@@ -119,7 +119,7 @@ elif    custom_limit != ""  : sql_str = sql_str + " " + custom_limit
 print "Selecting Topics : ", sql_str
 topiccursor = conn.cursor (MySQLdb.cursors.DictCursor)
 topiccursor.execute (sql_str);
-topicrows = topiccursor.fetchall() 
+topicrows = topiccursor.fetchall()
 
 topics_ok = 0
 topics_fail = 0
@@ -127,59 +127,59 @@ topics_fail = 0
 for topic in topicrows:
     try:
         threadnode = dom.createElement('thread')
-        
-        tags = []        
+
+        tags = []
         tags = set(cats_info[str(topic["forum_id"])])
-        
+
         # select posts for topic
         postcursor  = conn.cursor (MySQLdb.cursors.DictCursor)
         selectfields = ["p.post_id", "p.post_username", "pt.post_subject", "u.username", "p.post_time", "pt.post_text","p.enable_bbcode"]
         sql_str = """
-            select """ + ','.join(selectfields) + """ from nuke_phpbb_posts p 
-            left join nuke_phpbb_posts_text pt on p.post_id = pt.post_id 
+            select """ + ','.join(selectfields) + """ from nuke_phpbb_posts p
+            left join nuke_phpbb_posts_text pt on p.post_id = pt.post_id
             left join nuke_phpbb_users u on u.user_id = p.poster_id
             where topic_id = """ + str(topic['topic_id']) + " order by post_time"
         postcursor.execute (sql_str);
         rows = postcursor.fetchall()
-        
+
         # loop over topic's posts
         for row in rows:
             postnode = dom.createElement('post')
 
-            # un-escape htmlchars in subject            
+            # un-escape htmlchars in subject
             row['post_subject'] = row['post_subject'].replace("&amp;","&").replace("&quot;",'"').replace("&lt;","<").replace("&gt;",">")
-            
+
             # set attributes
-            export_fields = ["post_username", "post_subject", "username", "post_id"] 
-            for attr in export_fields: 
+            export_fields = ["post_username", "post_subject", "username", "post_id"]
+            for attr in export_fields:
                 postnode.setAttribute(attr, str(row[attr]).decode('latin-1'))
-                
+
             tstruct = time.gmtime( row["post_time"])
             postnode.setAttribute('post_time', time.strftime("%m/%d/%Y, %H:%M:%S CET", tstruct))
 
-            # add posting text            
+            # add posting text
             posting_text = cleanTextFromControlChars(row['post_text'].decode('latin-1'))
             txt         = dom.createElement('text')
             if row['enable_bbcode']:
                 posting_text  = transformPostingText(posting_text)
             txt.appendChild(dom.createCDATASection(posting_text))
             postnode.appendChild(txt)
-            
+
             # add tags
             for t in tags:
                 tagnode = dom.createElement('tag')
                 tagnode.setAttribute('name', t)
                 postnode.appendChild(tagnode)
-            
+
             # add posting to thread
             threadnode.appendChild(postnode)
 
         # add topic/thread to export
         dom.childNodes[0].appendChild(threadnode)
-        
+
         postcursor.close ()
-        
-        print "export ok topic", str(topic['topic_id']) 
+
+        print "export ok topic", str(topic['topic_id'])
         topics_ok += 1
     except Exception as err:
         #print "error in row" , str(rowcount)
@@ -191,6 +191,6 @@ topiccursor.close()
 conn.close ()
 
 with open("export-posts.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding="UTF-8")) 
+    f.write(dom.toprettyxml(encoding="UTF-8"))
 
 print "done! ok:", topics_ok, ", failed:", topics_fail

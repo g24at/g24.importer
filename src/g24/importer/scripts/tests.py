@@ -9,34 +9,34 @@ class TestSequenceFunctions(unittest.TestCase):
 
 
     def test_oneliners(self):
-        
+
         cases = []
-        
+
         # simple B
-        cases.append (("text, 1234:test [b:479bf42510]test, something:else, test [/b:479bf42510], ende!", 
+        cases.append (("text, 1234:test [b:479bf42510]test, something:else, test [/b:479bf42510], ende!",
                        "text, 1234:test <strong>test, something:else, test </strong>, ende!"))
-        
+
         # img with url between tags
-        cases.append (("text, [img:9f40f45e57]http://adamstrang.widerstand.org/images/flyer/flyer666.jpg[/img:9f40f45e57], ende!", 
+        cases.append (("text, [img:9f40f45e57]http://adamstrang.widerstand.org/images/flyer/flyer666.jpg[/img:9f40f45e57], ende!",
                        'text, <img src="http://adamstrang.widerstand.org/images/flyer/flyer666.jpg"></img>, ende!'))
 
         # transforms bare urls into links
-        #cases.append (("text, http://www.mapec.at/program2.html ende!", 
+        #cases.append (("text, http://www.mapec.at/program2.html ende!",
         #               'text, <a href="http://www.mapec.at/program2.html">http://www.mapec.at/program2.html</a> ende!'))
 
         # leaves bare urls alone
-        cases.append (("text, http://www.mapec.at/program2.html ende!", 
+        cases.append (("text, http://www.mapec.at/program2.html ende!",
                        'text, http://www.mapec.at/program2.html ende!'))
 
 
-        # keeps the tags 
-        cases.append (("<h1>headline&gt; &lt;</h1> &gt; &lt;", 
+        # keeps the tags
+        cases.append (("<h1>headline&gt; &lt;</h1> &gt; &lt;",
                        '<h1>headline&gt; &lt;</h1> &gt; &lt;'))
-        
+
         # email transform
-#        cases.append (("oder schickt mir ein mail an  [email]testeamil@gmx.net[/email]...", 
-#                       'oder schickt mir ein mail an  <a href="mailto:testeamil@gmx.net">testeamil@gmx.net</a>...'))        
-        
+#        cases.append (("oder schickt mir ein mail an  [email]testeamil@gmx.net[/email]...",
+#                       'oder schickt mir ein mail an  <a href="mailto:testeamil@gmx.net">testeamil@gmx.net</a>...'))
+
 
         for case in cases:
             output = transformPostingText(case[0])
@@ -44,42 +44,42 @@ class TestSequenceFunctions(unittest.TestCase):
 
 
     def test_escapeing(self):
-        
+
         src="""[b:3e68732ebc]BLACK HOLE[/b:3e68732ebc]
 
 [b:3e68732ebc]Fr. 28.11.2003 - 21.00 Uhr[/b:3e68732ebc]
-@ Uhrturmkasematten, GRAZ - Schlossberg - direkt unter dem Uhrturm 
+@ Uhrturmkasematten, GRAZ - Schlossberg - direkt unter dem Uhrturm
 
-special lineup: 
+special lineup:
 
-&gt;&gt;&gt; Live 
-[b:3e68732ebc]Dan Doormouse[/b:3e68732ebc] (Addict Records - Miami/USA) 
-[b:3e68732ebc]Abelcain[/b:3e68732ebc] (Zhark, Zod, Low Res - Madison/USA) 
-[b:3e68732ebc]Ripit[/b:3e68732ebc] (Riposte Records - Paris/France) 
+&gt;&gt;&gt; Live
+[b:3e68732ebc]Dan Doormouse[/b:3e68732ebc] (Addict Records - Miami/USA)
+[b:3e68732ebc]Abelcain[/b:3e68732ebc] (Zhark, Zod, Low Res - Madison/USA)
+[b:3e68732ebc]Ripit[/b:3e68732ebc] (Riposte Records - Paris/France)
 [b:3e68732ebc]Hecate[/b:3e68732ebc] (Zhark, Praxis - Basel/CH)"""
 
         expected="<strong>BLACK HOLE</strong><br/><br/><strong>Fr. 28.11.2003 - 21.00 Uhr</strong><br/>@ Uhrturmkasematten, GRAZ - Schlossberg - direkt unter dem Uhrturm <br/><br/>special lineup: <br/><br/>&gt;&gt;&gt; Live <br/><strong>Dan Doormouse</strong> (Addict Records - Miami/USA) <br/><strong>Abelcain</strong> (Zhark, Zod, Low Res - Madison/USA) <br/><strong>Ripit</strong> (Riposte Records - Paris/France) <br/><strong>Hecate</strong> (Zhark, Praxis - Basel/CH)"
-        
+
         output = transformPostingText(src)
         self.assertEqual(expected, output)
-        
+
     def test_mixed_tags(self):
-        
+
         """ behavoir for auto-urls False """
-        
+
         src = 'test some url: http://singleurl.com ' \
                 'html tag <a href="http://testme.com/abc">click here</a> ' \
                 'bbtag [url]http://hallo.at/test/test[/url]'
-        
+
         expected = u'test some url: http://singleurl.com ' \
                 'html tag <a href="http://testme.com/abc">click here</a> ' \
                 'bbtag <a href="http://hallo.at/test/test">http://hallo.at/test/test</a>'
 
         output = transformPostingText(src)
-        print output      
-        
+        print output
+
         self.assertEqual(expected, output)
-        
+
     def DONTRUNtest_complex(self):
         src = """
 test text vor tags
@@ -89,15 +89,15 @@ insgesamt handelt es sich dabei um material von  [b:479bf42510] 871 stück!!!!!!
 vinyl...[/b:479bf42510]
 http://www.somelink.at in die news rubrik
 oder schickt mir ein mail an  [email]testeamil@gmx.net[/email]...
-        """     
-        
+        """
+
         expected=u'<br/>test text vor tags<br/><strong> tag text : nochmal test </strong><br/>zwischen text abc: defgh i !<br/>insgesamt handelt es sich dabei um material von  <strong> 871 stück!!!!!!!!!<br/>vinyl...</strong><br/><a href="http://www.somelink.at">http://www.somelink.at</a> in die news rubrik<br/>oder schickt mir ein mail an  <a href="mailto:testeamil@gmx.net">testeamil@gmx.net</a>...'
         expected=u'<br/>test text vor tags<br/><strong> tag text : nochmal test </strong><br/>zwischen text abc: defgh i !<br/>insgesamt handelt es sich dabei um material von  <strong> 871 st��ck!!!!!!!!!<br/>vinyl&#8230;</strong><br/><a href="http://www.somelink.at">http://www.somelink.at</a> in die news rubrik<br/>oder schickt mir ein mail an  testeamil@gmx.net&#8230;<br/>  '
         output = transformPostingText(src)
-                
-        self.assertEqual(expected, output)   
-        
-        
+
+        self.assertEqual(expected, output)
+
+
     def test_posting_of_death(self):
         src = """
 g24.at empfiehlt aus aktuellem Anlass einen Blick auf den aktuellen DVD Release des Films &quot;The Crisis Of Civilization&quot; zu werfen, der am Elevate Festival 2011 seine Weltpremiere feierte!
