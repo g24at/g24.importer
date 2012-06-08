@@ -5,6 +5,7 @@ from xml.dom.minidom import Document
 from xml.dom.minidom import parse
 
 from ConfigParser import ConfigParser
+import sys
 
 cfg = ConfigParser()
 cfg.read('../config.ini')
@@ -102,10 +103,16 @@ for cat in tagdom.getElementsByTagName('cat'):
     cats_info[cat.getAttribute("id")] = tags
 
 
+test_set = True
+if len (sys.argv) > 1:
+    if sys.argv[1] == "all" : test_set = False
+
+
 # select topics for export
 sql_str = "select * from nuke_phpbb_topics "
 sql_str = sql_str + " where forum_id in (" + ','.join(export_topics) + ")"
-# sql_str = sql_str + " limit 0,15"
+
+if test_set: sql_str = sql_str + " limit 0,15"
 print "Selecting Topics : ", sql_str
 topiccursor = conn.cursor (MySQLdb.cursors.DictCursor)
 topiccursor.execute (sql_str);

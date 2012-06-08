@@ -1,0 +1,16 @@
+
+
+    +) see "category-tag-map.xml" for the mapping between categories and tags
+    
+    +) to generate export-posts.xml (needed for postings-import ) :
+        
+        "python export-posts.py"        ... to generate test set 
+        "python export-posts.py all"    ... to generate full export
+
+
+    +) to generate export-events.xml (needed for events-import ) :
+        
+        "python export-events.py"        ... to generate test set 
+        "python export-events.py all"    ... to generate full export
+
+
