@@ -11,7 +11,7 @@ from g24.elements.sharingbox.form import FEATURES, IGNORES, G24_BASETYPE
 from yafowil.base import UNSET
 from plone.event.utils import pydt
 
-logger = logging.getLogger("g24.importer from xml")
+logger = logging.getLogger("g24.importer events from xml")
 
 class ImportEvents(object):
 
@@ -50,7 +50,6 @@ class ImportEvents(object):
             tags.append(t.getAttribute('name'))
 
         data = {
-            'is_title': title.strip() != "",
             'is_event': True,
             'title': title,
             'text': text,
