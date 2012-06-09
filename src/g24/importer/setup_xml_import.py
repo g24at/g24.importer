@@ -79,12 +79,11 @@ class ImportPhpBBPostings(object):
         }
 
         obj = create(container, G24_BASETYPE)
-        obj = add(obj, container)
         obj.setCreators(postingdata['username']) # set the creators by loginname. if more than one, seperate by whitespace
-
         obj.creation_date = DateTime(postingdata['post_time'])
-
         edit(obj, data, order=FEATURES, ignores=IGNORES)
+        obj = add(obj, container)
+
         logger.info('Created object with id: %s' % obj.id)
         return obj
 

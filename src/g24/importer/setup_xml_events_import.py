@@ -74,13 +74,11 @@ class ImportEvents(object):
             data['end']   = pydt(end_date)
 
         obj = create(container, G24_BASETYPE)
+        obj.setCreators(node.getAttribute('pc_informant')) # set the creators by loginname. if more than one, seperate by whitespace
+        obj.creation_date = createdate
+        edit(obj, data, order=FEATURES, ignores=IGNORES)
         obj = add(obj, container)
 
-        obj.setCreators(node.getAttribute('pc_informant')) # set the creators by loginname. if more than one, seperate by whitespace
-
-        obj.creation_date = createdate
-
-        edit(obj, data, order=FEATURES, ignores=IGNORES)
         logger.info('Created object with id: %s' % obj.id)
         return obj
 
