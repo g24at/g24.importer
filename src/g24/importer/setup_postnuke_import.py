@@ -53,10 +53,13 @@ class ImportPhpBB(object):
     def import_nuke_phpbb_users(self):
         cursor = self.conn.cursor()
 
-        # TODO: remove limit
-        cursor.execute("""SELECT username, user_email, user_avatar,
-        user_website, user_from, user_sig, user_regdate FROM nuke_phpbb_users n
-        ORDER BY user_id LIMIT 0,550;""")
+        sql_user = """SELECT username, user_email, user_avatar,
+        user_website, user_from, user_sig, user_regdate FROM nuke_phpbb_users
+        ORDER BY user_id"""
+        # sql_user += " LIMIT 0,550"
+        sql_user += ";"
+
+        cursor.execute(sql_user)
 
         context = self.context
         cnt = 0
