@@ -40,4 +40,4 @@ def setup_content(context):
     ]
 
     sht.create_item_runner(site, content_structure, lang='de', logger=logger)
-    site.setLayout('traverse_view')
+    #site.setLayout('traverse_view')
