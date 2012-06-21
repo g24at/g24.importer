@@ -35,8 +35,9 @@ class ImportEvents(object):
                 enumerate(self.content_dom.getElementsByTagName('event')):
             #if idx>50: break
             try:
-                self.create_g24_event(self.context, ev)
+                obj = self.create_g24_event(self.context, ev)
                 ok += 1
+                logger.info('Created object #%s with id: %s' % (obj.id, idx))
             except Exception as err:
                 logger.error('Failed to import event ( id ' + ev.getAttribute('pc_eid') + ')... ' + repr(err))
                 fail +=1
@@ -83,7 +84,6 @@ class ImportEvents(object):
 
         transaction.commit()
 
-        logger.info('Created object with id: %s' % obj.id)
         return obj
 
     def import_finish(self):

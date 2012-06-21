@@ -50,9 +50,12 @@ class ImportPhpBBPostings(object):
                 mainpost = self.create_g24_posting(self.context, self.map_xml_to_post(postings[0]))
 
                 for p in postings[1:len(postings)]:
-                    self.create_g24_posting(mainpost, self.map_xml_to_post(p))
+                    obj = self.create_g24_posting(mainpost,
+                                                  self.map_xml_to_post(p))
+                    logger.info('Created object #%s with id: %s'\
+                                % (obj.id, idx))
             except Exception as err:
-                logger.error('Failed to import thread ... ')
+                logger.error('Failed to import thread ... %s ' % err)
                 #logger.error(err.)
 
     def map_xml_to_post(self, node):
@@ -87,7 +90,6 @@ class ImportPhpBBPostings(object):
 
         transaction.commit()
 
-        logger.info('Created object with id: %s' % obj.id)
         return obj
 
     def import_finish(self):
