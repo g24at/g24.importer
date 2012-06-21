@@ -8,7 +8,6 @@ from g24.elements.sharingbox.form import create, add, edit
 
 logger = logging.getLogger("g24.importer - from xml")
 
-
 class ImportPhpBBPostings(object):
 
     def __init__(self, context):
@@ -36,7 +35,9 @@ class ImportPhpBBPostings(object):
             logger.error("no xml import found")
             return
 
-        for th in self.content_dom.getElementsByTagName('thread'):
+        for idx, th in\
+                enumerate(self.content_dom.getElementsByTagName('thread')):
+            #if idx>50: break
             try:
                 logger.info("import thread")
 

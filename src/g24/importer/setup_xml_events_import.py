@@ -31,7 +31,9 @@ class ImportEvents(object):
 
         ok = 0
         fail = 0
-        for ev in self.content_dom.getElementsByTagName('event'):
+        for idx, ev in\
+                enumerate(self.content_dom.getElementsByTagName('event')):
+            #if idx>50: break
             try:
                 self.create_g24_event(self.context, ev)
                 ok += 1
