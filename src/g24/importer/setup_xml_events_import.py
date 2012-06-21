@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
+import transaction
 from xml.dom.minidom import parse
-import collective.setuphandlertools as sht
 
 from DateTime import DateTime
 
@@ -79,6 +79,8 @@ class ImportEvents(object):
         edit(obj, data, order=FEATURES, ignores=IGNORES)
         obj = add(obj, container)
 
+        transaction.commit()
+
         logger.info('Created object with id: %s' % obj.id)
         return obj
 
@@ -87,7 +89,7 @@ class ImportEvents(object):
 
 
 def start_import(context):
-    if sht.isNotThisProfile(context, 'g24.importer.xml_events_import.txt'):
+    if context.readDataFile('g24.importer.xml_events_import.txt') is None:
         return
 
     site = context.getSite()

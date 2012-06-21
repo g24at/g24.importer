@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-import collective.setuphandlertools as sht
+import transaction
 from DateTime import DateTime
 from xml.dom.minidom import parse
 from g24.elements.sharingbox.form import FEATURES, IGNORES, G24_BASETYPE
@@ -84,6 +84,8 @@ class ImportPhpBBPostings(object):
         edit(obj, data, order=FEATURES, ignores=IGNORES)
         obj = add(obj, container)
 
+        transaction.commit()
+
         logger.info('Created object with id: %s' % obj.id)
         return obj
 
@@ -92,8 +94,7 @@ class ImportPhpBBPostings(object):
 
 
 def start_import(context):
-    if sht.isNotThisProfile(context, 'g24.importer.xml_import.txt'):
-        return
+    if context.readDataFile('g24.importer.xml_import.txt') is None: return
 
     site = context.getSite()
 
