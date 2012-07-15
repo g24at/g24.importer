@@ -83,6 +83,8 @@ class ImportPhpBBPostings(object):
         }
 
         obj = create(container, G24_BASETYPE)
+        # TODO: set ownership! via api? plone_utils...
+        # http://www.uwosh.edu/ploneprojects/docs/how-tos/scripts-to-change-owner-of-an-item
         obj.setCreators(postingdata['username']) # set the creators by loginname. if more than one, seperate by whitespace
         obj.creation_date = DateTime(postingdata['post_time'])
         edit(obj, data, order=FEATURES, ignores=IGNORES)
