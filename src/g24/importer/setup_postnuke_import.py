@@ -82,6 +82,17 @@ class ImportPhpBB(object):
                          'description': row[5],
                          },
                    logger=logger)
+
+               # TODO: portrait must be set differently.
+               # see:
+               """
+(11:25:34 PM) pelado: can someone tell me what is the way to set a portrait to a plone user?
+(11:25:46 PM) pelado: programatically
+(11:36:06 PM) supton: pelado: IIRC for now this is not a property of the user, but stored in a BTree on portal_memberdata
+(11:36:31 PM) pelado: supton: thanks
+(11:40:51 PM) supton: pelado: you likely want to look at Products.PlonePAS.tools.membership.MembershipTool.changeMemberPortrait() -- this is the official way now until this eventually lands https://dev.plone.org/ticket/11323 
+                """
+
             except ValueError:
                 logger.error("Invalid Username: %s, %s" % (row[0], row[1]))
 
