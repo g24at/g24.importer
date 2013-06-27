@@ -18,7 +18,7 @@ def setup_content(context):
     site = context.getSite()
 
     # delete some default folders AND posts folder
-    sht.delete_items(site, ('front-page', 'news', 'events', 'Members', 'posts'), logger)
+    sht.delete_items(site, ('front-page', 'news', 'events', 'Members'), logger)
 
     streamfolder = create(site, 'g24.elements.basetypecontainer')
     streamfolder.id = 'posts'
