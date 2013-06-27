@@ -29,7 +29,11 @@ setup(name='g24.importer',
       install_requires=[
           'setuptools',
           'collective.setuphandlertools',
-          'MySQL-python',
           'postmarkup',
       ],
-      )
+      extras_require={
+          'sqlimport': [
+              'MySQL-python',
+            ]
+      },
+  )
