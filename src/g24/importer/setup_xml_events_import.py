@@ -2,13 +2,9 @@
 import logging
 import transaction
 from xml.dom.minidom import parse
-
 from DateTime import DateTime
-
 from g24.elements.sharingbox.form import create, add, edit
 from g24.elements.sharingbox.form import FEATURES, IGNORES, G24_BASETYPE
-
-from yafowil.base import UNSET
 from plone.event.utils import pydt
 
 logger = logging.getLogger("g24.importer events from xml")
@@ -59,7 +55,7 @@ class ImportEvents(object):
             'subjects': tags,
             'timezone': 'Europe/Vienna',
             'whole_day': node.getAttribute('pc_alldayevent') == "1",
-            'recurrence':  UNSET,
+            'recurrence':  None,
             'location': node.getAttribute('location_name'),
         }
 
