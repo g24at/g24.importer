@@ -3,8 +3,8 @@ import logging
 import transaction
 from xml.dom.minidom import parse
 from DateTime import DateTime
-from g24.elements.sharingbox.form import create, add, edit
-from g24.elements.sharingbox.form import FEATURES, IGNORES, G24_BASETYPE
+from g24.elements.sharingbox.crud import create, add, edit
+from g24.elements.sharingbox.form import FEATURES, G24_BASETYPE
 from plone.event.utils import pydt
 
 logger = logging.getLogger("g24.importer events from xml")
@@ -75,7 +75,7 @@ class ImportEvents(object):
         obj = create(container, G24_BASETYPE)
         obj.setCreators(node.getAttribute('pc_informant')) # set the creators by loginname. if more than one, seperate by whitespace
         obj.creation_date = createdate
-        edit(obj, data, order=FEATURES, ignores=IGNORES)
+        edit(obj, data, order=FEATURES)
         obj = add(obj, container)
 
         transaction.commit()

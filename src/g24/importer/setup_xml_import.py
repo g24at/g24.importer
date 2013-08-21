@@ -3,8 +3,9 @@ import logging
 import transaction
 from DateTime import DateTime
 from xml.dom.minidom import parse
-from g24.elements.sharingbox.form import FEATURES, IGNORES, G24_BASETYPE
-from g24.elements.sharingbox.form import create, add, edit
+
+from g24.elements.sharingbox.form import FEATURES, G24_BASETYPE
+from g24.elements.sharingbox.crud import create, add, edit
 
 logger = logging.getLogger("g24.importer - from xml")
 
@@ -87,7 +88,7 @@ class ImportPhpBBPostings(object):
         # http://www.uwosh.edu/ploneprojects/docs/how-tos/scripts-to-change-owner-of-an-item
         obj.setCreators(postingdata['username']) # set the creators by loginname. if more than one, seperate by whitespace
         obj.creation_date = DateTime(postingdata['post_time'])
-        edit(obj, data, order=FEATURES, ignores=IGNORES)
+        edit(obj, data, order=FEATURES)
         obj = add(obj, container)
 
         transaction.commit()
