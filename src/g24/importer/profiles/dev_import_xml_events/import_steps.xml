@@ -2,8 +2,8 @@
 <import-steps>
 
   <import-step
-    id="xml-import"
-    handler="g24.importer.setup_xml_import.start_import"
+    id="import_xml_events"
+    handler="g24.importer.setup_dev_import_xml_events.start_import"
     title="g24.importer xml importer events"
     version="1.0">
   </import-step>

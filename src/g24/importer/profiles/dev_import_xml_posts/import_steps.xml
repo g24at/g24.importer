@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+
+  <import-step
+    id="import_xml_posts"
+    handler="g24.importer.setup_dev_import_xml_posts.start_import"
+    title="g24.importer xml importer posts"
+    version="1.0">
+  </import-step>
+
+</import-steps>

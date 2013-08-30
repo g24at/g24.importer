@@ -15,6 +15,14 @@
     />
 
   <genericsetup:registerProfile
+    name="development"
+    title="g24.importer development profile"
+    directory="profiles/development"
+    description="Extension profile for g24.importer."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <genericsetup:registerProfile
     name="setup_content"
     title="g24.importer import content"
     directory="profiles/setup_content"
@@ -23,7 +31,7 @@
     />
 
   <genericsetup:registerProfile
-    name="setup_dummy_content"
+    name="BAK_setup_dummy_content"
     title="g24.importer import dummy content"
     directory="profiles/setup_dummy_content"
     description="Extension profile for g24.importer."
@@ -31,25 +39,25 @@
     />
 
   <genericsetup:registerProfile
-    name="postnuke-import"
+    name="postnuke_import"
     title="g24.importer postnuke import"
-    directory="profiles/postnuke-import"
+    directory="profiles/postnuke_import"
     description="Extension profile for g24.importer."
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
     
   <genericsetup:registerProfile
-    name="xml-import"
-    title="g24.importer xml import"
-    directory="profiles/xml-import"
+    name="dev_import_xml_posts"
+    title="g24.importer xml import posts"
+    directory="profiles/dev_import_xml_posts"
     description="Extension profile for g24.importer."
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
   <genericsetup:registerProfile
-    name="xml-import-events"
+    name="dev_import_xml_events"
     title="g24.importer xml import events"
-    directory="profiles/xml-import-events"
+    directory="profiles/dev_import_xml_events"
     description="Extension profile for g24.importer."
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />

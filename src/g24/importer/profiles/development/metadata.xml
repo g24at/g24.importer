@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <version>1</version>
+  <dependencies>
+    <dependency>profile-g24.importer:setup_content</dependency>
+    <dependency>profile-g24.importer:dev_import_xml_posts</dependency>
+    <dependency>profile-g24.importer:dev_import_xml_events</dependency>
+  </dependencies>
+</metadata>
+

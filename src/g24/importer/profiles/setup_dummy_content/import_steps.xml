@@ -2,7 +2,7 @@
 <import-steps>
   <import-step
     id="g24.importer-setup_dummy_content"
-    handler="g24.importer.setup_dummy_content.setup_dummy_content"
+    handler="g24.importer.setup_dummy_content.BAK_setup_dummy_content"
     title="g24.importer - setup dummy content structure"
     version="1.0">
   </import-step>
