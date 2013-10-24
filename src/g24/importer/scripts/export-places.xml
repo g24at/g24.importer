@@ -1,98 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <export>
-	<location event_city="Graz" event_location="" event_postal="" event_state="" event_street1="" event_street2="" name=""/>
-	<location event_city="graz" event_location="Arcadium" event_postal="" event_state="" event_street1="Griesgasse 25" event_street2="" name="Arcadium"/>
-	<location event_city="Graz" event_location="Backstage" event_postal="8010" event_state="A" event_street1="Grabenstr. 8" event_street2="" name="Backstage"/>
-	<location event_city="" event_location="Dolmetschinstitut - Graz" event_postal="" event_state="" event_street1="Merangasse 70" event_street2="1. Stock" name="Dolmetschinstitut - Graz"/>
-	<location event_city="Graz" event_location="Dom im Berg" event_postal="8010" event_state="" event_street1="Schlossbergplatz" event_street2="" name="Dom im Berg"/>
-	<location event_city="Graz" event_location="Ehemalige Medienfabrik" event_postal="8010" event_state="" event_street1="Freiheitplatz 5" event_street2="" name="Ehemalige Medienfabrik"/>
-	<location event_city="Graz" event_location="Explosiv" event_postal="" event_state="" event_street1="" event_street2="" name="Explosiv"/>
-	<location event_city="" event_location="FORUM STADTPARK" event_postal="8010" event_state="" event_street1="Stadtpark 1" event_street2="" name="FORUM STADTPARK"/>
-	<location event_city="GRAZ" event_location="FORUM STADTPARK" event_postal="" event_state="" event_street1="STADTPARK 1" event_street2="" name="FORUM STADTPARK"/>
-	<location name="Festspielhaus"/>
-	<location event_city="Graz" event_location="Forum Stadtpark" event_postal="8020" event_state="A" event_street1="Stadtpark 1" event_street2="" name="Forum Stadtpark"/>
-	<location event_city="Graz" event_location="Forum Stadtpark Hauptraum" event_postal="" event_state="" event_street1="Stadtpark 1" event_street2="" name="Forum Stadtpark Hauptraum"/>
-	<location event_city="Graz" event_location="Forum Stadtpark, Hauptraum" event_postal="8010" event_state="Austria" event_street1="Stadtpark 1" event_street2="" name="Forum Stadtpark, Hauptraum"/>
-	<location event_city="Graz" event_location="Forum Stadtpark, Keller" event_postal="8010" event_state="Austria" event_street1="Stadtpark 1" event_street2="" name="Forum Stadtpark, Keller"/>
-	<location event_city="Graz" event_location="Forum Stadtpark, Saloon" event_postal="8010" event_state="Austria" event_street1="Stadtpark 1" event_street2="" name="Forum Stadtpark, Saloon"/>
-	<location event_city="Graz" event_location="ForumStadtpark" event_postal="8010" event_state="A" event_street1="Stadtpark 1" event_street2="" name="ForumStadtpark"/>
-	<location event_city="" event_location="Freiheitsplatz" event_postal="8010" event_state="" event_street1="parkplatz schauspielhaus" event_street2="" name="Freiheitsplatz"/>
-	<location event_city="graz" event_location="Geriatrische Gesundheitszentren" event_postal="8020" event_state="" event_street1="Albert-Schweitzer-Gasse 36" event_street2="" name="Geriatrische Gesundheitszentren"/>
-	<location event_city="St. Johnn b. Herberstein" event_location="Gironcoli Museum" event_postal="8222" event_state="" event_street1="im Tier- und Naturpark Schloss Herberstein" event_street2="Buchberg 2" name="Gironcoli Museum"/>
-	<location event_city="Graz" event_location="Graz" event_postal="8020" event_state="" event_street1="Grabenstrasse 8" event_street2="" name="Graz"/>
-	<location event_city="Graz" event_location="Graz und Steiermark" event_postal="" event_state="" event_street1="" event_street2="" name="Graz und Steiermark"/>
-	<location event_city="Graz" event_location="Grazer Congress" event_postal="" event_state="" event_street1="" event_street2="" name="Grazer Congress"/>
-	<location event_city="" event_location="Haider farm" event_postal="" event_state="" event_street1="Vockenberg 49" event_street2="Schielleiten" name="Haider farm"/>
-	<location event_city="" event_location="Hauptplatz" event_postal="" event_state="" event_street1="" event_street2="" name="Hauptplatz"/>
-	<location event_city="" event_location="Helmut List Halle" event_postal="8020" event_state="" event_street1="Waagner-Biro-Str. 98a" event_street2="" name="Helmut List Halle"/>
-	<location event_city="" event_location="Helmut List-Halle" event_postal="8020" event_state="" event_street1="Waagner-Biro-Str. 98a" event_street2="" name="Helmut List-Halle"/>
-	<location event_city="Graz" event_location="ISOP" event_postal="" event_state="" event_street1="Dreihackengasse 2" event_street2="" name="ISOP"/>
-	<location event_city="Graz" event_location="KiG_kultur_in_Graz" event_postal="8010" event_state="" event_street1="Feuerbachgasse 25" event_street2="" name="KiG_kultur_in_Graz"/>
-	<location event_city="Graz" event_location="Kleiner Minoritensaal" event_postal="8020" event_state="" event_street1="Mariahilferplatz 3" event_street2="" name="Kleiner Minoritensaal"/>
-	<location event_city="" event_location="Koralmhalle Deutschlandsberg" event_postal="" event_state="" event_street1="" event_street2="" name="Koralmhalle Deutschlandsberg"/>
+	<location event_city="Wien" event_location="" event_postal="1040" event_state="" event_street1="Gußhausstr. 14/3" event_street2="" name=""/>
+	<location event_city="" event_location="8410 Wildon, Hauptplatz 53" event_postal="" event_state="" event_street1="Schloss Wildon, Mitte Markt" event_street2="" name="8410 Wildon, Hauptplatz 53"/>
+	<location event_city="" event_location="&lt; rotor &gt;" event_postal="" event_state="" event_street1="" event_street2="" name="&lt; rotor &gt;"/>
+	<location event_city="" event_location="&lt; rotor &gt; association for contemporary art" event_postal="8020" event_state="" event_street1="Belgiergasse 8/1" event_street2="" name="&lt; rotor &gt; association for contemporary art"/>
+	<location event_city="" event_location="Afro-Asiatisches Institut" event_postal="" event_state="" event_street1="Leechgasse 22, 8010 Graz" event_street2="" name="Afro-Asiatisches Institut"/>
+	<location event_city="Graz" event_location="Arcadium" event_postal="8020" event_state="Österreich" event_street1="Griesgasse 25" event_street2="" name="Arcadium"/>
+	<location name="Arcadium - Das Sounddepartment"/>
+	<location event_city="" event_location="Architekturzeichensäle" event_postal="" event_state="" event_street1="Schlögelgasse 9" event_street2="" name="Architekturzeichensäle"/>
+	<location event_city="" event_location="Augarten" event_postal="8010" event_state="" event_street1="" event_street2="" name="Augarten"/>
+	<location event_city="Graz" event_location="Bluemoon" event_postal="8010" event_state="" event_street1="Sackstraße 40" event_street2="" name="Bluemoon"/>
+	<location name="Bruck/Mur - alternative bühne-rosseggerstr."/>
+	<location event_city="" event_location="Buchhandlung Moser" event_postal="" event_state="" event_street1="" event_street2="" name="Buchhandlung Moser"/>
+	<location name="Bürgergasse 11 / 8011"/>
+	<location event_city="Graz" event_location="CAFE PRO&amp;ST" event_postal="" event_state="" event_street1="Ecke Rechbauerstraße/Gartengasse" event_street2="(ggüber Alter TU)" name="CAFE PRO&amp;ST"/>
+	<location event_city="Graz" event_location="Café Edith" event_postal="" event_state="" event_street1="Belgiergasse 8" event_street2="" name="Café Edith"/>
+	<location name="Club Fiesta"/>
+	<location event_city="" event_location="DIE BRÜCKE" event_postal="8010" event_state="" event_street1="Grabenstraße 39a" event_street2="" name="DIE BRÜCKE"/>
+	<location event_city="Graz" event_location="Das andere Theater" event_postal="8020" event_state="Österreich" event_street1="Orpheumgasse 11" event_street2="" name="Das andere Theater"/>
+	<location event_city="Graz" event_location="De-Zentrale" event_postal="8010" event_state="" event_street1="Prokopigasse 2 / II" event_street2="" name="De-Zentrale"/>
+	<location event_city="Graz" event_location="Dezentrale" event_postal="8010" event_state="" event_street1="Prokopigasse 2" event_street2="" name="Dezentrale"/>
+	<location event_city="Graz" event_location="Die Brücke" event_postal="8010" event_state="A" event_street1="Grabenstraße 39a" event_street2="" name="Die Brücke"/>
+	<location event_city="Graz" event_location="Dom im Berg" event_postal="" event_state="" event_street1="Schlossberg" event_street2="" name="Dom im Berg"/>
+	<location event_city="" event_location="Forum Stadtpark" event_postal="" event_state="" event_street1="" event_street2="" name="Forum Stadtpark"/>
+	<location event_city="Graz" event_location="Forum Stadtpark Hauptraum" event_postal="8010" event_state="" event_street1="Stadtpark 1" event_street2="" name="Forum Stadtpark Hauptraum"/>
+	<location event_city="Graz" event_location="Forum Stadtpark, Keller" event_postal="8010" event_state="" event_street1="Stadtpark 1" event_street2="" name="Forum Stadtpark, Keller"/>
+	<location event_city="graz" event_location="Gasthaus Kunsthaus" event_postal="" event_state="" event_street1="" event_street2="" name="Gasthaus Kunsthaus"/>
+	<location event_city="GRAZ" event_location="Gewerkschaft der Eisenbahner" event_postal="" event_state="" event_street1="Waagner-Biro-Straße 30b,1. Stock" event_street2="" name="Gewerkschaft der Eisenbahner"/>
+	<location event_city="" event_location="Graz" event_postal="" event_state="" event_street1="Domplatz" event_street2="" name="Graz"/>
+	<location event_city="" event_location="Graz" event_postal="" event_state="" event_street1="Herrengasse" event_street2="" name="Graz"/>
+	<location event_city="" event_location="Graz, Geidorf Kino, 0316-32 10 03" event_postal="" event_state="" event_street1="" event_street2="" name="Graz, Geidorf Kino, 0316-32 10 03"/>
+	<location event_city="Graz" event_location="Grazer Innenstadt" event_postal="" event_state="" event_street1="Sackstraße" event_street2="" name="Grazer Innenstadt"/>
+	<location event_city="Gräz" event_location="Gräz" event_postal="8200" event_state="Austriashit" event_street1="Kärntnerstraße 1" event_street2="" name="Gräz"/>
+	<location event_city="Graz" event_location="HS 11.03 | KF-Uni Graz, Institut für Geografie" event_postal="8010" event_state="" event_street1="" event_street2="" name="HS 11.03 | KF-Uni Graz, Institut für Geografie"/>
+	<location event_city="" event_location="Hauptbrücke" event_postal="" event_state="" event_street1="" event_street2="" name="Hauptbrücke"/>
+	<location event_city="Graz" event_location="Heineken Greenclub" event_postal="8010" event_state="" event_street1="Heinrichstrasse 47" event_street2="" name="Heineken Greenclub"/>
+	<location event_city="Stainz" event_location="Hofer Mühle Stainz" event_postal="8510" event_state="Österreich" event_street1="" event_street2="" name="Hofer Mühle Stainz"/>
+	<location event_city="" event_location="IEM CUBE" event_postal="8010" event_state="" event_street1="Institut für Elektronische Musik" event_street2="Inffeldg. 10/3" name="IEM CUBE"/>
+	<location event_city="Graz" event_location="KPÖ Bildungszentrum" event_postal="8020" event_state="" event_street1="Lagergasse 98a" event_street2="" name="KPÖ Bildungszentrum"/>
+	<location event_city="" event_location="KRISTALLWERK" event_postal="" event_state="" event_street1="Viktor Franz-Strasse 9" event_street2="Graz-Gösting" name="KRISTALLWERK"/>
+	<location event_city="Kirchberg am Wechsel" event_location="Kloster Kirchberg am Wechsel" event_postal="2880" event_state="Österreich" event_street1="Markt 2" event_street2="" name="Kloster Kirchberg am Wechsel"/>
 	<location event_city="Graz" event_location="Kottulinsky" event_postal="8010" event_state="" event_street1="Beethovenstrasse 9" event_street2="" name="Kottulinsky"/>
-	<location name="MINORITENSAAL / mariahilferplatz 3 / 8020"/>
-	<location event_city="Graz" event_location="MOXX" event_postal="" event_state="" event_street1="Moserhofgasse 34;" event_street2="" name="MOXX"/>
-	<location event_city="Graz" event_location="MUWA" event_postal="8010" event_state="Austria" event_street1="Friedrichg. 41" event_street2="" name="MUWA"/>
-	<location event_city="Graz" event_location="MedienKunstLabor" event_postal="8020" event_state="" event_street1="Kunsthaus Graz" event_street2="Lendkai 1" name="MedienKunstLabor"/>
-	<location event_city="Graz" event_location="NiesenBerger" event_postal="8020" event_state="Aut" event_street1="Niesenbergergasse 16" event_street2="" name="NiesenBerger"/>
-	<location event_city="Graz" event_location="Niesenberger" event_postal="8020" event_state="AUT" event_street1="Niesenbergergasse 16" event_street2="" name="Niesenberger"/>
-	<location event_city="Graz" event_location="Nonstop Kino" event_postal="8010" event_state="" event_street1="Europaplatz 2, Haupbahnhof" event_street2="" name="Nonstop Kino"/>
+	<location event_city="" event_location="KrautKOOPf - Lager" event_postal="" event_state="" event_street1="Theodor Körner Straße 49" event_street2="" name="KrautKOOPf - Lager"/>
+	<location event_city="graz" event_location="Kunsthaus" event_postal="8020" event_state="" event_street1="" event_street2="" name="Kunsthaus"/>
+	<location event_city="Graz" event_location="Kunstsalon 4" event_postal="8010" event_state="" event_street1="Bürgergasse 4/3/XVIII" event_street2="" name="Kunstsalon 4"/>
+	<location event_city="Graz" event_location="Landesmuseum Joanneum" event_postal="" event_state="" event_street1="Neutorgasse 45" event_street2="" name="Landesmuseum Joanneum"/>
+	<location event_city="Graz" event_location="Mezzanin" event_postal="8010" event_state="A" event_street1="Nibelungengasse 70" event_street2="" name="Mezzanin"/>
+	<location event_city="" event_location="Murpromenade" event_postal="" event_state="" event_street1="zwischen Andreas-Hofer-Platz und Tegetthofbrücke" event_street2="" name="Murpromenade"/>
+	<location event_city="Graz" event_location="Museumsakademie Joanneum. Kompetenzzentrum für Museologie &amp; Kunst" event_postal="8010" event_state="A-" event_street1="Raubergasse 10" event_street2="" name="Museumsakademie Joanneum. Kompetenzzentrum für Museologie &amp; Kunst"/>
+	<location event_city="Graz" event_location="Non Stop Kino" event_postal="" event_state="" event_street1="" event_street2="" name="Non Stop Kino"/>
+	<location event_city="Graz" event_location="Non-stop-Kino" event_postal="8020" event_state="Österreich" event_street1="Hauptbahnhof" event_street2="" name="Non-stop-Kino"/>
+	<location event_city="Graz" event_location="NonStop Kino" event_postal="8020" event_state="AUT" event_street1="Europaplatz 2" event_street2="" name="NonStop Kino"/>
 	<location event_city="" event_location="ORF 2" event_postal="" event_state="" event_street1="" event_street2="" name="ORF 2"/>
+	<location name="Oper Graz"/>
 	<location name="Orpheum"/>
-	<location event_city="" event_location="Orpheum Graz" event_postal="8020" event_state="" event_street1="Orpheumgasse 8" event_street2="" name="Orpheum Graz"/>
-	<location event_city="Graz" event_location="POSTGARAGE" event_postal="8020" event_state="" event_street1="Dreihackengasse 42" event_street2="" name="POSTGARAGE"/>
-	<location event_city="" event_location="Palais Thienfeld" event_postal="" event_state="" event_street1="" event_street2="" name="Palais Thienfeld"/>
-	<location event_city="Graz" event_location="Papierfabrik" event_postal="8020" event_state="" event_street1="Ungergasse 24a" event_street2="" name="Papierfabrik"/>
-	<location event_city="Graz" event_location="Parkhouse" event_postal="" event_state="" event_street1="Stadtpark 2" event_street2="" name="Parkhouse"/>
-	<location name="Pavelhaus, Laafeld"/>
+	<location event_city="Graz" event_location="PPC" event_postal="" event_state="" event_street1="Neubaugasse 6" event_street2="" name="PPC"/>
+	<location event_city="graz" event_location="Parkhouse" event_postal="8010" event_state="a" event_street1="Stadtpark 2" event_street2="" name="Parkhouse"/>
 	<location event_city="Graz" event_location="Postgarage" event_postal="8020" event_state="A -" event_street1="Dreihackengasse 42" event_street2="" name="Postgarage"/>
-	<location event_city="Graz" event_location="Postgarage 2nd Floor" event_postal="8020" event_state="A -" event_street1="Dreihackengasse 42" event_street2="" name="Postgarage 2nd Floor"/>
-	<location event_city="" event_location="Postgarge 2nd Floor" event_postal="" event_state="" event_street1="" event_street2="" name="Postgarge 2nd Floor"/>
-	<location event_city="" event_location="SUB" event_postal="" event_state="" event_street1="KaiserFranzJosefKai 66" event_street2="" name="SUB"/>
+	<location event_city="Graz" event_location="Postgarage 2nd Floor" event_postal="8010" event_state="Österreich" event_street1="Dreihackengasse 42" event_street2="" name="Postgarage 2nd Floor"/>
+	<location event_city="Graz" event_location="SKA" event_postal="8010" event_state="" event_street1="Grabenstraße 8" event_street2="" name="SKA"/>
+	<location event_city="Graz" event_location="SKA KLUB" event_postal="8010" event_state="" event_street1="Grabenstraße 8" event_street2="" name="SKA KLUB"/>
+	<location event_city="Graz" event_location="SUB" event_postal="" event_state="" event_street1="" event_street2="" name="SUB"/>
+	<location name="SUB - Kaiser Franz Joseph Kai 66"/>
 	<location name="SUBLIME - Aflenz Kurort"/>
-	<location event_city="Graz" event_location="SUb" event_postal="" event_state="" event_street1="kaisafranzjosefkai 66" event_street2="" name="SUb"/>
-	<location event_city="" event_location="Scherbenkeller" event_postal="8020" event_state="" event_street1="Stockergasse 9" event_street2="" name="Scherbenkeller"/>
+	<location event_city="" event_location="SUb" event_postal="8020" event_state="" event_street1="kaiserfranzjosefkai66" event_street2="" name="SUb"/>
+	<location event_city="Graz" event_location="Schaumbad" event_postal="8020" event_state="Aut" event_street1="Starhemberggasse 4" event_street2="" name="Schaumbad"/>
+	<location event_city="Graz" event_location="Schauspielhaus" event_postal="" event_state="" event_street1="" event_street2="" name="Schauspielhaus"/>
+	<location event_city="" event_location="Schubertkino" event_postal="8010" event_state="" event_street1="glockenspielplatz 1" event_street2="" name="Schubertkino"/>
+	<location event_city="Graz" event_location="Ska" event_postal="8010" event_state="" event_street1="Grabenstraße 8" event_street2="" name="Ska"/>
 	<location event_city="Graz" event_location="Spektral" event_postal="" event_state="" event_street1="Lendkai 45" event_street2="" name="Spektral"/>
-	<location event_city="Graz" event_location="Spektral" event_postal="" event_state="" event_street1="Lendkai 45" event_street2="" name="Spektral"/>
-	<location event_city="" event_location="Stockwerk" event_postal="8010" event_state="" event_street1="Jakominiplatz 18" event_street2="" name="Stockwerk"/>
-	<location event_city="Graz" event_location="Stockwerk Jazz" event_postal="8020" event_state="" event_street1="Jakominiplatz 18" event_street2="" name="Stockwerk Jazz"/>
-	<location event_city="Graz" event_location="Sub" event_postal="" event_state="" event_street1="Kaiser-Franz-Josef-Kai 66" event_street2="" name="Sub"/>
-	<location event_city="" event_location="Theater am Ortweinplatz" event_postal="" event_state="" event_street1="" event_street2="" name="Theater am Ortweinplatz"/>
-	<location event_city="Graz" event_location="Treffpunkt Karmeliterplatz" event_postal="" event_state="" event_street1="" event_street2="" name="Treffpunkt Karmeliterplatz"/>
-	<location event_city="graz" event_location="VEILCHEN @ forum stadtpark" event_postal="8010" event_state="" event_street1="stadtpark 1" event_street2="" name="VEILCHEN @ forum stadtpark"/>
-	<location event_city="Graz" event_location="Veilchen (Forum Stadtpark)" event_postal="8010" event_state="" event_street1="Stadtpark 1" event_street2="" name="Veilchen (Forum Stadtpark)"/>
-	<location event_city="" event_location="WIST" event_postal="8010" event_state="" event_street1="Moserhofgasse 34" event_street2="" name="WIST"/>
-	<location event_city="8010" event_location="WIST" event_postal="" event_state="Graz" event_street1="Moserhofgasse 34" event_street2="" name="WIST"/>
-	<location name="arcadium"/>
-	<location name="celery's, dreihackengasse 42, 802o"/>
-	<location event_city="" event_location="celery's_the juice bar" event_postal="8020" event_state="" event_street1="juices &amp; smoothies, vegetarische spezialitaeten" event_street2="dreihackengasse 42" name="celery's_the juice bar"/>
-	<location event_city="Graz" event_location="das lokal" event_postal="" event_state="" event_street1="Mariahilferstrasse 23" event_street2="" name="das lokal"/>
-	<location name="dom im berg"/>
-	<location name="explosiv"/>
-	<location event_city="" event_location="forum stadtpark" event_postal="8010" event_state="" event_street1="stadtpark 1" event_street2="" name="forum stadtpark"/>
-	<location event_city="Graz" event_location="generalmusikdirektion" event_postal="8020" event_state="" event_street1="Grieskai 74a" event_street2="" name="generalmusikdirektion"/>
-	<location event_city="GRAZ" event_location="kaiser franz josef kai 66, graz" event_postal="" event_state="" event_street1="" event_street2="" name="kaiser franz josef kai 66, graz"/>
-	<location name="kaiser franz josef kai66"/>
-	<location event_city="Graz" event_location="medien.KUNSTLABOR" event_postal="8020" event_state="" event_street1="Lendkai 1" event_street2="" name="medien.KUNSTLABOR"/>
-	<location event_city="graz" event_location="medienlabor spektral" event_postal="8020" event_state="a" event_street1="lendkai 45" event_street2="" name="medienlabor spektral"/>
-	<location name="mureck, hauptplatz"/>
-	<location name="orpheum / 8020"/>
-	<location name="orpheum | 8020"/>
-	<location event_city="graz" event_location="p.p.c." event_postal="8020" event_state="" event_street1="Neutorgasse 6" event_street2="" name="p.p.c."/>
-	<location event_city="" event_location="p.p.c. bar" event_postal="" event_state="" event_street1="neubaugasse 6" event_street2="" name="p.p.c. bar"/>
-	<location event_city="" event_location="p.p.c.bar" event_postal="" event_state="" event_street1="" event_street2="" name="p.p.c.bar"/>
-	<location event_city="graz" event_location="parkhouse" event_postal="8010" event_state="" event_street1="stadtpark 2" event_street2="" name="parkhouse"/>
-	<location event_city="graz" event_location="postgarage" event_postal="8020" event_state="a" event_street1="dreihackengasse 42" event_street2="" name="postgarage"/>
-	<location event_city="Graz" event_location="ppc" event_postal="" event_state="" event_street1="Neubaugasse" event_street2="" name="ppc"/>
-	<location event_city="" event_location="sUb" event_postal="8010" event_state="" event_street1="kaiser franz josef kai 66" event_street2="" name="sUb"/>
-	<location event_city="graz" event_location="schlossbergrestaurant" event_postal="8010" event_state="A" event_street1="" event_street2="" name="schlossbergrestaurant"/>
+	<location name="Stadthalle Graz | Messeplatz 1 | 8010 Graz"/>
+	<location event_city="8020 Graz" event_location="Stadtteilcafé palaver" event_postal="" event_state="" event_street1="Griesgasse 8" event_street2="" name="Stadtteilcafé palaver"/>
+	<location event_city="Graz" event_location="Stallbastei" event_postal="8010" event_state="Österreich" event_street1="Schloßberg" event_street2="" name="Stallbastei"/>
+	<location name="Stefaniensaal"/>
+	<location event_city="" event_location="Sublime" event_postal="" event_state="" event_street1="Aflenz Kurort" event_street2="" name="Sublime"/>
+	<location event_city="" event_location="Synagoge Graz" event_postal="" event_state="" event_street1="David-Herzog-Platz 1" event_street2="" name="Synagoge Graz"/>
+	<location event_city="Graz" event_location="TaL-Theater am Lend" event_postal="8020" event_state="" event_street1="Wienerstraße 58a" event_street2="" name="TaL-Theater am Lend"/>
+	<location event_city="Graz" event_location="The Bang Bang Club" event_postal="8010" event_state="" event_street1="Keesgasse 3" event_street2="" name="The Bang Bang Club"/>
+	<location event_city="Graz" event_location="Universität Graz" event_postal="" event_state="" event_street1="" event_street2="" name="Universität Graz"/>
+	<location event_city="graz" event_location="VEILCHEN" event_postal="8010" event_state="" event_street1="stadtpark 1" event_street2="" name="VEILCHEN"/>
+	<location event_city="Graz" event_location="Veilchen im Forum Stadtpark" event_postal="8010" event_state="" event_street1="Stadtpark 1" event_street2="" name="Veilchen im Forum Stadtpark"/>
+	<location event_city="Graz" event_location="Veranstaltungssaal MELODY" event_postal="8020" event_state="" event_street1="Lagergasse 57a" event_street2="(100m nördlich vom Volkshaus; Rückseite der Generalmusikdirektion)" name="Veranstaltungssaal MELODY"/>
+	<location event_city="Graz" event_location="Volksgarten Pavvillion" event_postal="" event_state="" event_street1="" event_street2="" name="Volksgarten Pavvillion"/>
+	<location event_city="Wien" event_location="WUK" event_postal="1090" event_state="" event_street1="Währingerstrasse 59" event_street2="" name="WUK"/>
+	<location event_city="Werndorf" event_location="Werndorf" event_postal="8402" event_state="" event_street1="Bahnhofstrasse 77" event_street2="" name="Werndorf"/>
+	<location name="celery's | dreihackengasse 42"/>
+	<location name="celery's | dreihackengasse 42 | 8020"/>
+	<location event_city="Graz" event_location="das lokal" event_postal="" event_state="" event_street1="Mariahilferstraße 23" event_street2="" name="das lokal"/>
+	<location event_city="" event_location="die brücke" event_postal="" event_state="" event_street1="" event_street2="" name="die brücke"/>
+	<location event_city="graz" event_location="explosiv" event_postal="" event_state="" event_street1="schützgasse 16" event_street2="" name="explosiv"/>
+	<location name="explosiv / Schützgasse 16 / 8020"/>
+	<location name="filmzentrum rechbauerkino | rechbauerstraße 6"/>
+	<location name="forum stadtpark"/>
+	<location event_city="Graz" event_location="generalmusikdirektion" event_postal="8020" event_state="Österreich" event_street1="Grieskai 74a" event_street2="" name="generalmusikdirektion"/>
+	<location event_city="" event_location="herbstbar" event_postal="8020" event_state="" event_street1="Palais Thienfeld" event_street2="Mariahilferstraße 2" name="herbstbar"/>
+	<location event_city="" event_location="j" event_postal="8020" event_state="" event_street1="Schützgasse 16" event_street2="" name="j"/>
+	<location event_city="graz" event_location="les viperes, kunsthaus graz" event_postal="8010" event_state="a" event_street1="lendkai 1" event_street2="" name="les viperes, kunsthaus graz"/>
+	<location name="musichouse"/>
+	<location name="naturbühne wildon"/>
+	<location event_city="graz" event_location="nonstop Kino" event_postal="8020" event_state="stmk" event_street1="europaplatz 2" event_street2="" name="nonstop Kino"/>
+	<location event_city="graz" event_location="orpheum graz" event_postal="8020" event_state="austria" event_street1="Orpheumgasse 8, 8020 Graz" event_street2="" name="orpheum graz"/>
+	<location event_city="Graz" event_location="p.p.c" event_postal="" event_state="" event_street1="Neubaugasse 8" event_street2="" name="p.p.c"/>
+	<location event_city="graz" event_location="p.p.c." event_postal="" event_state="" event_street1="neubaugasse 6" event_street2="" name="p.p.c."/>
+	<location event_city="graz" event_location="parkhouse" event_postal="8010" event_state="" event_street1="stadpark 2" event_street2="" name="parkhouse"/>
+	<location event_city="" event_location="posthochhaus" event_postal="8020" event_state="" event_street1="griesplatz / rösselmühlgasse" event_street2="" name="posthochhaus"/>
+	<location event_city="" event_location="ppc (Teatro)" event_postal="" event_state="" event_street1="" event_street2="" name="ppc (Teatro)"/>
+	<location event_city="" event_location="ppc graz" event_postal="" event_state="" event_street1="l" event_street2="" name="ppc graz"/>
+	<location event_city="" event_location="radio helsinki, 92,6MHz" event_postal="" event_state="" event_street1="" event_street2="" name="radio helsinki, 92,6MHz"/>
+	<location event_city="" event_location="sPEKTRAL" event_postal="" event_state="" event_street1="Lendkai 45" event_street2="" name="sPEKTRAL"/>
+	<location name="screen bar / neubaugasse 6 / 8020 graz"/>
 	<location name="seifenfabrik / angergasse 41-45 / 8010"/>
-	<location event_city="" event_location="siehe text" event_postal="" event_state="" event_street1="" event_street2="" name="siehe text"/>
+	<location event_city="graz" event_location="ska" event_postal="" event_state="" event_street1="grabenstrasse 8" event_street2="" name="ska"/>
 	<location event_city="" event_location="spektral" event_postal="8020" event_state="" event_street1="lendkai 45" event_street2="" name="spektral"/>
-	<location event_city="gradec/graz" event_location="spektral c.s.a." event_postal="8020 (trenchtown)" event_state="" event_street1="" event_street2="" name="spektral c.s.a."/>
-	<location event_city="" event_location="sub" event_postal="" event_state="" event_street1="KFJ Kai 66" event_street2="" name="sub"/>
-	<location event_city="Graz" event_location="uni" event_postal="" event_state="" event_street1="" event_street2="" name="uni"/>
-	<location event_city="" event_location="vipers im thienfeld" event_postal="8020" event_state="" event_street1="mariahilferstrasse 2" event_street2="" name="vipers im thienfeld"/>
+	<location event_city="Graz" event_location="spektral/ galerie lendluft" event_postal="8020" event_state="Wer" event_street1="Lendkai 45" event_street2="" name="spektral/ galerie lendluft"/>
+	<location event_city="" event_location="strombauamt - greifenstein / NÖ" event_postal="" event_state="" event_street1="" event_street2="" name="strombauamt - greifenstein / NÖ"/>
+	<location event_city="" event_location="sub" event_postal="" event_state="" event_street1="kaiser franz josef kai 66" event_street2="" name="sub"/>
+	<location event_city="" event_location="veilchen im forum stadtpark" event_postal="8010" event_state="" event_street1="Stadtpark 1" event_street2="" name="veilchen im forum stadtpark"/>
+	<location name="vipers im thienfeld"/>
+	<location name="vipers im thienfeld / mariahilferstr2 / 8020"/>
+	<location name="vipers im thienfeld, mariahilferstrasse 2, 8020 gr"/>
 	<location event_city="graz" event_location="wall innenhof" event_postal="8010" event_state="" event_street1="merangasse 70" event_street2="" name="wall innenhof"/>
+	<location name="wist / moserhofgasse"/>
 </export>
