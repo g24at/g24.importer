@@ -89,5 +89,5 @@ for row in rows:
 cursor.close ()
 conn.close ()
 
-with open("userexport.xml", "w") as f:
+with open("export-users.xml", "w") as f:
     f.write(dom.toprettyxml(encoding=OUT_ENCODING))
