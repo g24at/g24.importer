@@ -3,7 +3,8 @@ from xml.dom.minidom import Document
 import MySQLdb
 
 
-DEFAULT_ENCODING = 'utf-8'
+IN_ENCODING = 'latin-1'
+OUT_ENCODING = 'utf-8'
 
 
 cfg = ConfigParser()
@@ -82,11 +83,11 @@ for row in rows:
     #export_fields = row.keys()
     export_fields = ["user_id", "user_active", "username", "user_level"]
     for attr in export_fields:
-        user.setAttribute(attr, str(row[attr]).decode(DEFAULT_ENCODING))
+        user.setAttribute(attr, str(row[attr]).decode(IN_ENCODING))
     dom.childNodes[0].appendChild(user)
 
 cursor.close ()
 conn.close ()
 
 with open("userexport.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding=DEFAULT_ENCODING))
+    f.write(dom.toprettyxml(encoding=OUT_ENCODING))

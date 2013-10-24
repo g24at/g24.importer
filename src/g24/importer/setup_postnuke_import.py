@@ -30,8 +30,8 @@ class ImportPhpBB(object):
                 passwd=cfg.get('default', 'mysql.passwd'),
                 db=cfg.get('default', 'mysql.db'),
                 use_unicode=True,
-                charset='utf8')  # <-- SET the character set!
-                #charset='latin1')  # <-- SET the character set!
+                #charset='utf8')  # <-- SET the character set!
+                charset='latin1')  # <-- SET the character set!
 
             """self.conn = MySQLdb.connect (
                     host = "localhost",
@@ -41,8 +41,8 @@ class ImportPhpBB(object):
                     use_unicode = True,
                     charset = 'latin1') # <-- SET the character set!"""
 
-            self.conn.set_character_set('utf8')
-            #self.conn.set_character_set('latin1')
+            #self.conn.set_character_set('utf8')
+            self.conn.set_character_set('latin1')
 
         except MySQLdb.Error, e:
             raise RuntimeError("Error %d: %s" % (e.args[0], e.args[1]))

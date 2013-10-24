@@ -9,7 +9,8 @@ import re
 import sys
 
 
-DEFAULT_ENCODING = 'utf-8'
+IN_ENCODING = 'latin-1'
+OUT_ENCODING = 'utf-8'
 
 cfg = ConfigParser()
 cfg.read('../config.ini')
@@ -121,7 +122,7 @@ for event in eventrows:
         eventnode = dom.createElement('event')
 
         # process location information
-        locstring = str(event['pc_location']).decode(DEFAULT_ENCODING)
+        locstring = str(event['pc_location']).decode(IN_ENCODING)
         if "{" in locstring:
             locstruct = phpserialize.unserialize(locstring)
             loc = locstruct["event_location"]
@@ -155,18 +156,18 @@ for event in eventrows:
                     'pc_topic'
                     ]
         for attr in fields:
-            eventnode.setAttribute(attr, str(event[attr]).decode(DEFAULT_ENCODING))
+            eventnode.setAttribute(attr, str(event[attr]).decode(IN_ENCODING))
 
         # only set end date if value is set
         for attr in ['pc_endDate', 'pc_endTime']:
             if event[attr]:
-                eventnode.setAttribute(attr , str(event[attr]).decode(DEFAULT_ENCODING))
+                eventnode.setAttribute(attr , str(event[attr]).decode(IN_ENCODING))
 
-        title = cleanTextFromControlChars(str(event["pc_title"]).decode(DEFAULT_ENCODING))
+        title = cleanTextFromControlChars(str(event["pc_title"]).decode(IN_ENCODING))
         eventnode.setAttribute("pc_title" , title)
 
         # clean + add event text
-        posting_text = str(event['pc_hometext']).decode(DEFAULT_ENCODING)
+        posting_text = str(event['pc_hometext']).decode(IN_ENCODING)
         posting_text = cleanTextFromControlChars(posting_text)
         lines = posting_text.split("\n")
         if ':text:' in lines[0]:
@@ -202,7 +203,7 @@ eventcursor.close()
 conn.close()
 
 with open("export-events.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding=DEFAULT_ENCODING))
+    f.write(dom.toprettyxml(encoding=OUT_ENCODING))
 
 print "events export done! ok:", items_ok, ", failed:", items_fail
 
@@ -223,6 +224,6 @@ for k in sorted(locations.keys()):
     lnode.setAttribute('name', _cleanup_textonly(k))
 
 with open("export-places.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding=DEFAULT_ENCODING))
+    f.write(dom.toprettyxml(encoding=OUT_ENCODING))
 
 print "places export done!"
