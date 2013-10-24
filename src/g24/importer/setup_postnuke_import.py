@@ -1,18 +1,12 @@
 # -*- coding: utf-8 -*-
 import logging
 import MySQLdb
-
-from Products.CMFPlone.utils import normalizeString
 from Products.CMFCore.utils import getToolByName
-
-from Products.CMFPlone.utils import _createObjectByType
-from Products.Archetypes.event import ObjectInitializedEvent
-from zope import event
 import collective.setuphandlertools as sht
-
 from ConfigParser import ConfigParser
 
 logger = logging.getLogger("g24.importer from postnuke")
+
 
 class ImportPhpBB(object):
 
@@ -30,12 +24,14 @@ class ImportPhpBB(object):
             cfg = ConfigParser()
             cfg.read('src/g24.importer/src/g24/importer/config.ini')
 
-            self.conn = MySQLdb.connect (host = cfg.get('default', 'mysql.host'),
-                                       user = cfg.get('default', 'mysql.user'),
-                                       passwd = cfg.get('default', 'mysql.passwd'),
-                                       db = cfg.get('default', 'mysql.db'),
-                                       use_unicode = True,
-                                       charset = 'latin1')  # <-- SET the character set!
+            self.conn = MySQLdb.connect(
+                host=cfg.get('default', 'mysql.host'),
+                user=cfg.get('default', 'mysql.user'),
+                passwd=cfg.get('default', 'mysql.passwd'),
+                db=cfg.get('default', 'mysql.db'),
+                use_unicode=True,
+                charset='utf8')  # <-- SET the character set!
+                #charset='latin1')  # <-- SET the character set!
 
             """self.conn = MySQLdb.connect (
                     host = "localhost",
@@ -45,10 +41,11 @@ class ImportPhpBB(object):
                     use_unicode = True,
                     charset = 'latin1') # <-- SET the character set!"""
 
-            self.conn.set_character_set('latin1')
+            self.conn.set_character_set('utf8')
+            #self.conn.set_character_set('latin1')
 
         except MySQLdb.Error, e:
-            raise RuntimeError, "Error %d: %s" % (e.args[0], e.args[1])
+            raise RuntimeError("Error %d: %s" % (e.args[0], e.args[1]))
 
     def import_nuke_phpbb_users(self):
         cursor = self.conn.cursor()
@@ -65,27 +62,29 @@ class ImportPhpBB(object):
         cnt = 0
         while True:
             row = cursor.fetchone()
-            if row == None: break
-            if row[0].lower() == 'anonymous': continue
+            if row is None:
+                break
+            if row[0].lower() == 'anonymous':
+                continue
             try:
-               sht.add_user(
-                   context=context,
-                   username=row[0],
-                   password=row[0],
-                   groups=[],
-                   email=row[1],
-                   fullname="",
-                   data={'portrait': sht.load_file(globals(),
-                         'setupdata/avatar/%s' % row[2]),
-                         'home_page': row[3],
-                         'location': row[4],
-                         'description': row[5],
-                         },
-                   logger=logger)
+                sht.add_user(
+                    context=context,
+                    username=row[0],
+                    password=row[0],
+                    groups=[],
+                    email=row[1],
+                    fullname="",
+                    data={'portrait': sht.load_file(globals(),
+                          'setupdata/avatar/%s' % row[2]),
+                          'home_page': row[3],
+                          'location': row[4],
+                          'description': row[5],
+                          },
+                    logger=logger)
 
-               # TODO: portrait must be set differently.
-               # see:
-               """
+                # TODO: portrait must be set differently.
+                # see:
+                """
 (11:25:34 PM) pelado: can someone tell me what is the way to set a portrait to a plone user?
 (11:25:46 PM) pelado: programatically
 (11:36:06 PM) supton: pelado: IIRC for now this is not a property of the user, but stored in a BTree on portal_memberdata

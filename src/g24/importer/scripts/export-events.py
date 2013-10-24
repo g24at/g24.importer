@@ -1,12 +1,15 @@
 from ConfigParser import ConfigParser
 from pnexport import cleanTextFromControlChars
 from xml.dom.minidom import Document
+import HTMLParser
 import MySQLdb
 import collections
 import phpserialize
 import re
 import sys
 
+
+DEFAULT_ENCODING = 'utf-8'
 
 cfg = ConfigParser()
 cfg.read('../config.ini')
@@ -55,22 +58,24 @@ mysql> describe nuke_postcalendar_events;
 """
 
 
-def _cleanup_html(s):
-    d = {
-        '&quot;': '"',
-        '&amp;': '"',
-        '&lt;': '<',
-        '&gt;': '>',
-    }
-    # http://stackoverflow.com/questions/2400504/easiest-way-to-replace-a-string-using-a-dictionary-of-replacements/2401481#2401481
-    # no whole words
-    pattern = re.compile('|'.join(d.keys()))
-    # whole words
-    #pattern = re.compile(r'\b(' + '|'.join(d.keys()) + r')\b')
-    result = pattern.sub(lambda x: d[x.group()], s.strip())
+def _cleanup_textonly(s):
+    # http://stackoverflow.com/questions/730299/replace-html-entities-with-the-corresponding-utf-8-characters-in-python-2-6
+    s = s.strip()
+    pars = HTMLParser.HTMLParser()
+    result = pars.unescape(s)
+    #d = {
+    #    '&quot;': '"',
+    #    '&amp;': '&',
+    #    '&lt;': '<',
+    #    '&gt;': '>',
+    #}
+    ## http://stackoverflow.com/questions/2400504/easiest-way-to-replace-a-string-using-a-dictionary-of-replacements/2401481#2401481
+    ## no whole words
+    #pattern = re.compile('|'.join(d.keys()))
+    ## whole words
+    ##pattern = re.compile(r'\b(' + '|'.join(d.keys()) + r')\b')
+    #result = pattern.sub(lambda x: d[x.group()], s)
     return result
-
-
 
 
 dom = Document()
@@ -116,7 +121,7 @@ for event in eventrows:
         eventnode = dom.createElement('event')
 
         # process location information
-        locstring = str(event['pc_location']).decode('latin-1')
+        locstring = str(event['pc_location']).decode(DEFAULT_ENCODING)
         if "{" in locstring:
             locstruct = phpserialize.unserialize(locstring)
             loc = locstruct["event_location"]
@@ -150,18 +155,18 @@ for event in eventrows:
                     'pc_topic'
                     ]
         for attr in fields:
-            eventnode.setAttribute(attr, str(event[attr]).decode('latin-1'))
+            eventnode.setAttribute(attr, str(event[attr]).decode(DEFAULT_ENCODING))
 
         # only set end date if value is set
         for attr in ['pc_endDate', 'pc_endTime']:
             if event[attr]:
-                eventnode.setAttribute(attr , str(event[attr]).decode('latin-1'))
+                eventnode.setAttribute(attr , str(event[attr]).decode(DEFAULT_ENCODING))
 
-        title = cleanTextFromControlChars(str(event["pc_title"]).decode('latin-1'))
+        title = cleanTextFromControlChars(str(event["pc_title"]).decode(DEFAULT_ENCODING))
         eventnode.setAttribute("pc_title" , title)
 
         # clean + add event text
-        posting_text = str(event['pc_hometext']).decode('latin-1')
+        posting_text = str(event['pc_hometext']).decode(DEFAULT_ENCODING)
         posting_text = cleanTextFromControlChars(posting_text)
         lines = posting_text.split("\n")
         if ':text:' in lines[0]:
@@ -194,10 +199,10 @@ for event in eventrows:
         items_fail += 1
 
 eventcursor.close()
-conn.close ()
+conn.close()
 
 with open("export-events.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding="UTF-8"))
+    f.write(dom.toprettyxml(encoding=DEFAULT_ENCODING))
 
 print "events export done! ok:", items_ok, ", failed:", items_fail
 
@@ -213,11 +218,11 @@ for k in sorted(locations.keys()):
     lnode = dom.createElement('location')
     if type(loc) == dict:
         for attr, val in loc.items():
-            lnode.setAttribute(attr,_cleanup_html(val))
+            lnode.setAttribute(attr, _cleanup_textonly(val))
     dom.childNodes[0].appendChild(lnode)
-    lnode.setAttribute('name', _cleanup_html(k))
+    lnode.setAttribute('name', _cleanup_textonly(k))
 
 with open("export-places.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding="UTF-8"))
+    f.write(dom.toprettyxml(encoding=DEFAULT_ENCODING))
 
 print "places export done!"

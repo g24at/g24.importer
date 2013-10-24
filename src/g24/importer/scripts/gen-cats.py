@@ -1,8 +1,8 @@
-import MySQLdb
-import time
-
-from xml.dom.minidom import Document
 from ConfigParser import ConfigParser
+from xml.dom.minidom import Document
+import MySQLdb
+
+DEFAULT_ENCODING = 'utf-8'
 
 cfg = ConfigParser()
 cfg.read('../config.ini')
@@ -82,24 +82,24 @@ for catrow in topicrows:
     # create cat element and add attributes
     cm = dom.createElement('cat')
     cm.setAttribute('export', str(1))
-    cm.setAttribute('id', str(catrow['forum_id']).decode('latin-1'))
+    cm.setAttribute('id', str(catrow['forum_id']).decode(DEFAULT_ENCODING))
     for attr in ['forum_name', 'cat_title'] :
-        cm.setAttribute(attr, str(catrow[attr]).decode('latin-1'))
+        cm.setAttribute(attr, str(catrow[attr]).decode(DEFAULT_ENCODING))
 
     # add description
     desc = dom.createElement('desc')
-    desc.appendChild(dom.createCDATASection(str(catrow['forum_desc']).decode('latin-1')))
+    desc.appendChild(dom.createCDATASection(str(catrow['forum_desc']).decode(DEFAULT_ENCODING)))
     cm.appendChild(desc)
 
     tags = dom.createElement('tags')
 
     # add cat_title as tag
     tag = dom.createElement('tag')
-    tag.setAttribute('name', catrow['cat_title'].decode('latin-1'))
+    tag.setAttribute('name', catrow['cat_title'].decode(DEFAULT_ENCODING))
     tags.appendChild(tag)
 
     # split forum name into parts and add them as tags
-    forumname = catrow['forum_name'].decode('latin-1')
+    forumname = catrow['forum_name'].decode(DEFAULT_ENCODING)
     for val in [t for t in forumname.split(' ') if t not in ["","/","-"]]:
         tag = dom.createElement('tag')
         tag.setAttribute('name', val)
@@ -112,6 +112,4 @@ topiccursor.close()
 conn.close ()
 
 with open("category-tag-map.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding="UTF-8"))
-
-
+    f.write(dom.toprettyxml(encoding=DEFAULT_ENCODING))

@@ -1,7 +1,10 @@
-import MySQLdb
-from xml.dom.minidom import Document
-
 from ConfigParser import ConfigParser
+from xml.dom.minidom import Document
+import MySQLdb
+
+
+DEFAULT_ENCODING = 'utf-8'
+
 
 cfg = ConfigParser()
 cfg.read('../config.ini')
@@ -79,11 +82,11 @@ for row in rows:
     #export_fields = row.keys()
     export_fields = ["user_id", "user_active", "username", "user_level"]
     for attr in export_fields:
-        user.setAttribute(attr, str(row[attr]).decode('latin-1'))
+        user.setAttribute(attr, str(row[attr]).decode(DEFAULT_ENCODING))
     dom.childNodes[0].appendChild(user)
 
 cursor.close ()
 conn.close ()
 
 with open("userexport.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding="UTF-8"))
+    f.write(dom.toprettyxml(encoding=DEFAULT_ENCODING))

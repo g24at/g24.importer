@@ -1,11 +1,14 @@
-import MySQLdb
-import time
+from ConfigParser import ConfigParser
 from pnexport import transformPostingText, cleanTextFromControlChars
 from xml.dom.minidom import Document
 from xml.dom.minidom import parse
-
-from ConfigParser import ConfigParser
+import MySQLdb
 import sys
+import time
+
+
+DEFAULT_ENCODING = 'utf-8'
+
 
 cfg = ConfigParser()
 cfg.read('../config.ini')
@@ -152,13 +155,13 @@ for topic in topicrows:
             # set attributes
             export_fields = ["post_username", "post_subject", "username", "post_id"]
             for attr in export_fields:
-                postnode.setAttribute(attr, str(row[attr]).decode('latin-1'))
+                postnode.setAttribute(attr, str(row[attr]).decode(DEFAULT_ENCODING))
 
             tstruct = time.gmtime( row["post_time"])
             postnode.setAttribute('post_time', time.strftime("%m/%d/%Y, %H:%M:%S CET", tstruct))
 
             # add posting text
-            posting_text = cleanTextFromControlChars(row['post_text'].decode('latin-1'))
+            posting_text = cleanTextFromControlChars(row['post_text'].decode(DEFAULT_ENCODING))
             txt         = dom.createElement('text')
             if row['enable_bbcode']:
                 posting_text  = transformPostingText(posting_text)
@@ -191,6 +194,6 @@ topiccursor.close()
 conn.close ()
 
 with open("export-posts.xml", "w") as f:
-    f.write(dom.toprettyxml(encoding="UTF-8"))
+    f.write(dom.toprettyxml(encoding=DEFAULT_ENCODING))
 
 print "done! ok:", topics_ok, ", failed:", topics_fail
