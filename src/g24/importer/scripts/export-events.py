@@ -61,6 +61,20 @@ mysql> describe nuke_postcalendar_events;
 """
 
 
+# from Products.CMFPlone.utils
+def safe_unicode(value, encoding='utf-8'):
+    """Converts a value to unicode, even it is already a unicode string.
+    """
+    if isinstance(value, unicode):
+        return value
+    elif isinstance(value, basestring):
+        try:
+            value = unicode(value, encoding)
+        except (UnicodeDecodeError):
+            value = value.decode('utf-8', 'replace')
+    return value
+
+
 def _cleanup_textonly(s):
     # http://stackoverflow.com/questions/730299/replace-html-entities-with-the-corresponding-utf-8-characters-in-python-2-6
     s = s.strip()
@@ -78,7 +92,7 @@ def _cleanup_textonly(s):
     ## whole words
     ##pattern = re.compile(r'\b(' + '|'.join(d.keys()) + r')\b')
     #result = pattern.sub(lambda x: d[x.group()], s)
-    return result
+    return safe_unicode(result)
 
 
 dom = Document()
@@ -353,8 +367,8 @@ loc_map = collections.OrderedDict([
     (u'klagenfurt', 'klagenfurt'),
     (u'gleisdorf', 'gleisdorf'),
     (u'feldbach', 'feldbach'),
-    (u'weiz', 'volkshaus_weiz'),
-    (u'stenfeld', 'volkshaus_weiz'),
+    (u'weiz', 'weiz'),
+    (u'stenfeld', 'fuerstenfeld'),
     (u'kottulinsky', 'kottulinsky'),
     (u'kulturkompetenzzentrum', 'niesenberger'),
     (u'leibnitz', 'leibnitz'),
@@ -455,15 +469,17 @@ for event in eventrows:
             val = _cleanup_textonly(val)
             locstruct[key] = val
         loc = _get_key(locstruct["event_location"].lower())
-        locations[loc] = locstruct
+        if loc:
+            locations[loc] = locstruct
     else:
         locstring = _cleanup_textonly(locstring)
         loc = _get_key(locstring.lower())
-        if not loc in loc_map:
+        if loc and not loc in loc_map:
             # if it's already there, it might be better defined...
             locations[loc] = {'event_location': locstring}
 
-    eventnode.setAttribute('location_name', loc)
+    if loc:
+        eventnode.setAttribute('location_name', loc)
 
     # export fields
     fields = [
@@ -556,11 +572,11 @@ with open("export-places.xml", "w") as f:
     f.write(dom.toprettyxml(encoding=OUT_ENCODING))
 
 
-import pdb; pdb.set_trace()
 import json
 with open("export-places.json", "w") as f:
     f.write(json.dumps(
         locations,
+        encoding='utf-8',
         #ensure_ascii=False,
         sort_keys=False,  # locations already case-insensitive sorted
         indent=4,
