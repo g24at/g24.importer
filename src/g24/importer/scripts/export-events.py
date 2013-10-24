@@ -124,12 +124,20 @@ for event in eventrows:
         # process location information
         locstring = str(event['pc_location']).decode(IN_ENCODING)
         if "{" in locstring:
-            locstruct = phpserialize.unserialize(locstring)
-            loc = locstruct["event_location"]
+            _locstruct = phpserialize.unserialize(locstring)
+
+            # cleanup locations details
+            locstruct = {}
+            for key, val in _locstruct.items():
+                key = _cleanup_textonly(key)
+                val = _cleanup_textonly(val)
+                locstruct[key] = val
+            loc = locstruct["event_location"].lower()
             locations[loc] = locstruct
         else:
-            loc = locstring
-            locations[loc] = loc
+            locstring = _cleanup_textonly(locstring)
+            loc = locstring.lower()
+            locations[loc] = locstring
 
         eventnode.setAttribute('location_name', loc)
 
@@ -210,7 +218,9 @@ print "events export done! ok:", items_ok, ", failed:", items_fail
 
 ### LOCATIONS
 
-locations = collections.OrderedDict(sorted(locations.items()))
+# case insensitive sorting
+locations = collections.OrderedDict(sorted(locations.items()))  #, key=str.lower))
+
 
 dom = Document()
 dom.appendChild(dom.createElement('export'))
@@ -219,11 +229,23 @@ for k in sorted(locations.keys()):
     lnode = dom.createElement('location')
     if type(loc) == dict:
         for attr, val in loc.items():
-            lnode.setAttribute(attr, _cleanup_textonly(val))
+            lnode.setAttribute(attr, val)
     dom.childNodes[0].appendChild(lnode)
-    lnode.setAttribute('name', _cleanup_textonly(k))
+    lnode.setAttribute('name', k)
 
 with open("export-places.xml", "w") as f:
     f.write(dom.toprettyxml(encoding=OUT_ENCODING))
 
-print "places export done!"
+
+import pdb; pdb.set_trace()
+import json
+with open("export-places.json", "w") as f:
+    f.write(json.dumps(
+        locations,
+        #ensure_ascii=False,
+        sort_keys=False,  # locations already case-insensitive sorted
+        indent=4,
+        separators=(',', ': ')
+    ))
+
+print "places export done! number places: %s" % len(locations)
