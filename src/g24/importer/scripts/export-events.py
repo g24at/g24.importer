@@ -1,22 +1,20 @@
-import MySQLdb
-import time
+from ConfigParser import ConfigParser
 from pnexport import cleanTextFromControlChars
 from xml.dom.minidom import Document
-from xml.dom.minidom import parse
+import MySQLdb
+import collections
 import phpserialize
 import re
-
-from ConfigParser import ConfigParser
 import sys
 
 
 cfg = ConfigParser()
 cfg.read('../config.ini')
 
-conn = MySQLdb.connect (host = cfg.get('default', 'mysql.host'),
-                           user = cfg.get('default', 'mysql.user'),
-                           passwd = cfg.get('default', 'mysql.passwd'),
-                           db = cfg.get('default', 'mysql.db'))
+conn = MySQLdb.connect(host=cfg.get('default', 'mysql.host'),
+                       user=cfg.get('default', 'mysql.user'),
+                       passwd=cfg.get('default', 'mysql.passwd'),
+                       db=cfg.get('default', 'mysql.db'))
 
 """
 
@@ -55,6 +53,25 @@ mysql> describe nuke_postcalendar_events;
 +----------------+-----------------------+------+-----+------------+----------------+
 
 """
+
+
+def _cleanup_html(s):
+    d = {
+        '&quot;': '"',
+        '&amp;': '"',
+        '&lt;': '<',
+        '&gt;': '>',
+    }
+    # http://stackoverflow.com/questions/2400504/easiest-way-to-replace-a-string-using-a-dictionary-of-replacements/2401481#2401481
+    # no whole words
+    pattern = re.compile('|'.join(d.keys()))
+    # whole words
+    #pattern = re.compile(r'\b(' + '|'.join(d.keys()) + r')\b')
+    result = pattern.sub(lambda x: d[x.group()], s.strip())
+    return result
+
+
+
 
 dom = Document()
 dom.appendChild(dom.createElement('export'))
@@ -182,19 +199,25 @@ conn.close ()
 with open("export-events.xml", "w") as f:
     f.write(dom.toprettyxml(encoding="UTF-8"))
 
-print "done! ok:", items_ok, ", failed:", items_fail
+print "events export done! ok:", items_ok, ", failed:", items_fail
+
+
+### LOCATIONS
+
+locations = collections.OrderedDict(sorted(locations.items()))
 
 dom = Document()
 dom.appendChild(dom.createElement('export'))
 for k in sorted(locations.keys()):
     loc = locations[k]
     lnode = dom.createElement('location')
-    lnode.setAttribute('name', k)
     if type(loc) == dict:
         for attr, val in loc.items():
-            lnode.setAttribute(attr,val)
+            lnode.setAttribute(attr,_cleanup_html(val))
     dom.childNodes[0].appendChild(lnode)
+    lnode.setAttribute('name', _cleanup_html(k))
 
 with open("export-places.xml", "w") as f:
     f.write(dom.toprettyxml(encoding="UTF-8"))
 
+print "places export done!"
