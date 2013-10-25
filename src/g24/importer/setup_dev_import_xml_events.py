@@ -7,11 +7,38 @@ from plone.uuid.interfaces import IUUID
 from xml.dom.minidom import parse
 import json
 import logging
+import requests
 import transaction
+
 
 logger = logging.getLogger("g24.importer events from xml")
 
 LOC_TO_UUID = {}
+
+from plone.formwidget.geolocation.geolocation import Geolocation
+
+def get_geocode(*address):
+    # http://stackoverflow.com/questions/3652951/google-maps-api-get-coordinates-of-address
+    # http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false
+
+    # TODO: change country name with real one
+    #
+
+    address = [it for it in address if it]
+    address_str = ','.join(address).replace(' ', '+')
+    url = 'http://maps.google.com/maps/api/geocode/json?address=Austria,%s&sensor=false' % address_str
+    req = requests.get(url)
+    lat = 0
+    lng = 0
+    if (req.ok):
+        res = json.loads(req.text or req.content)
+        try:
+            lat = res['results'][0]['geometry']['location']['lat']
+            lng = res['results'][0]['geometry']['location']['lng']
+        except: # KeyError, IndexError
+            logger.warn('no geolocation for: %s' % address)
+    return Geolocation(lat, lng)
+
 
 def import_places(container):
 
@@ -33,18 +60,23 @@ def import_places(container):
         zipc = 'event_postal' in loc and loc['event_postal'] or None
         city = 'event_city' in loc and loc['event_city'] or None
 
+        geo = get_geocode(zipc, city, title, str1, str2)
+
         if title: data['title'] = title
         if street: data['street'] = street
         if zipc: data['zip_code'] = zipc
         if city: data['city'] = city
         data['country'] = '040'
+        if geo: data['geolocation'] = geo
 
         obj = create(container, G24_BASETYPE)
         edit(obj, data, order=FEATURES)
         obj = add(obj, container)
         uuid = IUUID(obj)
         LOC_TO_UUID[key] = uuid
-        logger.info('created place %s, uuid: %s' % (title, uuid))
+        logger.info('created place %s, uuid: %s, lat: %s, lng: %s' % (
+            title, uuid, geo.latitude, geo.longitude
+        ))
 
         if batch%10==0:
             transaction.get().commit()

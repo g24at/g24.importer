@@ -20,6 +20,8 @@ def setup_content(context):
     # delete some default folders AND posts folder
     sht.delete_items(site, ('front-page', 'news', 'events', 'Members'), logger)
 
+    site.setLayout('stream')
+
     posts = create(site, 'Folder')
     posts.id = 'posts'
     posts = add(posts, site)
