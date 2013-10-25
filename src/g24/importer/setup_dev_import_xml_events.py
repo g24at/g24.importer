@@ -15,18 +15,20 @@ logger = logging.getLogger("g24.importer events from xml")
 
 LOC_TO_UUID = {}
 
-from plone.formwidget.geolocation.geolocation import Geolocation
 
 def get_geocode(*address):
-    # http://stackoverflow.com/questions/3652951/google-maps-api-get-coordinates-of-address
-    # http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false
+    # http://stackoverflow.com/questions/3652951/google-maps-api-get-coordinat
+    # es-of-address
+    # http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+
+    # Parkway,+Mountain+View,+CA&sensor=false
 
     # TODO: change country name with real one
     #
 
     address = [it for it in address if it]
     address_str = ','.join(address).replace(' ', '+')
-    url = 'http://maps.google.com/maps/api/geocode/json?address=Austria,%s&sensor=false' % address_str
+    url = 'http://maps.google.com/maps/api/geocode/json'\
+          '?address=Austria,%s&sensor=false' % address_str
     req = requests.get(url)
     lat = 0
     lng = 0
@@ -35,9 +37,9 @@ def get_geocode(*address):
         try:
             lat = res['results'][0]['geometry']['location']['lat']
             lng = res['results'][0]['geometry']['location']['lng']
-        except: # KeyError, IndexError
+        except:  # KeyError, IndexError
             logger.warn('no geolocation for: %s' % address)
-    return Geolocation(lat, lng)
+    return lat, lng
 
 
 def import_places(container):
@@ -60,14 +62,21 @@ def import_places(container):
         zipc = 'event_postal' in loc and loc['event_postal'] or None
         city = 'event_city' in loc and loc['event_city'] or None
 
-        geo = get_geocode(zipc, city, title, str1, str2)
+        lat, lng = get_geocode(zipc, city, title, str1, str2)
 
-        if title: data['title'] = title
-        if street: data['street'] = street
-        if zipc: data['zip_code'] = zipc
-        if city: data['city'] = city
+        if title:
+            data['title'] = title
+        if street:
+            data['street'] = street
+        if zipc:
+            data['zip_code'] = zipc
+        if city:
+            data['city'] = city
         data['country'] = '040'
-        if geo: data['geolocation'] = geo
+        if lat:
+            data['latitude'] = lat
+        if lng:
+            data['longitude'] = lng
 
         obj = create(container, G24_BASETYPE)
         edit(obj, data, order=FEATURES)
@@ -75,10 +84,10 @@ def import_places(container):
         uuid = IUUID(obj)
         LOC_TO_UUID[key] = uuid
         logger.info('created place %s, uuid: %s, lat: %s, lng: %s' % (
-            title, uuid, geo.latitude, geo.longitude
+            title, uuid, lat, lng
         ))
 
-        if batch%10==0:
+        if batch % 10 == 0:
             transaction.get().commit()
 
 
@@ -86,12 +95,10 @@ class ImportEvents(object):
 
     def __init__(self, context):
         self.context = context
-        importpath = "src/g24.importer/src/g24/importer/scripts/export-events.xml"
+        importpath =\
+            "src/g24.importer/src/g24/importer/scripts/export-events.xml"
         self.content_dom = False
-        try:
-            self.content_dom = parse(importpath)
-        except Exception as err:
-            logger.error("could not open " + importpath + ", maybe you have to run scripts/export-events.py to create it")
+        self.content_dom = parse(importpath)
 
     def import_content(self):
         if not self.content_dom:
@@ -108,16 +115,20 @@ class ImportEvents(object):
                 ok += 1
                 logger.info('created event #%s with id: %s' % (obj.id, idx))
             except Exception as err:
-                logger.error('Failed to import event ( id ' + ev.getAttribute('pc_eid') + ')... ' + repr(err))
-                fail +=1
-            if idx%10 == 0:
+                logger.error(
+                    'Failed to import event ( id '
+                    + ev.getAttribute('pc_eid') + ')... ' + repr(err)
+                )
+                fail += 1
+
+            if idx % 10 == 0:
                 transaction.get().commit()
 
-        logger.info('Import done , ok: ' + str(ok) + ' , failed : ' + str(fail))
+        logger.info('Import done, ok: ' + str(ok) + ', failed : ' + str(fail))
 
     def create_g24_event(self, container, node):
         title = node.getAttribute('pc_title')
-        text  = node.getElementsByTagName('text')[0].childNodes[1].data
+        text = node.getElementsByTagName('text')[0].childNodes[1].data
         tags = []
         for t in node.getElementsByTagName('tag'):
             tags.append(t.getAttribute('name'))
@@ -135,26 +146,35 @@ class ImportEvents(object):
             'location': LOC_TO_UUID.get(loc),
         }
 
-        createdate      = DateTime(node.getAttribute('pc_time'))
-        event_date      = DateTime(node.getAttribute('pc_eventDate') + " " + node.getAttribute('pc_startTime') + " Europe/Vienna")
-        data['start']   = pydt(event_date)
+        createdate = DateTime(node.getAttribute('pc_time'))
+        event_date = DateTime(
+            node.getAttribute('pc_eventDate') + " " +
+            node.getAttribute('pc_startTime') + " Europe/Vienna"
+        )
+        data['start'] = pydt(event_date)
 
         # calc / use end date , fallback is same as start
-        data['end']       = pydt(event_date)
+        data['end'] = pydt(event_date)
         if node.hasAttribute('pc_endDate'):
-            end_date = DateTime(node.getAttribute('pc_endDate') + " " + node.getAttribute('pc_endTime') + " Europe/Vienna")
-            data['end']   = pydt(end_date)
+            end_date = DateTime(
+                node.getAttribute('pc_endDate') + " " +
+                node.getAttribute('pc_endTime') + " Europe/Vienna"
+            )
+            data['end'] = pydt(end_date)
         elif node.getAttribute('pc_duration'):
-            end_date = DateTime(int(event_date) + int(node.getAttribute('pc_duration')))
-            data['end']   = pydt(end_date)
+            end_date = DateTime(
+                int(event_date) +
+                int(node.getAttribute('pc_duration'))
+            )
+            data['end'] = pydt(end_date)
 
         obj = create(container, G24_BASETYPE)
-        obj.setCreators(node.getAttribute('pc_informant')) # set the creators by loginname. if more than one, seperate by whitespace
+        # set the creators by loginname. if more than one,
+        # seperate by whitespace
+        obj.setCreators(node.getAttribute('pc_informant'))
         obj.creation_date = createdate
         edit(obj, data, order=FEATURES)
         obj = add(obj, container)
-
-        transaction.commit()
 
         return obj
 
