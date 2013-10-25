@@ -41,7 +41,6 @@ class ImportPhpBBPostings(object):
             #if idx>50: break
             try:
                 logger.info("import thread")
-
                 postings = th.getElementsByTagName('post')
 
                 if (len(postings)<1):
@@ -55,9 +54,13 @@ class ImportPhpBBPostings(object):
                                                   self.map_xml_to_post(p))
                     logger.info('Created object #%s with id: %s'\
                                 % (obj.id, idx))
+
             except Exception as err:
                 logger.error('Failed to import thread ... %s ' % err)
                 #logger.error(err.)
+
+            if idx % 10 == 0:
+                transaction.get().commit()
 
     def map_xml_to_post(self, node):
         data = {}
@@ -90,8 +93,6 @@ class ImportPhpBBPostings(object):
         obj.creation_date = DateTime(postingdata['post_time'])
         edit(obj, data, order=FEATURES)
         obj = add(obj, container)
-
-        transaction.commit()
 
         return obj
 
