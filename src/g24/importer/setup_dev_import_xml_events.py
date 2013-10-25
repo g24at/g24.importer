@@ -3,6 +3,7 @@ from DateTime import DateTime
 from g24.elements.sharingbox.crud import create, add, edit
 from g24.elements.sharingbox.form import FEATURES, G24_BASETYPE
 from plone.event.utils import pydt
+from plone.formwidget.geolocation.geolocation import Geolocation
 from plone.uuid.interfaces import IUUID
 from xml.dom.minidom import parse
 import json
@@ -63,7 +64,6 @@ def import_places(container):
         city = 'event_city' in loc and loc['event_city'] or None
 
         lat, lng = get_geocode(zipc, city, title, str1, str2)
-
         if title:
             data['title'] = title
         if street:
@@ -73,10 +73,8 @@ def import_places(container):
         if city:
             data['city'] = city
         data['country'] = '040'
-        if lat:
-            data['latitude'] = lat
-        if lng:
-            data['longitude'] = lng
+        if lat and lng:
+            data['geolocation'] = Geolocation(lat, lng)
 
         obj = create(container, G24_BASETYPE)
         edit(obj, data, order=FEATURES)
