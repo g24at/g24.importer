@@ -28,7 +28,7 @@ setup(name='g24.importer',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          #'collective.setuphandlertools',
+          'collective.setuphandlertools',
           'postmarkup',
       ],
       extras_require={
