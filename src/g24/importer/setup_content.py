@@ -20,24 +20,35 @@ def setup_content(context):
     # delete some default folders AND posts folder
     sht.delete_items(site, ('front-page', 'news', 'events', 'Members'), logger)
 
-    streamfolder = create(site, 'g24.elements.basetypecontainer')
-    streamfolder.id = 'posts'
-    streamfolder = add(streamfolder, site)
-    streamfolder.setLayout('stream')
-    streamfolder.title = u'Posts'
+    posts = create(site, 'Folder')
+    posts.id = 'posts'
+    posts = add(posts, site)
+    posts.setLayout('stream')
+    posts.title = u'Posts'
 
-    content_structure = [
+    events = create(site, 'Folder')
+    events.id = 'events'
+    events = add(events, site)
+    events.setLayout('event_listing')
+    events.title = u'Events'
 
-        {'type': 'Folder',
-         'id': 'about',
-         'title': u'Info',
-         },
-        {'type': 'Folder',
-         'id': 'about-beta',
-         'title': u'Info Beta Test',
-         },
+    places = create(site, 'Folder')
+    places.id = 'places'
+    places = add(places, site)
+    places.setLayout('stream')
+    places.title = u'Places'
 
-    ]
-
-    sht.create_item_runner(site, content_structure, lang='de', logger=logger)
+#    content_structure = [
+#
+#        {'type': 'Folder',
+#         'id': 'about',
+#         'title': u'Info',
+#         },
+#        {'type': 'Folder',
+#         'id': 'about-beta',
+#         'title': u'Info Beta Test',
+#         },
+#
+#    ]
+#    sht.create_item_runner(site, content_structure, lang='de', logger=logger)
     #site.setLayout('traverse_view')
