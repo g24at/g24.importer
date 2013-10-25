@@ -149,6 +149,7 @@ loc_map = collections.OrderedDict([
     (u'after dark', 'after_dark'),
     (u'ajz', 'ajz_insel'),
     (u'alte tech', 'alte_technik'),
+    (u'gb-saal', 'arbeiterkammer'),
     (u'arbeiterkammer', 'arbeiterkammer'),
     (u'arcadium', 'arcadium'),
     (u'audimax - fh', 'fh_joanneum'),
@@ -341,13 +342,12 @@ loc_map = collections.OrderedDict([
     (u'spektral', 'spektral'),
     (u'stockwerk', 'stockwerkjazz'),
     (u'sublime', 'sublime'),
-    (u'teatro', 'teatro'),
-    (u'theatro', 'teatro'),
+    (u'teatro', 'ppc'),
+    (u'theatro', 'ppc'),
     (u'thienfeld', 'vipers'),
     (u'uni-t', 'unit'),
     (u'unit', 'unit'),
     (u'villa borra', 'borraville'),
-    (u'veilchen', 'veilchen'),
     (u'viperes', 'vipers'),
     (u'vipers', 'vipers'),
     (u'volkshaus', 'kpoe_volkshaus'),
@@ -395,10 +395,24 @@ loc_map = collections.OrderedDict([
     (u'wahrnehmung', 'museum_der_wahrnehmung'),
     (u'kristallwerk', 'kristallwerk'),
     (u'volksgarten', 'volksgarten'),
+    (u'veilchen', 'forum_stadtpark'),
     (u'verschiedene', 'diverse'),
     (u'weltcaf', 'weltcafe'),
+    (u'kasematte', 'uhrturmkasematte'),
+    (u'schlossbergrestaurant', 'schlossbergrestaurant'),
+    (u'skybar', 'schlossberg'),
+    (u'tratari', 'tratari'),
+    (u'traverse', 'traverse'),
+    (u'monkeys', 'Three Monkeys'),
+    (u'ortweinplatz', 'tao'),
+    (u'galileo', 'galileo'),
+    (u'steinbach', 'grosssteinbach'),
+    (u'zeichens', 'aznull'),
+    (u'st.andrä volks', 'andrae_volksschule'),
+    (u'andrä', 'andrae_kirche'),
     # begin non-cannonical comparison
     (u'geidorf', 'geidorf_kino'),
+    (u'zeltweg', 'zeltweg'),
     (u'ljubljana', 'ljubljana'),
     (u'pekarna', 'maribor'),
     (u'union halle', 'unionhalle'),
@@ -410,6 +424,8 @@ loc_map = collections.OrderedDict([
     (u'maribor', 'maribor'),
     (u'mariahilfer', 'diverse'),
     (u'innenstadt', 'diverse'),
+    (u'treffpunkt', 'diverse'),
+    (u'tummelplatz', 'diverse'),
     (u'jakominiplatz', 'diverse'),
     (u'kaiser-josef-platz', 'diverse'),
     (u'mureck', 'mureck'),
@@ -434,6 +450,10 @@ loc_map = collections.OrderedDict([
     (u'hs ', 'kf_uni'),
     (u'lend', 'diverse'),
     (u'graz', 'diverse'),
+    (u'ö1', 'radio_oe1'),
+    (u'öh', 'oeh'),
+    (u'uci', 'uci'),
+    (u'u4', 'u4'),
     (u'museumsakademie', 'museum_joanneum'),
     (u'gemeindeamt', 'diverse'),
     (u'gemeinderat', 'diverse'),
@@ -473,19 +493,35 @@ for event in eventrows:
         for key, val in _locstruct.items():
             key = _cleanup_textonly(key)
             val = _cleanup_textonly(val)
+            if not val:
+                continue
             locstruct[key] = val
+        locstruct['event_datetime'] = '%s %s Europe/Vienna' % (
+            str(event.get('pc_eventDate')).decode(IN_ENCODING),
+            str(event.get('pc_startTime')).decode(IN_ENCODING)
+        )
+        if not locstruct.get('event_location', False):
+            # event_location must not be empty
+            continue
         loc = _get_key(locstruct["event_location"].lower())
-        if loc:
+        if loc in locations:
+            locations[loc].update(locstruct)
+        else:
             locations[loc] = locstruct
+        eventnode.setAttribute('location_name', loc)
     else:
         locstring = _cleanup_textonly(locstring)
         loc = _get_key(locstring.lower())
+        eventnode.setAttribute('location_name', loc)
         if loc and not loc in loc_map:
             # if it's already there, it might be better defined...
-            locations[loc] = {'event_location': locstring}
-
-    if loc:
-        eventnode.setAttribute('location_name', loc)
+            locations[loc] = {
+                'event_location': locstring,
+                'event_datetime': '%s %s Europe/Vienna' % (
+                    str(event.get('pc_eventDate')).decode(IN_ENCODING),
+                    str(event.get('pc_startTime')).decode(IN_ENCODING)
+                )
+            }
 
     # export fields
     fields = [

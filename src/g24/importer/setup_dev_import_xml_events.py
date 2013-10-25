@@ -77,6 +77,7 @@ def import_places(container):
             data['geolocation'] = Geolocation(lat, lng)
 
         obj = create(container, G24_BASETYPE)
+        obj.creation_date = DateTime(loc['event_datetime'])
         edit(obj, data, order=FEATURES)
         obj = add(obj, container)
         uuid = IUUID(obj)
