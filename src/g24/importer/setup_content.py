@@ -5,10 +5,12 @@ from g24.elements.sharingbox.form import create, add
 
 logger = logging.getLogger("g24.importer - setup content")
 
+
 def setup_html_transform(context):
     if sht.isNotThisProfile(context, 'g24.importer-setup_content.txt'):
         return
     sht.unsafe_html_transform(logger)
+
 
 def setup_content(context):
 
@@ -22,19 +24,21 @@ def setup_content(context):
 
     site.setLayout('stream')
 
-    posts = create(site, 'Folder')
+    _type = 'g24.elements.basetypecontainer'
+
+    posts = create(site, _type)
     posts.id = 'posts'
     posts = add(posts, site)
     posts.setLayout('stream')
     posts.title = u'Posts'
 
-    events = create(site, 'Folder')
+    events = create(site, _type)
     events.id = 'events'
     events = add(events, site)
     events.setLayout('event_listing')
     events.title = u'Events'
 
-    places = create(site, 'Folder')
+    places = create(site, _type)
     places.id = 'places'
     places = add(places, site)
     places.setLayout('stream')

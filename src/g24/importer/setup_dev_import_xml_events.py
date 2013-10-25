@@ -191,6 +191,6 @@ def start_import(context):
     import_places(site.places)
 
     # start import into posts folder
-    imp = ImportEvents(site.posts)
+    imp = ImportEvents(site.events)
     imp.import_content()
     #imp.import_finish()

@@ -1,502 +1,447 @@
 {
-    "ajz_insel": {
-        "event_location": "ajz insel leuzenhofg.4 8020 graz"
+    "airo tower hotel": {
+        "event_city": "Wien",
+        "event_state": "\u00d6sterreich",
+        "event_postal": "1100",
+        "event_location": "AIRO Tower Hotel",
+        "event_datetime": "2014-05-17 10:00:00 Europe/Vienna"
     },
-    "arbeiterkammer": {
-        "event_postal": "",
-        "event_location": "Kleiner Arbeiterkammersaal",
-        "event_street2": "",
-        "event_street1": "Strauchergasse 32",
-        "event_state": "",
-        "event_city": "8020 Graz"
+    "alte_technik": {
+        "event_postal": "8010",
+        "event_location": "Alte Technik",
+        "event_street1": "Rechbauerstra\u00dfe 12",
+        "event_state": "\u00d6sterreich",
+        "event_city": "Graz",
+        "event_datetime": "2008-05-08 19:30:00 Europe/Vienna"
+    },
+    "andrae_kirche": {
+        "event_city": "Graz",
+        "event_postal": "8020",
+        "event_location": "St. Andr\u00e4 Kirche",
+        "event_street1": "Kernstockgasse 9",
+        "event_datetime": "2008-05-02 21:00:00 Europe/Vienna"
     },
     "arcadium": {
         "event_postal": "8020",
         "event_location": "Arcadium",
-        "event_street2": "",
+        "event_city": "Graz",
         "event_street1": "Griesgasse 25",
-        "event_state": "A",
-        "event_city": "Graz"
+        "event_datetime": "2004-04-11 20:00:00 Europe/Vienna"
     },
-    "b.eat": {
-        "event_postal": "",
-        "event_location": "b.eat",
-        "event_street2": "",
-        "event_street1": "Harrachgasse 2",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "badeschiff": {
-        "event_postal": "1010",
-        "event_location": "Badeschiff Wien",
-        "event_street2": "",
-        "event_street1": "Donaukanall\u00e4nde Urania",
-        "event_state": "Wien",
-        "event_city": "Wien"
+    "bergwerk": {
+        "event_city": "neusiedl am see",
+        "event_street1": "kellergasse2",
+        "event_location": "bergwerk",
+        "event_datetime": "2003-12-06 22:00:00 Europe/Vienna"
     },
     "bildungsverein_kpoe": {
+        "event_city": "Graz",
         "event_postal": "8020",
         "event_location": "KP\u00d6 Bildungszentrum",
-        "event_street2": "",
         "event_street1": "Lagergasse 98a",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_datetime": "2008-09-12 20:00:00 Europe/Vienna"
+    },
+    "budapest": {
+        "event_location": "Budapest",
+        "event_datetime": "2002-07-31 16:30:00 Europe/Vienna"
+    },
+    "cafe_libertad": {
+        "event_location": "libertad",
+        "event_street1": "gartengasse 28",
+        "event_city": "graz",
+        "event_datetime": "2008-08-01 20:00:00 Europe/Vienna"
     },
     "celerys": {
-        "event_postal": "8020",
-        "event_location": "celerys",
-        "event_street2": "",
-        "event_street1": "dreihackengasse 42 (beim r\u00f6sselm\u00fchlpark)",
-        "event_state": "",
-        "event_city": ""
+        "event_location": "celery's || dreihackengasse 42",
+        "event_datetime": "2002-11-27 19:00:00 Europe/Vienna"
     },
-    "cube": {
-        "event_postal": "",
-        "event_location": "IEM - Cube",
-        "event_street2": "",
-        "event_street1": "Infeldgasse",
-        "event_state": "",
-        "event_city": ""
-    },
-    "da_loam": {
-        "event_postal": "8020",
-        "event_location": "DA LAOM",
-        "event_street2": "",
-        "event_street1": "Mariahilferstra\u00dfe 11",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "das andere theater": {
-        "event_postal": "8020",
-        "event_location": "Das andere Theater",
-        "event_street2": "",
-        "event_street1": "Orpheumgasse 11",
-        "event_state": "\u00d6sterreich",
-        "event_city": "Graz"
+    "das_lokal": {
+        "event_city": "Graz",
+        "event_state": "8020",
+        "event_street1": "Mariahilferstra\u00dfe 23",
+        "event_location": "Das Lokal",
+        "event_datetime": "2007-11-16 20:00:00 Europe/Vienna"
     },
     "die_bruecke": {
-        "event_postal": "",
-        "event_location": "Murpromenade / unter der Grazer Hauptbr\u00fccke",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_postal": "8010",
+        "event_location": "Die Br\u00fccke",
+        "event_street1": "Grabenstra\u00dfe 39a",
+        "event_state": "A",
+        "event_city": "Graz",
+        "event_datetime": "2009-08-18 20:30:00 Europe/Vienna"
+    },
+    "die_scherbe": {
+        "event_postal": "8020",
+        "event_location": "Scherbenkeller",
+        "event_street1": "Stockergasse 9",
+        "event_state": "\u00d6sterreich",
+        "event_city": "Graz",
+        "event_datetime": "2006-04-08 20:00:00 Europe/Vienna"
     },
     "diverse": {
-        "event_postal": "",
+        "event_street1": "viele locations",
+        "event_state": "A -",
         "event_location": "Graz",
-        "event_street2": "",
-        "event_street1": "Niesenbergergasse 16",
-        "event_state": "",
-        "event_city": ""
-    },
-    "doku_graz": {
+        "event_city": "Graz",
         "event_postal": "8010",
-        "event_location": "DOKU Graz",
-        "event_street2": "",
-        "event_street1": "Radetzkystra\u00dfe 18/EG",
-        "event_state": "\u00d6sterreich",
-        "event_city": "Graz"
+        "event_datetime": "2008-05-22 16:00:00 Europe/Vienna"
     },
     "dom_im_berg": {
-        "event_postal": "",
-        "event_location": "Dom im Berg 2nd floor",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_postal": "8010",
+        "event_location": "Dom im Berg",
+        "event_street1": "Schlossbergplatz 1",
+        "event_city": "Graz",
+        "event_datetime": "2012-11-22 20:00:00 Europe/Vienna"
     },
-    "donaufestival": {
-        "event_postal": "",
-        "event_location": "donaufestival",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": "Krems"
+    "ehemaliger hinrichtungsplatz": {
+        "event_street2": "Bei Regen geschlossen!",
+        "event_street1": "am Paulustor",
+        "event_location": "Ehemaliger Hinrichtungsplatz",
+        "event_datetime": "2003-08-12 15:00:00 Europe/Vienna"
     },
     "esc": {
+        "event_city": "Graz",
         "event_postal": "8010",
-        "event_location": "ESC/Labor",
-        "event_street2": "",
-        "event_street1": "Jakoministra\u00dfe 16",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_location": "ESC im Labor",
+        "event_street1": "Jakoministr. 16",
+        "event_datetime": "2007-06-21 18:00:00 Europe/Vienna"
     },
     "explosiv": {
-        "event_postal": "",
+        "event_postal": "8020",
         "event_location": "Explosiv",
-        "event_street2": "",
         "event_street1": "Sch\u00fctzgasse 16",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "fh_joanneum": {
-        "event_postal": "",
-        "event_location": "FH Joanneum",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "fluc": {
-        "event_postal": "",
-        "event_location": "FLUC",
-        "event_street2": "",
-        "event_street1": "Praterstern",
-        "event_state": "",
-        "event_city": "WIEN"
+        "event_city": "graz",
+        "event_datetime": "2003-04-05 19:30:00 Europe/Vienna"
     },
     "forum_stadtpark": {
         "event_postal": "8010",
-        "event_location": "forum stadtpark",
-        "event_street2": "",
-        "event_street1": "stadtpark 1",
-        "event_state": "",
-        "event_city": "graz"
+        "event_city": "Graz",
+        "event_street1": "Stadtpark 1",
+        "event_state": "Austria",
+        "event_location": "Forum Stadtpark, Keller",
+        "event_datetime": "2009-12-12 21:00:00 Europe/Vienna"
+    },
+    "galerie centrum": {
+        "event_city": "Graz",
+        "event_postal": "8010",
+        "event_location": "Galerie Centrum",
+        "event_street1": "F\u00e4rbergasse 7",
+        "event_datetime": "2007-11-02 16:00:00 Europe/Vienna"
     },
     "generalmusikdirektion": {
         "event_postal": "8020",
-        "event_location": "generalmusikdirektion",
-        "event_street2": "",
+        "event_city": "Graz",
         "event_street1": "Grieskai 74a",
         "event_state": "\u00d6sterreich",
-        "event_city": "Graz"
+        "event_location": "generalmusikdirektion",
+        "event_datetime": "2009-03-11 20:00:00 Europe/Vienna"
     },
-    "graz_hauptplatz": {
-        "event_postal": "8010",
-        "event_location": "Hauptplatz",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": ""
+    "gleisdorf": {
+        "event_postal": "8200",
+        "event_location": "Gleisdorf",
+        "event_street1": "Forum Kloster",
+        "event_state": "A",
+        "event_city": "Gleisdorf",
+        "event_datetime": "2003-05-28 20:00:00 Europe/Vienna"
+    },
+    "grazer_congress": {
+        "event_location": "congress, eastside, im f\u00fcnften",
+        "event_datetime": "2003-02-07 19:30:00 Europe/Vienna"
     },
     "gr\u00fcne akademie": {
         "event_postal": "8010",
+        "event_city": "Graz",
+        "event_street1": "Paulustorgasse 3/I",
         "event_location": "Gr\u00fcne Akademie",
-        "event_street2": "",
-        "event_street1": "Paulustorgasse 3",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_datetime": "2005-09-13 20:15:00 Europe/Vienna"
     },
-    "helmut_list_halle": {
-        "event_postal": "",
-        "event_location": "Helmut-List-Halle",
-        "event_street2": "",
-        "event_street1": "Waagner-Biro-Strasse 98a",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "hotel 5 elements, veranstaltungsraum \"wasser\"": {
+    "hauptbahnhof_graz": {
         "event_postal": "8020",
-        "event_location": "Hotel 5 Elements, Veranstaltungsraum \"Wasser\"",
-        "event_street2": "",
-        "event_street1": "Herrgottwiesgasse 134",
-        "event_state": "\u00d6sterreich",
-        "event_city": "Graz"
+        "event_location": "Non Stop Kino (Hauptbahnhof)",
+        "event_street1": "Europaplatz 2",
+        "event_state": "Austria",
+        "event_city": "Graz",
+        "event_datetime": "2008-01-31 20:30:00 Europe/Vienna"
     },
-    "jay | paldau": {
-        "event_postal": "",
-        "event_location": "Jay | Paldau",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": "Paldau | Feldbach"
+    "herz jesu kirche": {
+        "event_location": "Herz Jesu Kirche",
+        "event_datetime": "2003-05-22 20:00:00 Europe/Vienna"
+    },
+    "juz_house": {
+        "event_location": "jugend&kulturzentrum house / quellengasse 2 / 8480",
+        "event_datetime": "2002-05-11 20:00:00 Europe/Vienna"
     },
     "karl_drews_klub": {
-        "event_postal": "",
-        "event_location": "Karl Drews Club",
-        "event_street2": "",
+        "event_city": "Graz",
+        "event_postal": "8020",
+        "event_location": "Karl-Drews-Klub",
         "event_street1": "Lagergasse 98a",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_datetime": "2003-11-05 19:00:00 Europe/Vienna"
     },
     "kf_uni": {
-        "event_postal": "",
-        "event_location": "KF-Uni-Hauptgeb\u00e4ude, 1. Stock, HS 01.14",
-        "event_street2": "",
-        "event_street1": "Universit\u00e4tsplatz 3",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_location": "uniT.conTner bzw. aula kf uni graz / Universit\u00e4tsp",
+        "event_datetime": "2002-05-22 16:00:00 Europe/Vienna"
     },
-    "kiz": {
-        "event_postal": "",
-        "event_location": "kiz augarten, royal english cinema, uci annenhof",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": "graz"
+    "kig": {
+        "event_postal": "8020",
+        "event_location": "kig!",
+        "event_street2": "feuerbachgasse 25",
+        "event_street1": "kultur in graz",
+        "event_city": "Graz",
+        "event_datetime": "2005-09-01 19:30:00 Europe/Vienna"
     },
-    "kulturhaus st.ulrich im greith": {
-        "event_postal": "8544",
-        "event_location": "Kulturhaus St.Ulrich im Greith",
-        "event_street2": "",
-        "event_street1": "Kopreinigg 90",
-        "event_state": "\u00d6sterreich",
-        "event_city": "St.Ulrich im Greith"
+    "kolpinghaus / adolf koplping stra\u00dfe 4-6": {
+        "event_location": "kolpinghaus / adolf koplping stra\u00dfe 4-6",
+        "event_datetime": "2002-09-22 10:00:00 Europe/Vienna"
     },
-    "leibnitz": {
-        "event_postal": "",
-        "event_location": "leibnitz",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": ""
+    "kottulinsky": {
+        "event_city": "Graz",
+        "event_postal": "8010",
+        "event_location": "Kottulinsky",
+        "event_street1": "Beethovenstrasse 9",
+        "event_datetime": "2011-05-14 21:00:00 Europe/Vienna"
     },
-    "lieboch, tobelbad, schlo\u00df s\u00f6ding": {
-        "event_postal": "",
-        "event_location": "Lieboch, Tobelbad, Schlo\u00df S\u00f6ding",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": ""
+    "kpoe_volkshaus": {
+        "event_city": "Graz",
+        "event_postal": "8020",
+        "event_location": "Volkshaus Graz",
+        "event_street1": "Lagergasse 98a",
+        "event_datetime": "2009-09-12 15:00:00 Europe/Vienna"
+    },
+    "kristallwerk": {
+        "event_postal": "8051",
+        "event_location": "Kristallwerk",
+        "event_street1": "Viktor-Franz-Stra\u00dfe 9",
+        "event_datetime": "2004-08-27 21:00:00 Europe/Vienna"
+    },
+    "kunsthaus": {
+        "event_street1": "Space04",
+        "event_city": "8020 Graz",
+        "event_location": "Kunsthaus Graz",
+        "event_postal": "8020",
+        "event_datetime": "2005-05-31 19:00:00 Europe/Vienna"
     },
     "lila_eule": {
-        "event_postal": "8010",
-        "event_location": "Lila Eule - Thalia Bar",
-        "event_street2": "",
-        "event_street1": "Opernring 5",
+        "event_city": "Graz",
         "event_state": "A",
-        "event_city": "Graz"
-    },
-    "literaturhaus_graz": {
         "event_postal": "8010",
-        "event_location": "Literaturhaus Graz",
-        "event_street2": "",
-        "event_street1": "Elisabethstra\u00dfe 30",
-        "event_state": "",
-        "event_city": "graz"
+        "event_location": "Lila Eule/ Thalia Bar",
+        "event_datetime": "2011-09-16 23:00:00 Europe/Vienna"
     },
-    "maribor": {
-        "event_postal": "2000",
-        "event_location": "KLUB MC - PEKARNA",
-        "event_street2": "",
-        "event_street1": "Ob zeleznici 16",
-        "event_state": "Slovenija",
-        "event_city": "Maribor"
+    "loft": {
+        "event_city": "Graz",
+        "event_postal": "8020",
+        "event_location": "Lendloft",
+        "event_street1": "Lendplatz 40",
+        "event_datetime": "2011-03-31 20:00:00 Europe/Vienna"
     },
     "medien_kunstlabor": {
-        "event_postal": "8020",
-        "event_location": "medien.KUNSTLABOR",
-        "event_street2": "",
-        "event_street1": "s\u00fcdtirolerplatz / lendkai 1",
-        "event_state": "",
-        "event_city": ""
+        "event_street2": "Graz, \u00f6si-reich",
+        "event_street1": "Lendkai 1",
+        "event_location": "Medienkunstlabor",
+        "event_datetime": "2006-11-14 20:00:00 Europe/Vienna"
     },
-    "minoriten_graz": {
-        "event_postal": "8020",
-        "event_location": "Gro\u00dfer und Kleiner Minoritensaal",
-        "event_street2": "",
-        "event_street1": "Mariahilferplatz 3",
-        "event_state": "Austria",
-        "event_city": "Graz"
-    },
-    "modellbahnzentrum": {
-        "event_postal": "8020",
-        "event_location": "Modellbahnzentrum",
-        "event_street2": "",
-        "event_street1": "Annenstra\u00dfe 35",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "musichouse": {
-        "event_postal": "",
-        "event_location": "Musichouse",
-        "event_street2": "",
-        "event_street1": "Mondscheingasse 9",
-        "event_state": "",
-        "event_city": "graz"
-    },
-    "nationalpark ges\u00e4use (stmk.)": {
-        "event_postal": "",
-        "event_location": "Nationalpark Ges\u00e4use (Stmk.)",
-        "event_street2": "",
-        "event_street1": "NP-Pavillon , Gstatterboden",
-        "event_state": "",
-        "event_city": ""
+    "neue galerie": {
+        "event_city": "Graz",
+        "event_street1": "Sackstrasse 16",
+        "event_location": "Neue Galerie",
+        "event_datetime": "2007-02-16 19:00:00 Europe/Vienna"
     },
     "niesenberger": {
         "event_postal": "8020",
-        "event_location": "Niesenberger",
-        "event_street2": "",
+        "event_location": "Kulturzentrum Niesenbergergasse",
         "event_street1": "Niesenbergergasse 16",
-        "event_state": "\u00d6sterreich",
-        "event_city": "Graz"
+        "event_city": "Graz",
+        "event_datetime": "2012-06-01 18:00:00 Europe/Vienna"
     },
     "non_stop": {
         "event_postal": "8020",
-        "event_location": "Non Stop Kino",
-        "event_street2": "",
+        "event_location": "NonStop Kino",
         "event_street1": "Europaplatz 2",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_state": "AUT",
+        "event_city": "Graz",
+        "event_datetime": "2009-06-13 22:00:00 Europe/Vienna"
     },
     "oper_graz": {
-        "event_location": "Oper Graz"
+        "event_location": "Oper Graz",
+        "event_datetime": "2002-10-07 15:00:00 Europe/Vienna"
     },
     "orpheum_graz": {
-        "event_postal": "",
-        "event_location": "Postgarage, PPC, Orpheum",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": "Graz"
+        "event_postal": "8020",
+        "event_city": "Graz",
+        "event_street1": "Orpheumgasse 8",
+        "event_state": "Austria",
+        "event_location": "Orpheum EXTRA, Graz",
+        "event_datetime": "2011-10-21 20:00:00 Europe/Vienna"
     },
     "parkhouse": {
         "event_postal": "8010",
-        "event_location": "parkhouse",
-        "event_street2": "",
+        "event_location": "parkhouse . das klangcafe",
         "event_street1": "stadtpark 2",
-        "event_state": "",
-        "event_city": "graz"
+        "event_state": "austria",
+        "event_city": "graz",
+        "event_datetime": "2008-05-24 21:00:00 Europe/Vienna"
     },
     "postgarage": {
         "event_postal": "8020",
         "event_location": "Postgarage",
-        "event_street2": "",
         "event_street1": "Dreihackengasse 42",
         "event_state": "A -",
-        "event_city": "Graz"
+        "event_city": "Graz",
+        "event_datetime": "2010-07-09 13:00:00 Europe/Vienna"
     },
     "ppc": {
-        "event_postal": "",
-        "event_location": "p.p.c.",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": ""
+        "event_location": "PPC",
+        "event_street1": "Neubaugasse 6",
+        "event_city": "Graz",
+        "event_datetime": "2003-04-16 21:00:00 Europe/Vienna"
     },
-    "radio_helsinki": {
-        "event_postal": "8020",
-        "event_location": "Radio Helsinki 92.6",
-        "event_street2": "",
-        "event_street1": "Griesgasse 8 Lindenpassage",
-        "event_state": "\u00d6",
-        "event_city": "Graz"
+    "radio_oe1": {
+        "event_location": "\u00d61 - 91,2MHz",
+        "event_datetime": "2003-07-14 22:30:00 Europe/Vienna"
     },
-    "ska": {
-        "event_postal": "",
-        "event_location": "SKA",
-        "event_street2": "",
-        "event_street1": "Grabenstrasse",
-        "event_state": "",
-        "event_city": "Graz"
+    "raggam": {
+        "event_city": "Weinburg",
+        "event_postal": "8481",
+        "event_location": "Siebing 1",
+        "event_datetime": "2010-08-14 16:00:00 Europe/Vienna"
+    },
+    "resowi": {
+        "event_city": "Graz",
+        "event_street1": "Universit\u00e4tsstra\u00dfe 15",
+        "event_location": "RESOWI",
+        "event_datetime": "2007-03-26 18:00:00 Europe/Vienna"
+    },
+    "rhiz": {
+        "event_postal": "1080",
+        "event_location": "Rhiz",
+        "event_street1": "G\u00fcrtelbogen 37",
+        "event_state": "\u00d6sterreich",
+        "event_city": "Wien",
+        "event_datetime": "2009-07-24 21:00:00 Europe/Vienna"
+    },
+    "rotor": {
+        "event_city": "Graz",
+        "event_street1": "Volksgartenstra\u00dfe 6a",
+        "event_location": "rotor",
+        "event_datetime": "2008-05-19 20:00:00 Europe/Vienna"
+    },
+    "schaumbad": {
+        "event_postal": "8010",
+        "event_location": "Schaumbad - Freies Atelierhaus Graz",
+        "event_street1": "Starhemberggasse 4",
+        "event_state": "AT",
+        "event_city": "Graz",
+        "event_datetime": "2009-04-17 22:00:00 Europe/Vienna"
+    },
+    "schauspielhaus": {
+        "event_location": "Schauspielhaus Graz",
+        "event_datetime": "2003-06-06 19:30:00 Europe/Vienna"
     },
     "spektral": {
         "event_postal": "8020",
         "event_location": "spektral",
-        "event_street2": "",
         "event_street1": "lendkai 45",
-        "event_state": "",
-        "event_city": "graz"
+        "event_city": "Graz",
+        "event_datetime": "2008-10-26 8:45:00 Europe/Vienna"
     },
-    "st. andr\u00e4 kirche": {
-        "event_postal": "",
-        "event_location": "St. ANDR\u00c4 KIRCHE",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": "GRAZ"
+    "spektral_lendluft": {
+        "event_postal": "8020",
+        "event_location": "spektral/ galerie lendluft",
+        "event_street1": "Lendkai 45",
+        "event_state": "Wer",
+        "event_city": "Graz",
+        "event_datetime": "2010-12-03 20:00:00 Europe/Vienna"
+    },
+    "stadtpark pavillion": {
+        "event_location": "stadtpark pavillion",
+        "event_datetime": "2002-09-22 17:00:00 Europe/Vienna"
+    },
+    "stainz": {
+        "event_city": "Stainz",
+        "event_postal": "8510",
+        "event_location": "Stainz",
+        "event_street1": "S\u00e4geplatz",
+        "event_datetime": "2006-09-15 14:00:00 Europe/Vienna"
     },
     "stockwerkjazz": {
-        "event_location": "stockwerk / jakominiplatz"
+        "event_postal": "8010",
+        "event_location": "Stockwerk",
+        "event_street1": "Jakominiplatz 18",
+        "event_state": "Austria",
+        "event_city": "Graz",
+        "event_datetime": "2012-11-26 20:00:00 Europe/Vienna"
     },
-    "stubenberg am see (stmk)": {
-        "event_postal": "",
-        "event_location": "Stubenberg am See (Stmk)",
-        "event_street2": "",
-        "event_street1": "Direkt am See",
-        "event_state": "AUSTRIA",
-        "event_city": "Stubenberg"
+    "studentenheim \"m\u00fcnze\"": {
+        "event_postal": "8010",
+        "event_location": "Studentenheim \"M\u00fcnze\"",
+        "event_street1": "M\u00fcnzgrabenstra\u00dfe 59",
+        "event_state": "A",
+        "event_city": "Graz",
+        "event_datetime": "2011-05-11 21:00:00 Europe/Vienna"
+    },
+    "studio martinelli": {
+        "event_street2": "Mariahilfer Stra\u00dfe 2",
+        "event_postal": "8020",
+        "event_location": "Studio Martinelli",
+        "event_street1": "Palais Thienfeld",
+        "event_datetime": "2005-05-20 21:00:00 Europe/Vienna"
     },
     "sub": {
-        "event_postal": "",
-        "event_location": "SUb",
-        "event_street2": "",
-        "event_street1": "Kaiser Franz Josef kai 66",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "tao": {
-        "event_postal": "8010",
-        "event_location": "Tao - Theater am Ortweinplatz",
-        "event_street2": "",
-        "event_street1": "Ortweinplatz 1",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "thalia": {
-        "event_postal": "",
-        "event_location": "Thalia",
-        "event_street2": "",
-        "event_street1": "Opernring 5",
-        "event_state": "",
-        "event_city": "Graz"
-    },
-    "theater im bahnhof": {
-        "event_location": "theater im bahnhof"
-    },
-    "theatercaf\u00e9": {
-        "event_postal": "",
-        "event_location": "Theatercaf\u00e9",
-        "event_street2": "",
-        "event_street1": "Mandellstra\u00dfe 11",
+        "event_postal": "Graz",
+        "event_location": "sub",
+        "event_street1": "kaiser franz josef kai 66",
         "event_state": "A",
-        "event_city": "Graz"
+        "event_city": "graz",
+        "event_datetime": "2003-11-22 22:00:00 Europe/Vienna"
     },
-    "veilchen": {
+    "theater im keller": {
+        "event_city": "Graz",
         "event_postal": "8010",
-        "event_location": "veilchen",
-        "event_street2": "",
-        "event_street1": "Stadtpark 1A",
-        "event_state": "",
-        "event_city": ""
+        "event_location": "Theater im Keller",
+        "event_street1": "M\u00fcnzgrabenstra\u00dfe 35",
+        "event_datetime": "2010-08-29 20:00:00 Europe/Vienna"
+    },
+    "unionhalle": {
+        "event_city": "graz",
+        "event_postal": "8010",
+        "event_location": "Unionhalle",
+        "event_street1": "Gaussgasse 3",
+        "event_datetime": "2004-03-13 15:00:00 Europe/Vienna"
+    },
+    "unit": {
+        "event_city": "graz",
+        "event_street1": "links neben KF haupteingang",
+        "event_location": "uniT conTner",
+        "event_datetime": "2003-03-14 20:00:00 Europe/Vienna"
     },
     "vipers": {
-        "event_postal": "",
-        "event_location": "thienfeld",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": ""
+        "event_postal": "8010",
+        "event_city": "Graz",
+        "event_street1": "mariahilferstrasse2",
+        "event_location": "Thienfeld",
+        "event_datetime": "2003-05-30 19:00:00 Europe/Vienna"
     },
-    "wakuum": {
-        "event_postal": "",
-        "event_location": "Wakuum",
-        "event_street2": "",
-        "event_street1": "Hans Sachs Gasse 10",
-        "event_state": "",
-        "event_city": "Graz"
+    "welsche kirche": {
+        "event_city": "Graz",
+        "event_postal": "8020",
+        "event_location": "Welsche Kirche",
+        "event_street1": "Griesplatz 30",
+        "event_datetime": "2013-08-17 20:00:00 Europe/Vienna"
     },
     "wist": {
         "event_postal": "8010",
-        "event_location": "WIST",
-        "event_street2": "",
-        "event_street1": "Moserhofgasse 34",
-        "event_state": "",
-        "event_city": ""
+        "event_city": "Graz",
+        "event_street1": "Moserhofgasse 34;",
+        "event_location": "MOXX",
+        "event_datetime": "2003-11-30 20:30:00 Europe/Vienna"
     },
-    "zagreb": {
-        "event_postal": "",
-        "event_location": "zagreb, croatia    OTV club",
-        "event_street2": "",
-        "event_street1": "",
-        "event_state": "",
-        "event_city": ""
-    },
-    "\u00f61": {
-        "event_postal": "",
-        "event_location": "\u00f61",
-        "event_street2": "",
-        "event_street1": "UKW 91,2 MHz",
-        "event_state": "",
-        "event_city": ""
-    },
-    "\u00f6h geb\u00e4ude": {
-        "event_postal": "8010",
-        "event_location": "\u00d6H Geb\u00e4ude",
-        "event_street2": "",
-        "event_street1": "Schubertstra\u00dfe 6a",
-        "event_state": "",
-        "event_city": "Graz"
+    "wuk": {
+        "event_postal": "1090",
+        "event_location": "WUK",
+        "event_street1": "W\u00e4hringerstrasse 56",
+        "event_state": "\u00d6sterreich",
+        "event_city": "Wien",
+        "event_datetime": "2004-04-24 22:00:00 Europe/Vienna"
     }
 }

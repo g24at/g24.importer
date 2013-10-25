@@ -1,68 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <export>
-	<location event_location="ajz insel leuzenhofg.4 8020 graz" name="ajz_insel"/>
-	<location event_city="8020 Graz" event_location="Kleiner Arbeiterkammersaal" event_postal="" event_state="" event_street1="Strauchergasse 32" event_street2="" name="arbeiterkammer"/>
-	<location event_city="Graz" event_location="Arcadium" event_postal="8020" event_state="A" event_street1="Griesgasse 25" event_street2="" name="arcadium"/>
-	<location event_city="Graz" event_location="b.eat" event_postal="" event_state="" event_street1="Harrachgasse 2" event_street2="" name="b.eat"/>
-	<location event_city="Wien" event_location="Badeschiff Wien" event_postal="1010" event_state="Wien" event_street1="Donaukanallände Urania" event_street2="" name="badeschiff"/>
-	<location event_city="Graz" event_location="KPÖ Bildungszentrum" event_postal="8020" event_state="" event_street1="Lagergasse 98a" event_street2="" name="bildungsverein_kpoe"/>
-	<location event_city="" event_location="celerys" event_postal="8020" event_state="" event_street1="dreihackengasse 42 (beim rösselmühlpark)" event_street2="" name="celerys"/>
-	<location event_city="" event_location="IEM - Cube" event_postal="" event_state="" event_street1="Infeldgasse" event_street2="" name="cube"/>
-	<location event_city="Graz" event_location="DA LAOM" event_postal="8020" event_state="" event_street1="Mariahilferstraße 11" event_street2="" name="da_loam"/>
-	<location event_city="Graz" event_location="Das andere Theater" event_postal="8020" event_state="Österreich" event_street1="Orpheumgasse 11" event_street2="" name="das andere theater"/>
-	<location event_city="Graz" event_location="Murpromenade / unter der Grazer Hauptbrücke" event_postal="" event_state="" event_street1="" event_street2="" name="die_bruecke"/>
-	<location event_city="" event_location="Graz" event_postal="" event_state="" event_street1="Niesenbergergasse 16" event_street2="" name="diverse"/>
-	<location event_city="Graz" event_location="DOKU Graz" event_postal="8010" event_state="Österreich" event_street1="Radetzkystraße 18/EG" event_street2="" name="doku_graz"/>
-	<location event_city="Graz" event_location="Dom im Berg 2nd floor" event_postal="" event_state="" event_street1="" event_street2="" name="dom_im_berg"/>
-	<location event_city="Krems" event_location="donaufestival" event_postal="" event_state="" event_street1="" event_street2="" name="donaufestival"/>
-	<location event_city="Graz" event_location="ESC/Labor" event_postal="8010" event_state="" event_street1="Jakoministraße 16" event_street2="" name="esc"/>
-	<location event_city="Graz" event_location="Explosiv" event_postal="" event_state="" event_street1="Schützgasse 16" event_street2="" name="explosiv"/>
-	<location event_city="Graz" event_location="FH Joanneum" event_postal="" event_state="" event_street1="" event_street2="" name="fh_joanneum"/>
-	<location event_city="WIEN" event_location="FLUC" event_postal="" event_state="" event_street1="Praterstern" event_street2="" name="fluc"/>
-	<location event_city="graz" event_location="forum stadtpark" event_postal="8010" event_state="" event_street1="stadtpark 1" event_street2="" name="forum_stadtpark"/>
-	<location event_city="Graz" event_location="generalmusikdirektion" event_postal="8020" event_state="Österreich" event_street1="Grieskai 74a" event_street2="" name="generalmusikdirektion"/>
-	<location event_city="" event_location="Hauptplatz" event_postal="8010" event_state="" event_street1="" event_street2="" name="graz_hauptplatz"/>
-	<location event_city="Graz" event_location="Grüne Akademie" event_postal="8010" event_state="" event_street1="Paulustorgasse 3" event_street2="" name="grüne akademie"/>
-	<location event_city="Graz" event_location="Helmut-List-Halle" event_postal="" event_state="" event_street1="Waagner-Biro-Strasse 98a" event_street2="" name="helmut_list_halle"/>
-	<location event_city="Graz" event_location="Hotel 5 Elements, Veranstaltungsraum &quot;Wasser&quot;" event_postal="8020" event_state="Österreich" event_street1="Herrgottwiesgasse 134" event_street2="" name="hotel 5 elements, veranstaltungsraum &quot;wasser&quot;"/>
-	<location event_city="Paldau | Feldbach" event_location="Jay | Paldau" event_postal="" event_state="" event_street1="" event_street2="" name="jay | paldau"/>
-	<location event_city="Graz" event_location="Karl Drews Club" event_postal="" event_state="" event_street1="Lagergasse 98a" event_street2="" name="karl_drews_klub"/>
-	<location event_city="Graz" event_location="KF-Uni-Hauptgebäude, 1. Stock, HS 01.14" event_postal="" event_state="" event_street1="Universitätsplatz 3" event_street2="" name="kf_uni"/>
-	<location event_city="graz" event_location="kiz augarten, royal english cinema, uci annenhof" event_postal="" event_state="" event_street1="" event_street2="" name="kiz"/>
-	<location event_city="St.Ulrich im Greith" event_location="Kulturhaus St.Ulrich im Greith" event_postal="8544" event_state="Österreich" event_street1="Kopreinigg 90" event_street2="" name="kulturhaus st.ulrich im greith"/>
-	<location event_city="" event_location="leibnitz" event_postal="" event_state="" event_street1="" event_street2="" name="leibnitz"/>
-	<location event_city="" event_location="Lieboch, Tobelbad, Schloß Söding" event_postal="" event_state="" event_street1="" event_street2="" name="lieboch, tobelbad, schloß söding"/>
-	<location event_city="Graz" event_location="Lila Eule - Thalia Bar" event_postal="8010" event_state="A" event_street1="Opernring 5" event_street2="" name="lila_eule"/>
-	<location event_city="graz" event_location="Literaturhaus Graz" event_postal="8010" event_state="" event_street1="Elisabethstraße 30" event_street2="" name="literaturhaus_graz"/>
-	<location event_city="Maribor" event_location="KLUB MC - PEKARNA" event_postal="2000" event_state="Slovenija" event_street1="Ob zeleznici 16" event_street2="" name="maribor"/>
-	<location event_city="" event_location="medien.KUNSTLABOR" event_postal="8020" event_state="" event_street1="südtirolerplatz / lendkai 1" event_street2="" name="medien_kunstlabor"/>
-	<location event_city="Graz" event_location="Großer und Kleiner Minoritensaal" event_postal="8020" event_state="Austria" event_street1="Mariahilferplatz 3" event_street2="" name="minoriten_graz"/>
-	<location event_city="Graz" event_location="Modellbahnzentrum" event_postal="8020" event_state="" event_street1="Annenstraße 35" event_street2="" name="modellbahnzentrum"/>
-	<location event_city="graz" event_location="Musichouse" event_postal="" event_state="" event_street1="Mondscheingasse 9" event_street2="" name="musichouse"/>
-	<location event_city="" event_location="Nationalpark Gesäuse (Stmk.)" event_postal="" event_state="" event_street1="NP-Pavillon , Gstatterboden" event_street2="" name="nationalpark gesäuse (stmk.)"/>
-	<location event_city="Graz" event_location="Niesenberger" event_postal="8020" event_state="Österreich" event_street1="Niesenbergergasse 16" event_street2="" name="niesenberger"/>
-	<location event_city="Graz" event_location="Non Stop Kino" event_postal="8020" event_state="" event_street1="Europaplatz 2" event_street2="" name="non_stop"/>
-	<location event_location="Oper Graz" name="oper_graz"/>
-	<location event_city="Graz" event_location="Postgarage, PPC, Orpheum" event_postal="" event_state="" event_street1="" event_street2="" name="orpheum_graz"/>
-	<location event_city="graz" event_location="parkhouse" event_postal="8010" event_state="" event_street1="stadtpark 2" event_street2="" name="parkhouse"/>
-	<location event_city="Graz" event_location="Postgarage" event_postal="8020" event_state="A -" event_street1="Dreihackengasse 42" event_street2="" name="postgarage"/>
-	<location event_city="" event_location="p.p.c." event_postal="" event_state="" event_street1="" event_street2="" name="ppc"/>
-	<location event_city="Graz" event_location="Radio Helsinki 92.6" event_postal="8020" event_state="Ö" event_street1="Griesgasse 8 Lindenpassage" event_street2="" name="radio_helsinki"/>
-	<location event_city="Graz" event_location="SKA" event_postal="" event_state="" event_street1="Grabenstrasse" event_street2="" name="ska"/>
-	<location event_city="graz" event_location="spektral" event_postal="8020" event_state="" event_street1="lendkai 45" event_street2="" name="spektral"/>
-	<location event_city="GRAZ" event_location="St. ANDRÄ KIRCHE" event_postal="" event_state="" event_street1="" event_street2="" name="st. andrä kirche"/>
-	<location event_location="stockwerk / jakominiplatz" name="stockwerkjazz"/>
-	<location event_city="Stubenberg" event_location="Stubenberg am See (Stmk)" event_postal="" event_state="AUSTRIA" event_street1="Direkt am See" event_street2="" name="stubenberg am see (stmk)"/>
-	<location event_city="Graz" event_location="SUb" event_postal="" event_state="" event_street1="Kaiser Franz Josef kai 66" event_street2="" name="sub"/>
-	<location event_city="Graz" event_location="Tao - Theater am Ortweinplatz" event_postal="8010" event_state="" event_street1="Ortweinplatz 1" event_street2="" name="tao"/>
-	<location event_city="Graz" event_location="Thalia" event_postal="" event_state="" event_street1="Opernring 5" event_street2="" name="thalia"/>
-	<location event_location="theater im bahnhof" name="theater im bahnhof"/>
-	<location event_city="Graz" event_location="Theatercafé" event_postal="" event_state="A" event_street1="Mandellstraße 11" event_street2="" name="theatercafé"/>
-	<location event_city="" event_location="veilchen" event_postal="8010" event_state="" event_street1="Stadtpark 1A" event_street2="" name="veilchen"/>
-	<location event_city="" event_location="thienfeld" event_postal="" event_state="" event_street1="" event_street2="" name="vipers"/>
-	<location event_city="Graz" event_location="Wakuum" event_postal="" event_state="" event_street1="Hans Sachs Gasse 10" event_street2="" name="wakuum"/>
-	<location event_city="" event_location="WIST" event_postal="8010" event_state="" event_street1="Moserhofgasse 34" event_street2="" name="wist"/>
-	<location event_city="" event_location="zagreb, croatia    OTV club" event_postal="" event_state="" event_street1="" event_street2="" name="zagreb"/>
-	<location event_city="" event_location="ö1" event_postal="" event_state="" event_street1="UKW 91,2 MHz" event_street2="" name="ö1"/>
-	<location event_city="Graz" event_location="ÖH Gebäude" event_postal="8010" event_state="" event_street1="Schubertstraße 6a" event_street2="" name="öh gebäude"/>
+	<location event_city="Wien" event_datetime="2014-05-17 10:00:00 Europe/Vienna" event_location="AIRO Tower Hotel" event_postal="1100" event_state="Österreich" name="airo tower hotel"/>
+	<location event_city="Graz" event_datetime="2008-05-08 19:30:00 Europe/Vienna" event_location="Alte Technik" event_postal="8010" event_state="Österreich" event_street1="Rechbauerstraße 12" name="alte_technik"/>
+	<location event_city="Graz" event_datetime="2008-05-02 21:00:00 Europe/Vienna" event_location="St. Andrä Kirche" event_postal="8020" event_street1="Kernstockgasse 9" name="andrae_kirche"/>
+	<location event_city="Graz" event_datetime="2004-04-11 20:00:00 Europe/Vienna" event_location="Arcadium" event_postal="8020" event_street1="Griesgasse 25" name="arcadium"/>
+	<location event_city="neusiedl am see" event_datetime="2003-12-06 22:00:00 Europe/Vienna" event_location="bergwerk" event_street1="kellergasse2" name="bergwerk"/>
+	<location event_city="Graz" event_datetime="2008-09-12 20:00:00 Europe/Vienna" event_location="KPÖ Bildungszentrum" event_postal="8020" event_street1="Lagergasse 98a" name="bildungsverein_kpoe"/>
+	<location event_datetime="2002-07-31 16:30:00 Europe/Vienna" event_location="Budapest" name="budapest"/>
+	<location event_city="graz" event_datetime="2008-08-01 20:00:00 Europe/Vienna" event_location="libertad" event_street1="gartengasse 28" name="cafe_libertad"/>
+	<location event_datetime="2002-11-27 19:00:00 Europe/Vienna" event_location="celery's || dreihackengasse 42" name="celerys"/>
+	<location event_city="Graz" event_datetime="2007-11-16 20:00:00 Europe/Vienna" event_location="Das Lokal" event_state="8020" event_street1="Mariahilferstraße 23" name="das_lokal"/>
+	<location event_city="Graz" event_datetime="2009-08-18 20:30:00 Europe/Vienna" event_location="Die Brücke" event_postal="8010" event_state="A" event_street1="Grabenstraße 39a" name="die_bruecke"/>
+	<location event_city="Graz" event_datetime="2006-04-08 20:00:00 Europe/Vienna" event_location="Scherbenkeller" event_postal="8020" event_state="Österreich" event_street1="Stockergasse 9" name="die_scherbe"/>
+	<location event_city="Graz" event_datetime="2008-05-22 16:00:00 Europe/Vienna" event_location="Graz" event_postal="8010" event_state="A -" event_street1="viele locations" name="diverse"/>
+	<location event_city="Graz" event_datetime="2012-11-22 20:00:00 Europe/Vienna" event_location="Dom im Berg" event_postal="8010" event_street1="Schlossbergplatz 1" name="dom_im_berg"/>
+	<location event_datetime="2003-08-12 15:00:00 Europe/Vienna" event_location="Ehemaliger Hinrichtungsplatz" event_street1="am Paulustor" event_street2="Bei Regen geschlossen!" name="ehemaliger hinrichtungsplatz"/>
+	<location event_city="Graz" event_datetime="2007-06-21 18:00:00 Europe/Vienna" event_location="ESC im Labor" event_postal="8010" event_street1="Jakoministr. 16" name="esc"/>
+	<location event_city="graz" event_datetime="2003-04-05 19:30:00 Europe/Vienna" event_location="Explosiv" event_postal="8020" event_street1="Schützgasse 16" name="explosiv"/>
+	<location event_city="Graz" event_datetime="2009-12-12 21:00:00 Europe/Vienna" event_location="Forum Stadtpark, Keller" event_postal="8010" event_state="Austria" event_street1="Stadtpark 1" name="forum_stadtpark"/>
+	<location event_city="Graz" event_datetime="2007-11-02 16:00:00 Europe/Vienna" event_location="Galerie Centrum" event_postal="8010" event_street1="Färbergasse 7" name="galerie centrum"/>
+	<location event_city="Graz" event_datetime="2009-03-11 20:00:00 Europe/Vienna" event_location="generalmusikdirektion" event_postal="8020" event_state="Österreich" event_street1="Grieskai 74a" name="generalmusikdirektion"/>
+	<location event_city="Gleisdorf" event_datetime="2003-05-28 20:00:00 Europe/Vienna" event_location="Gleisdorf" event_postal="8200" event_state="A" event_street1="Forum Kloster" name="gleisdorf"/>
+	<location event_datetime="2003-02-07 19:30:00 Europe/Vienna" event_location="congress, eastside, im fünften" name="grazer_congress"/>
+	<location event_city="Graz" event_datetime="2005-09-13 20:15:00 Europe/Vienna" event_location="Grüne Akademie" event_postal="8010" event_street1="Paulustorgasse 3/I" name="grüne akademie"/>
+	<location event_city="Graz" event_datetime="2008-01-31 20:30:00 Europe/Vienna" event_location="Non Stop Kino (Hauptbahnhof)" event_postal="8020" event_state="Austria" event_street1="Europaplatz 2" name="hauptbahnhof_graz"/>
+	<location event_datetime="2003-05-22 20:00:00 Europe/Vienna" event_location="Herz Jesu Kirche" name="herz jesu kirche"/>
+	<location event_datetime="2002-05-11 20:00:00 Europe/Vienna" event_location="jugend&amp;kulturzentrum house / quellengasse 2 / 8480" name="juz_house"/>
+	<location event_city="Graz" event_datetime="2003-11-05 19:00:00 Europe/Vienna" event_location="Karl-Drews-Klub" event_postal="8020" event_street1="Lagergasse 98a" name="karl_drews_klub"/>
+	<location event_datetime="2002-05-22 16:00:00 Europe/Vienna" event_location="uniT.conTner bzw. aula kf uni graz / Universitätsp" name="kf_uni"/>
+	<location event_city="Graz" event_datetime="2005-09-01 19:30:00 Europe/Vienna" event_location="kig!" event_postal="8020" event_street1="kultur in graz" event_street2="feuerbachgasse 25" name="kig"/>
+	<location event_datetime="2002-09-22 10:00:00 Europe/Vienna" event_location="kolpinghaus / adolf koplping straße 4-6" name="kolpinghaus / adolf koplping straße 4-6"/>
+	<location event_city="Graz" event_datetime="2011-05-14 21:00:00 Europe/Vienna" event_location="Kottulinsky" event_postal="8010" event_street1="Beethovenstrasse 9" name="kottulinsky"/>
+	<location event_city="Graz" event_datetime="2009-09-12 15:00:00 Europe/Vienna" event_location="Volkshaus Graz" event_postal="8020" event_street1="Lagergasse 98a" name="kpoe_volkshaus"/>
+	<location event_datetime="2004-08-27 21:00:00 Europe/Vienna" event_location="Kristallwerk" event_postal="8051" event_street1="Viktor-Franz-Straße 9" name="kristallwerk"/>
+	<location event_city="8020 Graz" event_datetime="2005-05-31 19:00:00 Europe/Vienna" event_location="Kunsthaus Graz" event_postal="8020" event_street1="Space04" name="kunsthaus"/>
+	<location event_city="Graz" event_datetime="2011-09-16 23:00:00 Europe/Vienna" event_location="Lila Eule/ Thalia Bar" event_postal="8010" event_state="A" name="lila_eule"/>
+	<location event_city="Graz" event_datetime="2011-03-31 20:00:00 Europe/Vienna" event_location="Lendloft" event_postal="8020" event_street1="Lendplatz 40" name="loft"/>
+	<location event_datetime="2006-11-14 20:00:00 Europe/Vienna" event_location="Medienkunstlabor" event_street1="Lendkai 1" event_street2="Graz, ösi-reich" name="medien_kunstlabor"/>
+	<location event_city="Graz" event_datetime="2007-02-16 19:00:00 Europe/Vienna" event_location="Neue Galerie" event_street1="Sackstrasse 16" name="neue galerie"/>
+	<location event_city="Graz" event_datetime="2012-06-01 18:00:00 Europe/Vienna" event_location="Kulturzentrum Niesenbergergasse" event_postal="8020" event_street1="Niesenbergergasse 16" name="niesenberger"/>
+	<location event_city="Graz" event_datetime="2009-06-13 22:00:00 Europe/Vienna" event_location="NonStop Kino" event_postal="8020" event_state="AUT" event_street1="Europaplatz 2" name="non_stop"/>
+	<location event_datetime="2002-10-07 15:00:00 Europe/Vienna" event_location="Oper Graz" name="oper_graz"/>
+	<location event_city="Graz" event_datetime="2011-10-21 20:00:00 Europe/Vienna" event_location="Orpheum EXTRA, Graz" event_postal="8020" event_state="Austria" event_street1="Orpheumgasse 8" name="orpheum_graz"/>
+	<location event_city="graz" event_datetime="2008-05-24 21:00:00 Europe/Vienna" event_location="parkhouse . das klangcafe" event_postal="8010" event_state="austria" event_street1="stadtpark 2" name="parkhouse"/>
+	<location event_city="Graz" event_datetime="2010-07-09 13:00:00 Europe/Vienna" event_location="Postgarage" event_postal="8020" event_state="A -" event_street1="Dreihackengasse 42" name="postgarage"/>
+	<location event_city="Graz" event_datetime="2003-04-16 21:00:00 Europe/Vienna" event_location="PPC" event_street1="Neubaugasse 6" name="ppc"/>
+	<location event_datetime="2003-07-14 22:30:00 Europe/Vienna" event_location="Ö1 - 91,2MHz" name="radio_oe1"/>
+	<location event_city="Weinburg" event_datetime="2010-08-14 16:00:00 Europe/Vienna" event_location="Siebing 1" event_postal="8481" name="raggam"/>
+	<location event_city="Graz" event_datetime="2007-03-26 18:00:00 Europe/Vienna" event_location="RESOWI" event_street1="Universitätsstraße 15" name="resowi"/>
+	<location event_city="Wien" event_datetime="2009-07-24 21:00:00 Europe/Vienna" event_location="Rhiz" event_postal="1080" event_state="Österreich" event_street1="Gürtelbogen 37" name="rhiz"/>
+	<location event_city="Graz" event_datetime="2008-05-19 20:00:00 Europe/Vienna" event_location="rotor" event_street1="Volksgartenstraße 6a" name="rotor"/>
+	<location event_city="Graz" event_datetime="2009-04-17 22:00:00 Europe/Vienna" event_location="Schaumbad - Freies Atelierhaus Graz" event_postal="8010" event_state="AT" event_street1="Starhemberggasse 4" name="schaumbad"/>
+	<location event_datetime="2003-06-06 19:30:00 Europe/Vienna" event_location="Schauspielhaus Graz" name="schauspielhaus"/>
+	<location event_city="Graz" event_datetime="2008-10-26 8:45:00 Europe/Vienna" event_location="spektral" event_postal="8020" event_street1="lendkai 45" name="spektral"/>
+	<location event_city="Graz" event_datetime="2010-12-03 20:00:00 Europe/Vienna" event_location="spektral/ galerie lendluft" event_postal="8020" event_state="Wer" event_street1="Lendkai 45" name="spektral_lendluft"/>
+	<location event_datetime="2002-09-22 17:00:00 Europe/Vienna" event_location="stadtpark pavillion" name="stadtpark pavillion"/>
+	<location event_city="Stainz" event_datetime="2006-09-15 14:00:00 Europe/Vienna" event_location="Stainz" event_postal="8510" event_street1="Sägeplatz" name="stainz"/>
+	<location event_city="Graz" event_datetime="2012-11-26 20:00:00 Europe/Vienna" event_location="Stockwerk" event_postal="8010" event_state="Austria" event_street1="Jakominiplatz 18" name="stockwerkjazz"/>
+	<location event_city="Graz" event_datetime="2011-05-11 21:00:00 Europe/Vienna" event_location="Studentenheim &quot;Münze&quot;" event_postal="8010" event_state="A" event_street1="Münzgrabenstraße 59" name="studentenheim &quot;münze&quot;"/>
+	<location event_datetime="2005-05-20 21:00:00 Europe/Vienna" event_location="Studio Martinelli" event_postal="8020" event_street1="Palais Thienfeld" event_street2="Mariahilfer Straße 2" name="studio martinelli"/>
+	<location event_city="graz" event_datetime="2003-11-22 22:00:00 Europe/Vienna" event_location="sub" event_postal="Graz" event_state="A" event_street1="kaiser franz josef kai 66" name="sub"/>
+	<location event_city="Graz" event_datetime="2010-08-29 20:00:00 Europe/Vienna" event_location="Theater im Keller" event_postal="8010" event_street1="Münzgrabenstraße 35" name="theater im keller"/>
+	<location event_city="graz" event_datetime="2004-03-13 15:00:00 Europe/Vienna" event_location="Unionhalle" event_postal="8010" event_street1="Gaussgasse 3" name="unionhalle"/>
+	<location event_city="graz" event_datetime="2003-03-14 20:00:00 Europe/Vienna" event_location="uniT conTner" event_street1="links neben KF haupteingang" name="unit"/>
+	<location event_city="Graz" event_datetime="2003-05-30 19:00:00 Europe/Vienna" event_location="Thienfeld" event_postal="8010" event_street1="mariahilferstrasse2" name="vipers"/>
+	<location event_city="Graz" event_datetime="2013-08-17 20:00:00 Europe/Vienna" event_location="Welsche Kirche" event_postal="8020" event_street1="Griesplatz 30" name="welsche kirche"/>
+	<location event_city="Graz" event_datetime="2003-11-30 20:30:00 Europe/Vienna" event_location="MOXX" event_postal="8010" event_street1="Moserhofgasse 34;" name="wist"/>
+	<location event_city="Wien" event_datetime="2004-04-24 22:00:00 Europe/Vienna" event_location="WUK" event_postal="1090" event_state="Österreich" event_street1="Währingerstrasse 56" name="wuk"/>
 </export>
