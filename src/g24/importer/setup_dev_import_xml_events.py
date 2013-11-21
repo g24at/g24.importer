@@ -88,6 +88,7 @@ def import_places(container):
 
         if batch % 10 == 0:
             transaction.get().commit()
+    transaction.get().commit()
 
 
 class ImportEvents(object):

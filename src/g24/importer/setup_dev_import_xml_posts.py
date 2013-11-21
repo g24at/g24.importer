@@ -61,6 +61,7 @@ class ImportPhpBBPostings(object):
 
             if idx % 10 == 0:
                 transaction.get().commit()
+    transaction.get().commit()
 
     def map_xml_to_post(self, node):
         data = {}
