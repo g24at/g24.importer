@@ -109,26 +109,22 @@ class ImportEvents(object):
         fail = 0
         for idx, ev in\
                 enumerate(self.content_dom.getElementsByTagName('event')):
-            #if idx>50: break
-            try:
-                obj = self.create_g24_event(self.context, ev)
-                ok += 1
-                logger.info('created event #%s with id: %s' % (obj.id, idx))
-            except Exception as err:
-                logger.error(
-                    'Failed to import event ( id '
-                    + ev.getAttribute('pc_eid') + ')... ' + repr(err)
-                )
-                fail += 1
+            obj = self.create_g24_event(self.context, ev)
+            ok += 1
+            logger.info('created event #%s with id: %s' % (obj.id, idx))
 
             if idx % 10 == 0:
                 transaction.get().commit()
+        transaction.get().commit()
 
         logger.info('Import done, ok: ' + str(ok) + ', failed : ' + str(fail))
 
     def create_g24_event(self, container, node):
         title = node.getAttribute('pc_title')
-        text = node.getElementsByTagName('text')[0].childNodes[1].data
+        try:
+            text = node.getElementsByTagName('text')[0].childNodes[1].data
+        except IndexError:
+            text = u''
         tags = []
         for t in node.getElementsByTagName('tag'):
             tags.append(t.getAttribute('name'))
