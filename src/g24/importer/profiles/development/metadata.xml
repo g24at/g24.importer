@@ -4,7 +4,7 @@
   <dependencies>
     <dependency>profile-g24.importer:setup_content</dependency>
     <dependency>profile-g24.importer:dev_import_xml_events</dependency>
-    <!--dependency>profile-g24.importer:dev_import_xml_posts</dependency-->
+    <dependency>profile-g24.importer:dev_import_xml_posts</dependency>
   </dependencies>
 </metadata>
 
